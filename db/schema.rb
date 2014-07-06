@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140705012721) do
+ActiveRecord::Schema.define(version: 20140706222816) do
 
   create_table "net_forms", force: true do |t|
     t.string   "first_name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140705012721) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "printer_ip"
+    t.string   "office_number"
   end
 
   create_table "printers", force: true do |t|

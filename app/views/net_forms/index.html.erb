@@ -1,33 +1,10 @@
 <h1>Listing net_forms</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Service cost</th>
-      <th>Equipment type</th>
-      <th>Nic connection</th>
-      <th>Os type</th>
-      <th>Antivir type</th>
-      <th>Paynum</th>
-      <th>Complete date</th>
-      <th>Completed</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th>Computer name</th>
-      <th>Antivir expire date</th>
-      <th> Printer ip Address </th>
-      <th>Technician name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @net_forms.each do |net_form| %>
-
+    <div class="col-md-4">
+    
+    </div>  
       <tr>
         <td><%= net_form.first_name %></td>
         <td><%= net_form.last_name %></td>
@@ -48,10 +25,15 @@
           <% end %>
         </td>
         <td><%= net_form.technician_name %></td>
+        <td><p> This form expires in <%= distance_of_time_in_words(net_form.created_at, net_form.created_at+1.year)%></p></td>
         <td><%= link_to 'Show', net_form %></td>
         <td><%= link_to 'Edit', edit_net_form_path(net_form) %></td>
         <td><%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
+
+      
+      
     <% end %>
   </tbody>
 </table>

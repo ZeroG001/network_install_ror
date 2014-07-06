@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 #My installed Gems
 gem 'rb-readline'
 gem 'simple_form'
+gem 'chronic'
+# gem 'delocalize' <- This broke the server
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
