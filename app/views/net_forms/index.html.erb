@@ -1,0 +1,61 @@
+<h1>Listing net_forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Service cost</th>
+      <th>Equipment type</th>
+      <th>Nic connection</th>
+      <th>Os type</th>
+      <th>Antivir type</th>
+      <th>Paynum</th>
+      <th>Complete date</th>
+      <th>Completed</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Computer name</th>
+      <th>Antivir expire date</th>
+      <th> Printer ip Address </th>
+      <th>Technician name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @net_forms.each do |net_form| %>
+
+      <tr>
+        <td><%= net_form.first_name %></td>
+        <td><%= net_form.last_name %></td>
+        <td><%= net_form.service_cost %></td>
+        <td><%= net_form.equipment_type %></td>
+        <td><%= net_form.nic_connection %></td>
+        <td><%= net_form.os_type %></td>
+        <td><%= net_form.antivir_type %></td>
+        <td><%= net_form.paynum %></td>
+        <td><%= net_form.complete_date %></td>
+        <td><%= net_form.completed %></td>
+        <td><%= net_form.email %></td>
+        <td><%= net_form.phone_number %></td>
+        <td><%= net_form.computer_name %></td>
+        <td><%= net_form.antivir_expire_date %></td>
+        <td><% net_form.printer_ip.each do |ip| %>
+          <%= ip %>
+          <% end %>
+        </td>
+        <td><%= net_form.technician_name %></td>
+        <td><%= link_to 'Show', net_form %></td>
+        <td><%= link_to 'Edit', edit_net_form_path(net_form) %></td>
+        <td><%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Net form', new_net_form_path %>

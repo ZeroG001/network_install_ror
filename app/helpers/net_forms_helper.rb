@@ -1,0 +1,2 @@
+module NetFormsHelper
+end
