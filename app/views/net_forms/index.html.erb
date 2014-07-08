@@ -1,43 +1,63 @@
-<h1>Listing net_forms</h1>
+<div class="container-fluid">
+<h1>All Installation Agreements</h1>
 
-
+<!-- Laptop, Tablet, Smartphone -->
     <% @net_forms.each do |net_form| %>
-    <div class="col-md-4">
-    
-    </div>  
-      <tr>
-        <td><%= net_form.first_name %></td>
-        <td><%= net_form.last_name %></td>
-        <td><%= net_form.service_cost %></td>
-        <td><%= net_form.equipment_type %></td>
-        <td><%= net_form.nic_connection %></td>
-        <td><%= net_form.os_type %></td>
-        <td><%= net_form.antivir_type %></td>
-        <td><%= net_form.paynum %></td>
-        <td><%= net_form.complete_date %></td>
-        <td><%= net_form.completed %></td>
-        <td><%= net_form.email %></td>
-        <td><%= net_form.phone_number %></td>
-        <td><%= net_form.computer_name %></td>
-        <td><%= net_form.antivir_expire_date %></td>
-        <td><% net_form.printer_ip.each do |ip| %>
-          <%= ip %>
-          <% end %>
-        </td>
-        <td><%= net_form.technician_name %></td>
-        <td><p> This form expires in <%= distance_of_time_in_words(net_form.created_at, net_form.created_at+1.year)%></p></td>
-        <td><%= link_to 'Show', net_form %></td>
-        <td><%= link_to 'Edit', edit_net_form_path(net_form) %></td>
-        <td><%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        
-      </tr>
+    <!-- Get the deivce image based on what the user put in -->
+    <% device_images = {"Desktop" => "screen.png", "Laptop" => "laptop.png", "Tablet" => "tablet.png", "Smartphone" => "mobile.png"} %>
+    <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>
+<div class="row">
+<div class="device_image col-md-3">
+    <%= image_tag(found_image.values.join(" ")) %>
+</div>
+<div class="col-md-3">
+    <%= net_form.first_name + " " + net_form.last_name %>
+    </div>
 
-      
-      
-    <% end %>
-  </tbody>
-</table>
+    <div class="col-md-3">
+        <%= net_form.computer_name %>
+    </div>
+
+    <div class="col-md-3">
+        <p> This form expires in <%= distance_of_time_in_words(net_form.created_at, net_form.created_at+1.year)%></p>
+    </div>
+
+
+   
+        
+        
+     
+</div>
+
+<%# net_form.first_name %>
+        <%# net_form.service_cost %>
+        <%# net_form.equipment_type %>
+        <%# net_form.nic_connection %>
+        <%# net_form.os_type %>
+        <%# net_form.antivir_type %>
+        <%# net_form.paynum %>
+        <%# net_form.complete_date %>
+        <%# net_form.completed %>
+        <%# net_form.email %>
+        <%# net_form.phone_number %>
+        <%# net_form.computer_name %>
+        <%# net_form.antivir_expire_date %>
+        <%# net_form.printer_ip.each do |ip| %>
+          <%# ip %>
+          <%# end %>
+        <%# net_form.technician_name %>
+        
+        <%= link_to 'Show', net_form %>
+        <%= link_to 'Edit', edit_net_form_path(net_form) %>
+        <%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %>
+ <% end %>
+
+
+
+
+
 
 <br>
 
 <%= link_to 'New Net form', new_net_form_path %>
+</div>
