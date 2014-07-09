@@ -1,5 +1,14 @@
 class NetForm < ActiveRecord::Base
 	
+	validates :first_name, presence: :true
+	validates :last_name, presence: :true
+	validates :paynum, presence: :true
+	validates :service_cost, presence: :true
+	validates :nic_connection, presence: :true
+	validates :os_type, presence: :true
+	validates :phone_number, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\z/ , message: "use the correct format"}
+
+
   # Here i wanted to make it so the user can enter a word instead of a date.
   # I will add this later
   # before_save :format_dates
