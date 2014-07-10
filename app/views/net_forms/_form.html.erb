@@ -1,3 +1,4 @@
+<div class="container-fluid" style="width:70%" >
 <%= simple_form_for(@net_form) do |f| %>
   <% if @net_form.errors.any? %>
     <div id="error_explanation">
@@ -26,14 +27,7 @@
 
   <div class="radio ">
     <h3> Service Cost </h3>
-    <label class="col-md-12">
-      <input type="radio" name="net_form[service_cost]" value="none">
-      No Charge: I have a wireless device and/or there is an availible data port
-    </label>
-    <label class="col-md-12">
-      <input type="radio" name="net_form[service_cost]" value="125">
-      <p>$125: There are no data ports avalible at my workspace, I need one installed</p>
-    </label>
+    <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @net_form.service_cost %>
   </div>
 
   <div class="field">
@@ -41,19 +35,7 @@
   </div>
 
   <div class="radio">
-    <h3> Connection type </h3>
-    <label class="col-md-12">
-      <input type="radio" name="net_form[nic_connection]" value="125">
-      Wireless
-    </label>
-    <label class="col-md-12">
-      <input type="radio" name="net_form[nic_connection]" value="125">
-      Wired
-    </label>
-    <label class="col-md-12">
-      <input type="radio" name="net_form[nic_connection]" value="125">
-      <p>Both</p>
-    </label>
+    <%= f.input :nic_connection, collection: [["Wired", "wired"],["Wireless", "wireless"],["Both","both"]], as: :radio_buttons, checked: @net_form.nic_connection %>
   </div>
 
   <div class="field">
@@ -61,11 +43,6 @@
   </div>
   <div class="field">
     <%= f.input :antivir_type, label: "Antivirus Software", input_html: {class: "form-control"} %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :complete_date %><br>
-    <%= f.date_select :complete_date %>
   </div>
   
   
@@ -78,15 +55,32 @@
   <div class="field">
     <%= f.input :antivir_expire_date %>
   </div>
+
   <div class="field printers">
-    <h3> Printer IP Address </h3>
+    <h3> Printer IP Address </h3><button type="button" class="btn btn-xs btn-default add_printer">Add printer</button>
+    <% if (@net_form.printer_ip.any?) %>
+
+      <% @net_form.printer_ip.each do |p| %>
+        <div class="new_printer"><input class="printer_input string optional" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text" value="<%= p %>"></input><span class="remove_printer"> (-) </span></div>
+    <% end %>
+  <% end %>
+
   </div>
   <div>
-     <button type="button" class="btn btn-xs btn-default add_printer">Add printer</button>
+     
     </div>
   <div class="field">
     <%= f.input :technician_name, input_html: {class: "form-control"} %>
   </div>
+
+  <div class="field">
+    <%= f.input :complete_date, as: :string %>
+
+</div>
+
+
+
+
   <div class="field">
     <%= f.input :completed, as: :boolean, boolean_style: :inline %>
   </div>
@@ -105,7 +99,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Network Install Agreement</h4>
+        <h4 class="modal-title" id="myModalLabel">Test Form</h4>
       </div>
       <div class="modal-body">
         <p>
@@ -165,3 +159,25 @@
 </div>
 
 <% end %>
+
+</div>
+
+
+<script>
+// Add and remove printer
+  $(".add_printer").click(function(){
+    if($(".printers .printer_input").length >= 5) {
+      alert("You cannot add more than 5 printers.")
+      return false;
+    }
+    $(".printers").append(new_printer_input);
+    
+  }); 
+
+  $(".remove_printer").click(function(){
+    $(this).parent().remove();
+  });
+
+
+
+</script>

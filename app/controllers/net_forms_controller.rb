@@ -10,6 +10,7 @@ class NetFormsController < ApplicationController
   # GET /net_forms/1
   # GET /net_forms/1.json
   def show
+
   end
 
   # GET /net_forms/new
@@ -19,6 +20,7 @@ class NetFormsController < ApplicationController
 
   # GET /net_forms/1/edit
   def edit
+    @net_form = NetForm.find(params[:id])
   end
 
   # POST /net_forms

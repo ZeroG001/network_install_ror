@@ -1,4 +1,13 @@
 class NetForm < ActiveRecord::Base
+
+	before_save :change_date
+
+	def change_date
+		if (self.completed == "1" and self.complete_date.nil?)
+			self.complete_date = Chronic.parse("today")
+			self.expire_date = Chronic.parse("next year")
+		end
+	end
 	
 	validates :first_name, presence: :true
 	validates :last_name, presence: :true

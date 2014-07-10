@@ -1,5 +1,5 @@
 <div class="container-fluid">
-<h1>All Installation Agreements</h1>
+<h1>Test Form</h1>
 
 <!-- Laptop, Tablet, Smartphone -->
     <% @net_forms.each do |net_form| %>
@@ -19,7 +19,10 @@
     </div>
 
     <div class="col-md-3">
-        <p> This form expires in <%= distance_of_time_in_words(net_form.created_at, net_form.created_at+1.year)%></p>
+        <% if net_form.completed == "1" %>
+        <p> This form expires in <%= distance_of_time_in_words(net_form.complete_date, net_form.expire_date)%></p>
+
+        <% end %>
     </div>
 
 
