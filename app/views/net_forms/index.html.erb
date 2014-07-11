@@ -21,7 +21,8 @@
     <div class="col-md-3">
         <% if net_form.completed == "1" %>
         <p> This form expires in <%= distance_of_time_in_words(net_form.complete_date, net_form.expire_date)%></p>
-
+        <% elsif net_form.completed == "0" %>
+        <p> Incomplete </p>
         <% end %>
     </div>
 
@@ -55,6 +56,11 @@
         <%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %>
  <% end %>
 
+<%= form_tag("/net_forms", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 
 
 

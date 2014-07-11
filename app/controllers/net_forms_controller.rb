@@ -4,7 +4,12 @@ class NetFormsController < ApplicationController
   # GET /net_forms
   # GET /net_forms.json
   def index
+if @net_forms = NetForm.where(first_name: params[:q])
+
+  else 
     @net_forms = NetForm.all
+end
+
   end
 
   # GET /net_forms/1
@@ -12,6 +17,8 @@ class NetFormsController < ApplicationController
   def show
 
   end
+
+
 
   # GET /net_forms/new
   def new
@@ -72,7 +79,7 @@ class NetFormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def net_form_params
-      params.require(:net_form).permit(:first_name, :last_name, :service_cost, :equipment_type, :nic_connection, :os_type, :antivir_type, :paynum, :complete_date, :completed, :email, {printer_ip: []}, :phone_number, :computer_name, :antivir_expire_date, :technician_name)
+      params.require(:net_form).permit(:first_name, :last_name, :service_cost, :equipment_type, :nic_connection, :os_type, :antivir_type, :paynum, :complete_date, :completed, :email, {printer_ip: []}, :phone_number, :computer_name, :antivir_expire_date, :technician_name, :office_number)
     end
 
     

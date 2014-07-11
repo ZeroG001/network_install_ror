@@ -2,6 +2,8 @@ NetworkInstallRor::Application.routes.draw do
   resources :net_forms
   resources :printers
 
+  get 'search' => 'net_forms#search'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
