@@ -4,11 +4,10 @@ class NetFormsController < ApplicationController
   # GET /net_forms
   # GET /net_forms.json
   def index
-if @net_forms = NetForm.where(first_name: params[:q])
 
-  else 
+
     @net_forms = NetForm.all
-end
+
 
   end
 
@@ -16,6 +15,11 @@ end
   # GET /net_forms/1.json
   def show
 
+  end
+
+  def search
+    firstName = "%#{params[:q]}%"
+    @net_forms = NetForm.where("first_name LIKE ?",firstName)
   end
 
 

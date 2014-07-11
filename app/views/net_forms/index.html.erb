@@ -56,11 +56,7 @@
         <%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %>
  <% end %>
 
-<%= form_tag("/net_forms", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+
 
 
 
