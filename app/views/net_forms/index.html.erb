@@ -19,11 +19,19 @@
     </div>
 
     <div class="col-md-3">
-        <% if net_form.completed == "1" %>
-        <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today"), net_form.expire_date)%></p>
-        <% elsif net_form.completed == "0" or net_form.complete_date < net_form.expire_date %>
+
+        <% if net_form.completed == "0" %>
+
         <p> Incomplete </p>
-        <% end %> 
+
+        <% elsif net_form.completed == "1" and net_form.expire_date != nil and net_form.complete_date != nil and Chronic.parse("today at 12:00am") > net_form.expire_date %>
+        <p> Form Expired </p>
+        
+        <% elsif net_form.completed == "1" and net_form.complete_date != nil and net_form.expire_date != nil and Chronic.parse("today at 12:00am") < net_form.expire_date %>
+        <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), net_form.expire_date)%></p>
+<% end %> 
+        
+        
     </div>     
      
 </div>

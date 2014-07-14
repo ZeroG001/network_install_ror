@@ -6,12 +6,9 @@ class NetForm < ActiveRecord::Base
 	# Change date expire data and complete date for form that have expired.
 	def change_date
 		if (self.completed == "1" and self.complete_date.nil? and self.expire_date.nil?)
-			self.complete_date = Chronic.parse("today")
-			self.expire_date = Chronic.parse("tomorrow")
-		elsif (self.expire_date != nil and Chronic.parse("today") >= self.expire_date)
-			self.complete_date = Chronic.parse("today")
-			sel.expire_date = Chronic.parse("tomorrow")
-		end
+			self.complete_date = Chronic.parse("today at 12:00am")
+			self.expire_date = Chronic.parse("tomorrow at 12:00am")
+		end 
 		
 
 	
