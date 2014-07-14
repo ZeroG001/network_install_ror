@@ -1,8 +1,25 @@
 <%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
+  <%= label_tag(:q, "Name") %>
   <%= text_field_tag(:q) %>
+  <div class="adv_search_button"> Advanced </div>
+  
+<div class="adv_search">
+  <%= label_tag(:q, "Completed") %>
+  <%= text_field_tag(:q) %>
+
+  <%= label_tag(:q, "Paynum") %>
+  <%= text_field_tag(:q) %>
+
+  <%= label_tag(:q, "Computer Name") %>
+  <%= text_field_tag(:q) %>
+
+  <%= label_tag(:q, "Office") %>
+  <%= text_field_tag(:q) %>
+</div>
+
   <%= submit_tag("Search") %>
 <% end %>
+
 
 <% @net_forms.each do |net_form| %>
     <!-- Get the deivce image based on what the user put in -->

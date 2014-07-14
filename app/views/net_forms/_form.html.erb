@@ -64,7 +64,7 @@
     <% if (@net_form.printer_ip.any?) %>
 
       <% @net_form.printer_ip.each do |p| %>
-        <div class="new_printer"><input class="printer_input string optional" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text" value="<%= p %>"></input><span class="remove_printer"> (-) </span></div>
+        <div class="new_printer"><input class="printer_input string optional" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text" value="<%= p %>"></input><span class="remove_printer"><div class="btn btn-xs btn-default">-</div></span></div>
     <% end %>
   <% end %>
 
@@ -155,7 +155,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Disagree</button>
-        <button class="btn btn-primary">Agree</button>
+        <%= f.submit %>
       </div>
     </div>
   </div>
@@ -167,19 +167,7 @@
 
 
 <script>
-// Add and remove printer
-  $(".add_printer").click(function(){
-    if($(".printers .printer_input").length >= 5) {
-      alert("You cannot add more than 5 printers.")
-      return false;
-    }
-    $(".printers").append(new_printer_input);
-    
-  }); 
 
-  $(".remove_printer").click(function(){
-    $(this).parent().remove();
-  });
 
 
 

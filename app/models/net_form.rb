@@ -2,20 +2,28 @@ class NetForm < ActiveRecord::Base
 
 	before_save :change_date
 
+
+	# Change date expire data and complete date for form that have expired.
 	def change_date
-		if (self.completed == "1" and self.complete_date.nil?)
+		if (self.completed == "1" and self.complete_date.nil? and self.expire_date.nil?)
 			self.complete_date = Chronic.parse("today")
-			self.expire_date = Chronic.parse("next year")
+			self.expire_date = Chronic.parse("tomorrow")
+		elsif (self.expire_date != nil and Chronic.parse("today") >= self.expire_date)
+			self.complete_date = Chronic.parse("today")
+			sel.expire_date = Chronic.parse("tomorrow")
 		end
+		
+
+	
 	end
 	
-	validates :first_name, presence: :true
-	validates :last_name, presence: :true
-	validates :paynum, presence: :true
-	validates :service_cost, presence: :true
-	validates :nic_connection, presence: :true
-	validates :os_type, presence: :true
-	validates :phone_number, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\z/ , message: "use the correct format"}
+	# validates :first_name, presence: :true
+	# validates :last_name, presence: :true
+	# validates :paynum, presence: :true
+	# validates :service_cost, presence: :true
+	# validates :nic_connection, presence: :true
+	# validates :os_type, presence: :true
+	# validates :phone_number, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\z/ , message: "use the correct format"}
 
 
   # Here i wanted to make it so the user can enter a word instead of a date.

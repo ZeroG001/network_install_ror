@@ -19,7 +19,7 @@ class NetFormsController < ApplicationController
 
   def search
     firstName = "%#{params[:q]}%"
-    @net_forms = NetForm.where("first_name LIKE ?",firstName)
+    @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ?",firstName)
   end
 
 
