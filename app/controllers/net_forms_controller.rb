@@ -1,14 +1,13 @@
 class NetFormsController < ApplicationController
   before_action :set_net_form, only: [:show, :edit, :update, :destroy]
+  has_scope :first_names
+  has_scope :last_name
+  has_scope :completed
 
   # GET /net_forms
   # GET /net_forms.json
   def index
-
-
     @net_forms = NetForm.all
-
-
   end
 
   # GET /net_forms/1
@@ -18,8 +17,12 @@ class NetFormsController < ApplicationController
   end
 
   def search
-    firstName = "%#{params[:q]}%"
-    @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ?",firstName)
+    @net_forms = NetForm.all
+    # full_name = "%#{params[:full_name]}%"
+    # @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ? AND completed = ?",full_name, params[:completed])
+    @net_forms = @net_forms.first_names(params[:first_name]) if params[:first_name].present?
+    @net_forms = @net_forms.last_name(params[:last_name]) if params[:last_name].present?
+    @net_forms = @net_forms.completed
   end
 
 

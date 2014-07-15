@@ -89,7 +89,7 @@
 </div>
 
   <div class="field">
-    <% if Chronic.parse("today at 12:00am") >  @net_form.expire_date %>
+    <% if @net_form.expire_date != nil and Chronic.parse("today at 12:00am") > @net_form.expire_date %>
       <%= f.input :completed, as: :boolean, boolean_style: :inline, input_html: {checked: false} %>
     <%= @net_form.expire_date %>
     <% else %> 

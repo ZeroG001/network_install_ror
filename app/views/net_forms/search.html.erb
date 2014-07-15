@@ -1,21 +1,16 @@
 <%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Name") %>
-  <%= text_field_tag(:q) %>
+  <%= label_tag(:first_name, "Name") %>
+  <%= text_field_tag(:first_name, params[:first_name]) %>
+
+  <%= label_tag(:last_name, "Last Name") %>
+  <%= text_field_tag(:last_name, params[:last_name]) %>
+
+  <%= label_tag(:completed, "Completed") %>
+  <%= check_box_tag(:completed) %>
+
   <div class="adv_search_button"> Advanced </div>
   
-<div class="adv_search">
-  <%= label_tag(:q, "Completed") %>
-  <%= text_field_tag(:q) %>
 
-  <%= label_tag(:q, "Paynum") %>
-  <%= text_field_tag(:q) %>
-
-  <%= label_tag(:q, "Computer Name") %>
-  <%= text_field_tag(:q) %>
-
-  <%= label_tag(:q, "Office") %>
-  <%= text_field_tag(:q) %>
-</div>
 
   <%= submit_tag("Search") %>
 <% end %>

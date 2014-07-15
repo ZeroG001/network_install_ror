@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rb-readline'
 gem 'simple_form'
 gem 'chronic'
+gem 'has_scope'
 # gem 'delocalize' <- This broke the server
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

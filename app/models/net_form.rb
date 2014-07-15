@@ -1,16 +1,23 @@
 class NetForm < ActiveRecord::Base
+scope :first_names, -> first_names {where("first_name LIKE ?", first_names)}
+scope :last_name, -> last_name {where("last_name LIKE ?", last_name)}
+scope :completed, -> {where("completed = '1'")}
+
 
 	before_save :change_date
-
-
 	# Change date expire data and complete date for form that have expired.
+	# If there is not expire date and complete date then add one.
 	def change_date
 		if (self.completed == "1" and self.complete_date.nil? and self.expire_date.nil?)
 			self.complete_date = Chronic.parse("today at 12:00am")
 			self.expire_date = Chronic.parse("tomorrow at 12:00am")
 		end 
-		
 
+		# If the form has expired and is complete then renew.
+		if self.completed == "1" and self.complete_date > self.expire_date
+		self.complete_date = Chronic.parse("today at 12:00am")
+		self.expire_date = Chronic.parse("tomorrow at 12:00am")	
+		end
 	
 	end
 	
