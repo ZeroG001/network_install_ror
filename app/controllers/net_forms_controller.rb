@@ -1,8 +1,6 @@
 class NetFormsController < ApplicationController
   before_action :set_net_form, only: [:show, :edit, :update, :destroy]
-  has_scope :first_names
-  has_scope :last_name
-  has_scope :completed
+ 
 
   # GET /net_forms
   # GET /net_forms.json
@@ -16,13 +14,46 @@ class NetFormsController < ApplicationController
 
   end
 
-  def search
-    @net_forms = NetForm.all
+  def advsearch
+    # Trying to figure how to make a dynemic query
+    def buildQuery(block)
+      block.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
+       i = 1
+      q = ""
+
+      block.each do |k,v|
+        if (i == block.size)
+          q = q + "#{k} LIKE ?"
+        else
+          q = q + "#{k} LIKE ? AND "
+        end
+        i = i + 1
+      end
+    return q
+    end
+
+    def buildParams(block)
+      block.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
+      p = []
+      block.each {|k, v| p = p + ["%#{v}%"]}    
+      return p
+    end
+    # cquery2 = buildQuery params
+    queryString = buildQuery params
+    queryParams = buildParams params
+    
+    @res_array = NetForm.where(queryString, *queryParams).take(50)
+    #@test_array = params.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
     # full_name = "%#{params[:full_name]}%"
     # @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ? AND completed = ?",full_name, params[:completed])
-    @net_forms = @net_forms.first_names(params[:first_name]) if params[:first_name].present?
-    @net_forms = @net_forms.last_name(params[:last_name]) if params[:last_name].present?
-    @net_forms = @net_forms.completed
+    # @net_forms = @net_forms.first_names(params[:first_name]) if params[:first_name].present?
+    # @net_forms = @net_forms.last_name(params[:last_name]) if params[:last_name].present?
+    # @net_forms = @net_forms.completed
+  end
+
+  def search
+    full_name = "%#{params[:full_name]}%"
+    @res_array = NetForm.where("concat(first_name,' ',last_name) LIKE ?",full_name)
   end
 
 

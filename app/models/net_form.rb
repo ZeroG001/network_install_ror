@@ -1,7 +1,4 @@
 class NetForm < ActiveRecord::Base
-scope :first_names, -> first_names {where("first_name LIKE ?", first_names)}
-scope :last_name, -> last_name {where("last_name LIKE ?", last_name)}
-scope :completed, -> {where("completed = '1'")}
 
 
 	before_save :change_date

@@ -1,14 +1,32 @@
-<h1> Search </h1>
+<h1> Advanced Search </h1>
 
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:full_name, "Name") %>
-  <%= text_field_tag(:full_name, params[:full_name], class: "form-control") %>
+<%= form_tag("/advsearch", method: "get") do %>
+  <%= label_tag(:first_name, "First Name") %>
+  <%= text_field_tag(:first_name, params[:first_name], class: "form-control") %>
+
+  <%= label_tag(:last_name, "Last Name") %>
+  <%= text_field_tag(:last_name, params[:last_name], class: "form-control") %>
+
+  <%= label_tag(:completed, "Completed") %>
+  <%= check_box_tag(:completed) %>
+
+  <%= label_tag(:paynum, "Paynum") %>
+  <%= text_field_tag(:paynum, nil, class: 'form-control')  %>
+
+  <%= label_tag(:computer_name, "Computer Name") %>
+  <%= text_field_tag(:computer_name, nil, class: 'form-control') %>
+
+  <%= label_tag(:office_number, "Office") %>
+  <%= text_field_tag(:office_number,nil, class: 'form-control') %>
+
   <% #name: nil gets rid of name get variable sent. %>
   <%= submit_tag("Search", name: nil) %>
 <% end %>
 
-
-
+<% @res_array.each do |item| %>
+  <%= item.first_name %>
+  <%= item.last_name %>
+<% end %>
 
 <% @res_array.each do |net_form| %>
     <!-- Get the deivce image based on what the user put in -->
