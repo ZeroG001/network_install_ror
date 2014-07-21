@@ -64,14 +64,12 @@
     <% if (@net_form.printer_ip.any?) %>
 
       <% @net_form.printer_ip.each do |p| %>
-        <div class="new_printer"><input class="printer_input string optional" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text" value="<%= p %>"></input><span class="remove_printer"><div class="btn btn-xs btn-default">-</div></span></div>
+        <div class="new_printer"><input class="printer_input string optional" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text" value="<%= p %>"></input><span class="remove_printer"><div class="btn">-</div></span></div>
     <% end %>
   <% end %>
 
   </div>
-  <div>
-     
-    </div>
+
   <div class="field">
     <%= f.input :technician_name, input_html: {class: "form-control"} %>
   </div>
@@ -162,7 +160,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Disagree</button>
-        <%= f.submit %>
+        <%= f.submit, value: "test"  %>
       </div>
     </div>
   </div>

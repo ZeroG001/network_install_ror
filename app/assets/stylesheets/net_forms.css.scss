@@ -31,9 +31,21 @@
 	font-weight: bold;
 	padding: 0px 5px 0px 5px;
 	vertical-align: middle;
+	
+	
+	.btn {
+		border: 1px solid black;
+		border-radius: 2px;
+		padding: 0px 6px 0px 6px;
+		font-weight: bold;
+	}
+
 	&:hover {
 	color: tomato
 	}
+
+
+
 }
 
 .printer_input {
