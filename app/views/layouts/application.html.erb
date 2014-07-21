@@ -3,14 +3,54 @@
 <head>
   <title>NetworkInstallRor</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  
   <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
+	<div class="container-fluid" >
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+
+	<div class="text-center" style="position: relative; top: 5px">
+		<%= image_tag("copy.png") %>
+		<%= link_to "Net Form", net_forms_path %>
+	</div>
+
+	<ul class="nav"> 
+		<li>
+			<%= link_to "Search", search_path %>
+		</li>
+		<li>
+			<a href="#"> To-Do </a>
+		</li>
+		<li>
+			<a href="#"> test3 </a>
+		</li>
+		<li>
+			<a href="#"> Logout </a>
+		</li>
+
+	</ul>
+
+      
+	<%= form_tag("/search", method: "get", class: "navbar-form navbar-left", role: "search") do %>
+
+	<div class="form-group">
+  		<%= text_field_tag(:full_name, params[:full_name], class: "form-control") %>
+  	</div>
+
+  <% #name: nil gets rid of name get variable sent. %>
+  <%= submit_tag("Search", name: nil, class: "btn btn-default") %>
+  <%= link_to "Advanced" %>
+<% end %>
+	</div>
+
+</nav>
 
 <%= yield %>
 
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
+</div>
 </body>
 </html>

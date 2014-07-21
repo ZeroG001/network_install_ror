@@ -2,6 +2,11 @@ NetworkInstallRor::Application.routes.draw do
   resources :net_forms
   resources :printers
 
+resources :net_forms do
+  get 'search', to: 'net_forms#search', as: :search
+  get 'advsearch', to: 'net_forms#advsearch', as: :advsearch
+end
+
   get 'search' => 'net_forms#search'
   get 'advsearch' => 'net_forms#advsearch'
 

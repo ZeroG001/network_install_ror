@@ -1,11 +1,11 @@
-<h1> Search </h1>
 
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:full_name, "Name") %>
-  <%= text_field_tag(:full_name, params[:full_name], class: "form-control") %>
+<% # The index page will now handle the searches %>
+<% #form_tag("/search", method: "get") do %>
+  <% #label_tag(:full_name, "Name") %>
+  <% #text_field_tag(:full_name, params[:full_name], class: "form-control") %>
   <% #name: nil gets rid of name get variable sent. %>
-  <%= submit_tag("Search", name: nil) %>
-<% end %>
+  <% #submit_tag("Search", name: nil) %>
+<% #end %>
 
 
 
