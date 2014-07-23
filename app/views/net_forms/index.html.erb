@@ -15,19 +15,19 @@
         <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>
 
     <div class="row">
-        <div class="device_image col-md-3">
+        <div class="device_image col-md-2">
             <%= image_tag(found_image.values.join(" ")) %>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <%= net_form.first_name + " " + net_form.last_name %>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
             <%= net_form.computer_name %>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
         <% if net_form.completed == "0" %>
             <p> Incomplete </p>
         <% elsif net_form.completed == "1" and net_form.expire_date != nil and net_form.complete_date != nil and Chronic.parse("today at 12:00am") > net_form.expire_date %>
@@ -39,8 +39,11 @@
             <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), net_form.expire_date)%></p>
         <% end %> 
         
-        
     </div>     
+
+    <div class="col-md-2">
+            <%= net_form.created_at.strftime("%m/%d/%y") %>
+        </div> 
      
 </div>
 

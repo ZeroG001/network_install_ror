@@ -1,4 +1,7 @@
 NetworkInstallRor::Application.routes.draw do
+
+  root 'net_forms#index'
+
   resources :net_forms
   resources :printers
 
