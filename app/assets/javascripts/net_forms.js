@@ -22,3 +22,13 @@ $(".add_printer").click(function(){
   $(".remove_printer").click(function(){
     $(this).parent().remove();
   });
+
+  $(".search-search").click(function(){
+    $.ajax({
+      url: '/search'
+    }).done(function( html ){
+      $(".main-form").empty();
+      $(".main-form").append( html );
+    });
+  });
+    

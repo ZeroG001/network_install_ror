@@ -12,6 +12,11 @@
 <nav class="navbar navbar-default" role="navigation">
 		<%= image_tag("copy.png", class: "navbar-brand") %>
 		<%= link_to "Net Form", net_forms_path, class: "navbar-brand"%>
+	<ul class="nav navbar-nav">
+		<li>
+			<%= link_to 'New form', new_net_form_path %>
+		</li>
+	</ul>
 </nav>
 
 <%= yield %>
