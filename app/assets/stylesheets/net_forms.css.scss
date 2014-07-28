@@ -3,28 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url(http://fonts.googleapis.com/css?family=Karla);
-* {
+body {
 	font-family: 'Karla', sans-serif;
+	padding-top: 70px;
 }
 
-.adv_search_button {
-	width: 70px;
-	height: 20px;
-	padding: 5px;
-	color: white;
-	background: tomato;
-	-moz-transition-duration: 0.5s;
-	
-	&:hover {
-		background: red;
+/* ============= Bootstrap Modifications ============ */
+
+.container-fluid {
+	width: 100%;
+	padding: 0px;
+}
+
+.sidebar {
+	padding: 0px;
+	position: fixed;
+}
+
+
+.sidebar a {
+	padding: 7px 10px 7px 20% ;
 	}
 
-}
 
-.adv_search {
-	display: inline;
-}
 
+/* ============= Bootstrap Modifications End ============ */
+
+/* ============= CSS for the form ============ */
 .remove_printer {
 	display: inline-block;
 	font-size: 2.0em;
@@ -44,17 +49,19 @@
 	color: tomato
 	}
 
-
-
 }
 
 .printer_input {
 	margin: 5px 0px 0px 0px
 }
 
-@media screen
-and (max-width : 550px) {
-	
-	
+/* ============== Form CSS End =================== */
 
+
+.nav-sidebar li {
+	height: 40px;
+
+	&:hover {
+		background-color: #eee;
+	}
 }

@@ -7,19 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-	<div class="container-fluid" >
 
-<nav class="navbar navbar-default" role="navigation">
+				<!-- Navigation Start -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<%= image_tag("copy.png", class: "navbar-brand") %>
-		<%= link_to "Net Form", net_forms_path, class: "navbar-brand"%>
-	<ul class="nav navbar-nav">
-		<li>
-			<%= link_to 'New form', new_net_form_path %>
-		</li>
-	</ul>
+		<div class="navbar-brand"> Net Form </div>
 </nav>
 
+<div class="container-fluid">
+<div class="col-lg-2 col-md-2 hidden-xs hidden-sm sidebar">
+
+		<ul class="nav nav-sidebar">
+			<li><%= link_to "New Form", new_net_form_path %></li>
+			<li><%= link_to "To Do", net_forms_path %></li>
+			<li> <%= link_to "Search", search_path %> </li>
+		</ul>
+
+</div>
+
+<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2">
 <%= yield %>
+</div>
+
+</div>
 
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
