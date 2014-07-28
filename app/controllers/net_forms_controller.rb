@@ -103,7 +103,7 @@ class NetFormsController < ApplicationController
   def destroy
     @net_form.destroy
     respond_to do |format|
-      format.html { redirect_to net_forms_url }
+      format.html { redirect_to search_url }
       format.json { head :no_content }
     end
   end
