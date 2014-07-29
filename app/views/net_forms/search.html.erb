@@ -1,11 +1,18 @@
 
 <% # The index page will now handle the searches %>
 <%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:full_name, "Name") %>
-  <%= text_field_tag(:full_name, params[:full_name], class: "form-control form-search-bar") %>
-  <% #name: nil gets rid of name get variable sent. %>
-  <% submit_tag("Search", name: nil) %>
+  <div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+       <%= text_field_tag(:full_name, params[:full_name], class: "form-control form-search-bar") %>
+      <span class="input-group-btn">
+        <%= submit_tag("Search", name: nil, class: "btn btn-default") %>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
 <% end %>
+
 
 
 <% @res_array.each do |net_form| %>
