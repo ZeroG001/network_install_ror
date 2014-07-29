@@ -42,7 +42,7 @@ class NetFormsController < ApplicationController
     queryString = buildQuery params
     queryParams = buildParams params
     
-    @res_array = NetForm.where(queryString, *queryParams).take(50)
+    @net_forms = NetForm.where(queryString, *queryParams).take(50)
     #@test_array = params.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
     # full_name = "%#{params[:full_name]}%"
     # @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ? AND completed = ?",full_name, params[:completed])
@@ -51,9 +51,18 @@ class NetFormsController < ApplicationController
     # @net_forms = @net_forms.completed
   end
 
+
+  #This section may need refactoring. Regular expression using deprecated way to detect empty space
   def search
-    full_name = "%#{params[:full_name]}%"
-    @res_array = NetForm.where("concat(first_name,' ',last_name) LIKE ?",full_name)
+    if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
+       full_name = "#{params[:full_name]}"
+    else
+      full_name = "%#{params[:full_name]}%"
+    end
+    
+    @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ?",full_name)
+
+
   end
 
 

@@ -17,6 +17,7 @@ class NetForm < ActiveRecord::Base
 		end
 	
 	end
+
 	
 	# validates :first_name, presence: :true
 	# validates :last_name, presence: :true

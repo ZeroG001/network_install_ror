@@ -14,7 +14,7 @@ development:
   database: network_install_ror_development
   pool: 5
   username: root
-  password: sonic001
+  password: s0n!crush
   socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -26,7 +26,7 @@ test:
   database: network_install_ror_test
   pool: 5
   username: root
-  password: sonic001
+  password: s0n!crush
   socket: /var/lib/mysql/mysql.sock
 
 production:

@@ -23,38 +23,5 @@
   <%= submit_tag("Search", name: nil) %>
 <% end %>
 
-<% @res_array.each do |item| %>
-  <%= item.first_name %>
-  <%= item.last_name %>
-<% end %>
 
-<% @res_array.each do |net_form| %>
-    <!-- Get the deivce image based on what the user put in -->
-    <% device_images = {"Desktop" => "screen.png", "Laptop" => "laptop.png", "Tablet" => "tablet.png", "Smartphone" => "mobile.png"} %>
-    <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>
-<div class="row">
-<div class="device_image col-md-3">
-    <%= image_tag(found_image.values.join(" ")) %>
-</div>
-<div class="col-md-3">
-    <%= net_form.first_name + " " + net_form.last_name %>
-    </div>
-
-    <div class="col-md-3">
-        <%= net_form.computer_name %>
-    </div>
-
-    <div class="col-md-3">
-        <% if net_form.completed == "1" %>
-        <p> This form expires in <%= distance_of_time_in_words(net_form.complete_date, net_form.expire_date)%></p>
-        <% elsif net_form.completed == "0" %>
-        <p> Incomplete </p>
-        <% end %>
-    </div>
-
-         
-</div>    
-        <%= link_to 'Show', net_form %>
-        <%= link_to 'Edit', edit_net_form_path(net_form) %>
-        <%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %>
- <% end %>
+<%= render 'formResult' %>
