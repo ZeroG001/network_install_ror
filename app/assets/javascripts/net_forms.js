@@ -2,6 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 */
+$("document").ready(function(){
+
+	$sidebar = $('.sidebar-button');
+
+	$('.sidebar-button').click(function(){
+		
+		$(".sidebar").toggleClass("hidden-xs");
+	});
+
+
+});
 
 
     
