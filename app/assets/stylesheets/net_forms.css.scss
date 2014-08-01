@@ -47,11 +47,13 @@ body {
 .sidebarSlideOut {
 	-webkit-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
 	-moz-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
+	animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
 }
 
 .sidebarSlideIn {
 	-webkit-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
 	-moz-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
+	animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
 }
 
 
@@ -89,9 +91,11 @@ body {
 
 .result_wrapper {
 	position: relative;
-	-webkit-animation: slideFadeIn 0.4s ease-out;
 	padding-top: 20px;
-	-moz-animation: slideFadeIn 0.4s ease-out
+
+	-webkit-animation: slideFadeIn 0.4s ease-out;
+	-moz-animation: slideFadeIn 0.4s ease-out;
+	animation: slideFadeIn 0.4s ease-out;
 	
 }
 
@@ -128,15 +132,17 @@ body {
 		}
 
 
-		@-webkit-keyframes slideFadeIn {
-			0% {left:15px; opacity: 0.6 }
-			100% {left:0px; opacity: 1}
-		}
+		
 
 
 	/* Firefox Keyframes end */
 
 	/* Chrome - Safari Keyframes */
+
+	@-webkit-keyframes slideFadeIn {
+			0% {left:15px; opacity: 0.6 }
+			100% {left:0px; opacity: 1}
+		}
 
 		@-webkit-keyframes sidebarSlideOut {
 			0% {left: -140px}
@@ -147,7 +153,27 @@ body {
 			0% {left: 0px}
 			100% {left: -140px; opacity: 1}
 		}
+
 	/* Chrome - Safari Keyframes End */
+
+	/* IE Keyframes End */
+
+	@keyframes slideFadeIn {
+			0% {left:15px; opacity: 0.6 }
+			100% {left:0px; opacity: 1}
+		}
+
+		@keyframes sidebarSlideOut {
+			0% {left: -140px}
+			100% {left:0px; opacity: 1}
+		}
+
+		@keyframes sidebarSlideIn {
+			0% {left: 0px}
+			100% {left: -140px; opacity: 1}
+		}
+
+	/* IE Keyframes End */
 
 
 

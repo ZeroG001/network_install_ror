@@ -2,35 +2,40 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 */
-$("document").ready(function(){
+(function($, window, document) {
 
-//SideBar functionality. Like most things. this can be refactored.
-	$sidebar_button = $('.sidebar-button');
-  $sidebar = $(".sidebar");
-	$sidebar_button.click(function(){
-   
-   if($sidebar.hasClass("sidebarSlideIn") || $sidebar.hasClass("sidebarSlideIn")) {
-    return false;
-   }
+  //locally scoped variables
 
-   if($sidebar.hasClass("hidden-xs")) {
-    $sidebar.removeClass("hidden-xs");
-    $sidebar.addClass("sidebarSlideOut");
-    setTimeout(function(){
-      $sidebar.removeClass("sidebarSlideOut");
-    },500); 
-   } else if (!$sidebar.hasClass("hidden-xs") && !$sidebar.hasClass("sidebarSlideOut") ) {
-    $sidebar.addClass("sidebarSlideIn")
-    setTimeout(function(){
-      $sidebar.addClass("hidden-xs");
-      $sidebar.removeClass("sidebarSlideIn");
-    },500);
-   } 
+  $(function(){
 
-	}); // Click function end
+      $sidebar_button = $('.sidebar-button');
+      $sidebar = $(".sidebar");
 
+      $sidebar_button.click(function(){
+     
+     if($sidebar.hasClass("sidebarSlideIn") || $sidebar.hasClass("sidebarSlideIn")) {
+      return false;
+     }
 
-}); // Document function end
+     if($sidebar.hasClass("hidden-xs")) {
+      $sidebar.removeClass("hidden-xs");
+      $sidebar.addClass("sidebarSlideOut");
+      setTimeout(function(){
+        $sidebar.removeClass("sidebarSlideOut");
+      },500); 
+     } else if (!$sidebar.hasClass("hidden-xs") && !$sidebar.hasClass("sidebarSlideOut") ) {
+      $sidebar.addClass("sidebarSlideIn")
+      setTimeout(function(){
+        $sidebar.addClass("hidden-xs");
+        $sidebar.removeClass("sidebarSlideIn");
+      },500);
+     } 
+
+    }); // Click function end
+  });
+
+} (window.jQuery, window, document));
+
 
 
     
