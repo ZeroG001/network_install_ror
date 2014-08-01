@@ -122,13 +122,13 @@ body {
 		}
 
 		@-moz-keyframes sidebarSlideOut {
-			0% {left: -140px}
+			0% {left: -240px}
 			100% {left:0px; opacity: 1}
 		}
 
 		@-moz-keyframes sidebarSlideIn {
 			0% {left: 0px}
-			100% {left: -140px; opacity: 1}
+			100% {left: -240px; opacity: 1}
 		}
 
 
@@ -145,13 +145,13 @@ body {
 		}
 
 		@-webkit-keyframes sidebarSlideOut {
-			0% {left: -140px}
+			0% {left: -240px}
 			100% {left:0px; opacity: 1}
 		}
 
 		@-webkit-keyframes sidebarSlideIn {
 			0% {left: 0px}
-			100% {left: -140px; opacity: 1}
+			100% {left: -240px; opacity: 1}
 		}
 
 	/* Chrome - Safari Keyframes End */
@@ -164,13 +164,13 @@ body {
 		}
 
 		@keyframes sidebarSlideOut {
-			0% {left: -140px}
+			0% {left: -240px}
 			100% {left:0px; opacity: 1}
 		}
 
 		@keyframes sidebarSlideIn {
 			0% {left: 0px}
-			100% {left: -140px; opacity: 1}
+			100% {left: -240px; opacity: 1}
 		}
 
 	/* IE Keyframes End */
