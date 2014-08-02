@@ -54,13 +54,30 @@ class NetFormsController < ApplicationController
 
   #This section may need refactoring. Regular expression using deprecated way to detect empty space
   def search
+
+   
+      @net_forms = NetForm.all
+    
     if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
        full_name = "#{params[:full_name]}"
     else
       full_name = "%#{params[:full_name]}%"
     end
+
+    if (params[:cpu_name] == /^ +$/ or params[:cpu_name] == "") 
+       cpu_name = "#{params[:cpu_name]}"
+    else
+      cpu_name = "%#{params[:cpu_name]}%"
+    end
+
+    if params[:full_name] 
+      @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ?",full_name);
+    elsif params[:cpu_name]
+      @net_forms = NetForm.where("computer_name LIKE ?", cpu_name)
+    end
+
+@something = params
     
-    @net_forms = NetForm.where("concat(first_name,' ',last_name) LIKE ?",full_name)
 
 
   end
