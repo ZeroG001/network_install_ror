@@ -8,13 +8,13 @@
 
   $(function(){
 
-
-    $("body").click(function(e){
+    // When the user clicks anywhere on the document. Close the sidebar.
+    $(document).click(function(e){
       if($(e.target).is(':not(.sidebar, .sidebar *, .sidebar-button)')) {
         console.log("You clicked outside the sidebar");
         console.log($(window).width());
         if ($(window).width() < 768 && !$(".sidebar").hasClass("hidden-xs")) {
-          $('.sidebar-button').trigger("click");
+          $('.sidebar-button').click();
         }
       }
     });
@@ -31,10 +31,7 @@
      if($(".sidebar").hasClass("hidden-xs")) {
       $(".sidebar").removeClass("hidden-xs");
       $(".sidebar").addClass("sidebarSlideOut");
-      $(":not(a)").click(function( event ){
-          console.log("Hello");
-        });
-
+    
       setTimeout(function(){
         $(".sidebar").removeClass("sidebarSlideOut");
       },500); 
@@ -68,6 +65,26 @@ $dropdown_item = $(".dropdown-menu li");
       $(".search-input").attr("id", "cpu_name");
     }
   });
+
+  var new_printer_input = '<div class="new_printer"><input class="printer_input string optional" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text"></input><span class="remove_printer"><div class="btn">-</div></span></div>'
+$(".add_printer").click(function(){
+    if($(".printers .printer_input").length >= 5) {
+      alert("You cannot add more than 5 printers.")
+      return false;
+    }
+    $(".printers").append(new_printer_input);
+
+    $(".remove_printer").click(function(){
+    $(this).parent().remove();
+  });
+
+  });
+
+  $(".remove_printer").click(function(){
+    $(this).parent().remove();
+  });
+// Add printers end
+
 
   }); // End jquery
 

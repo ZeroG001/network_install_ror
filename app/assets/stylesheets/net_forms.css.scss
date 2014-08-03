@@ -23,12 +23,13 @@ body {
 	border: 1px solid #efefef;
 	z-index: 10;
 	height: 100%;
+
+	a {
+	padding: 7px 10px 7px 20% ;
+	}
 }
 
 
-.sidebar a {
-	padding: 7px 10px 7px 20% ;
-	}
 
 
 
@@ -38,11 +39,34 @@ body {
 /* ======= CSS For main pages ============= */
 .nav-sidebar {
 	padding-top: 30px;
+
+	li {
+		min-width:135px;
+	}
 }
 
-.nav-sidebar li {
-	min-width:135px;
+
+.finished-text {
+	position: relative;
+	width: 20%;
+	height: 100%; 
+	margin: auto;
+
+	img {
+		position: relative;
+		width: 100%;
+		
 	}
+
+	p {
+	width: 100%; 
+	padding-top: 15px;
+	text-align: center;
+	font-size: 2em;
+	color: #f1f1f1;
+	}
+}
+
 
 .sidebarSlideOut {
 	-webkit-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
@@ -64,6 +88,16 @@ body {
 
 
 /* ============= CSS for the form ============ */
+
+ .header-row {
+ 	margin-bottom: 20px;
+ }
+
+.header-text {
+	font-weight: bold;
+	text-align: center;
+}
+
 .remove_printer {
 	display: inline-block;
 	font-size: 2.0em;
@@ -145,13 +179,13 @@ body {
 		}
 
 		@-webkit-keyframes sidebarSlideOut {
-			0% {left: -240px}
+			0% {left: -100%}
 			100% {left:0px; opacity: 1}
 		}
 
 		@-webkit-keyframes sidebarSlideIn {
 			0% {left: 0px}
-			100% {left: -240px; opacity: 1}
+			100% {left: -45%; opacity: 1}
 		}
 
 	/* Chrome - Safari Keyframes End */

@@ -1,82 +1,108 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
 
-<p>
-  <strong>First name:</strong>
-  <%= @net_form.first_name %>
-</p>
+  <div class="col-md-4">
+<% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
+    <% found_image = device_images.select{|k,v| k == @net_form.equipment_type} %>
+    <%= image_tag(found_image.values.join(" "), width: "200px") %>
+  </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @net_form.last_name %>
-</p>
+<div class="col-md-8">
+      <p>
+        <strong>First name: </strong>
+        <%= @net_form.first_name %>
+      </p>
 
-<p>
-  <strong>Service cost:</strong>
-  <%= @net_form.service_cost %>
-</p>
+      <p>
+        <strong>Last name: </strong>
+        <%= @net_form.last_name %>
+      </p>
 
-<p>
-  <strong>Equipment type:</strong>
-  <%= @net_form.equipment_type %>
-</p>
+      <p>
+        <strong>Paynum: </strong>
+        <%= @net_form.paynum %>
+      </p>
 
-<p>
-  <strong>Nic connection:</strong>
-  <%= @net_form.nic_connection %>
-</p>
+      <p>
+        <strong>Phone number: </strong>
+        <%= @net_form.phone_number %>
+      </p>
 
-<p>
-  <strong>Os type:</strong>
-  <%= @net_form.os_type %>
-</p>
+      <p>
+        <strong> Email: </strong>
+        <%= @net_form.email %>
+      </p>
 
-<p>
-  <strong>Antivir type:</strong>
-  <%= @net_form.antivir_type %>
-</p>
+      <p>
+        <strong> Service cost: </strong>
+        <%= @net_form.service_cost %>
+      </p>
 
-<p>
-  <strong>Paynum:</strong>
-  <%= @net_form.paynum %>
-</p>
+      <p>
+        <strong> Device Type: </strong>
+        <%= @net_form.equipment_type %>
+      </p>
 
-<p>
-  <strong>Complete date:</strong>
-  <%= @net_form.complete_date %>
-</p>
+      <p>
+        <strong>Office: </strong>
+        <%= @net_form.office_number %>
+      </p>
 
-<strong> Printer IP: </strong>
-<%= @net_form.printer_ip %>
+      <p>
+        <strong>Connection Type: </strong>
+        <%= @net_form.nic_connection %>
+      </p>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @net_form.completed %>
-</p>
+      <p>
+        <strong>Operating System: </strong>
+        <%= @net_form.os_type %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @net_form.email %>
-</p>
+      <p>
+        <strong>Antivirus Software: </strong>
+        <%= @net_form.antivir_type %>
+      </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @net_form.phone_number %>
-</p>
+      <p>
+        <strong> Antivirus Expire Date: </strong>
+        <%= @net_form.antivir_expire_date %>
+      </p>
 
-<p>
-  <strong>Computer name:</strong>
-  <%= @net_form.computer_name %>
-</p>
+      <p>
+        <strong>Complete Date:</strong>
+        <%= @net_form.complete_date %>
+      </p>
 
-<p>
-  <strong>Antivir expire date:</strong>
-  <%= @net_form.antivir_expire_date %>
-</p>
+    <p>
+      <strong> Printer IP: </strong>
+      <% if @net_form.printer_ip.empty? %>
+        None recorded
+      <% else %>
+  </p>
 
-<p>
-  <strong>Technician name:</strong>
-  <%= @net_form.technician_name %>
-</p>
+      <%= @net_form.printer_ip %>
+      <% end %>
+
+      <p>
+        <strong>Completed: </strong>
+        <% if @net_form.completed == "1" %>
+        Yes
+        <% elsif %>
+        No
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Computer name: </strong>
+        <%= @net_form.computer_name %>
+      </p>
+
+      <p>
+        <strong> Completed By: </strong>
+        <%= @net_form.technician_name %>
+      </p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_net_form_path(@net_form) %> |
 <%= link_to 'Back', net_forms_path %>

@@ -5,7 +5,7 @@ class NetFormsController < ApplicationController
   # GET /net_forms
   # GET /net_forms.json
   def index
-    @net_forms = NetForm.all
+    @net_forms = NetForm.where("completed = 0")
   end
 
   # GET /net_forms/1

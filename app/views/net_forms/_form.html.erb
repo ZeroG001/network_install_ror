@@ -30,15 +30,16 @@
 
   <div class="radio ">
     <h3> Service Cost </h3>
-    <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @net_form.service_cost %>
+    <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @net_form.service_cost, label: false %>
   </div>
 
   <div class="field">
     <%= f.input :equipment_type, collection: ["Desktop", "Laptop", "Tablet", "Smartphone"], label: "Device Type", input_html: {class: "form-control"} %>
   </div>
 
+<h3> Connection Type </h3>
   <div class="radio">
-    <%= f.input :nic_connection, collection: [["Wired", "wired"],["Wireless", "wireless"],["Both","both"]], as: :radio_buttons, checked: @net_form.nic_connection %>
+    <%= f.input :nic_connection, collection: [["Wired", "wired"],["Wireless", "wireless"],["Both","both"]], as: :radio_buttons, checked: @net_form.nic_connection, label: false %>
   </div>
 
   <div class="field">

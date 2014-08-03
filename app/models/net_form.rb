@@ -7,13 +7,13 @@ class NetForm < ActiveRecord::Base
 	def change_date
 		if (self.completed == "1" and self.complete_date.nil? and self.expire_date.nil?)
 			self.complete_date = Chronic.parse("today at 12:00am")
-			self.expire_date = Chronic.parse("tomorrow at 12:00am")
+			self.expire_date = Chronic.parse("tomorrow at 12:00am") #This needs to be changed to next year
 		end 
 
 		# If the form has expired and is complete then renew.
-		if self.completed == "1" and self.complete_date > self.expire_date
+		if self.completed == "1" and Chronic.parse("today") > self.expire_date
 		self.complete_date = Chronic.parse("today at 12:00am")
-		self.expire_date = Chronic.parse("tomorrow at 12:00am")	
+		self.expire_date = Chronic.parse("tomorrow at 12:00am")	#This needs to be changed to next year
 		end
 	
 	end
@@ -26,6 +26,8 @@ class NetForm < ActiveRecord::Base
 	# validates :nic_connection, presence: :true
 	# validates :os_type, presence: :true
 	# validates :phone_number, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\z/ , message: "use the correct format"}
+	# validates :printer_ip, format: { with: /\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/, message: "IP address not valid" }
+
 
 
   # Here i wanted to make it so the user can enter a word instead of a date.
