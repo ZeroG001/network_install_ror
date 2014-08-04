@@ -2,7 +2,7 @@
 
     <!-- Column Headers -->
 
-    <div class="row col-sm-10 col-md-10 header-row">
+    <div class="row hidden-xs col-sm-10 col-md-10 header-row">
 
     <div class="device_image col-md-2 col-sm-2">
        <span class="header-text"> Device </span>
@@ -30,11 +30,11 @@
   
 <% @net_forms.each do |net_form| %>
     <!-- Get the deivce image based on what the user put in -->
-    <% device_images = {"Desktop" => "screen.png", "Laptop" => "laptop.png", "Tablet" => "tablet.png", "Smartphone" => "mobile.png"} %>
+    <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>
 <div class="row col-sm-10 col-md-10">
 
-    <div class="device_image col-md-2 col-sm-2">
+    <div class="device_image col-md-2 col-sm-2 col-xs-6">
         <%= image_tag(found_image.values.join(" ")) %>
     </div>
 

@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
 
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-4">
 <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == @net_form.equipment_type} %>
     <%= image_tag(found_image.values.join(" "), width: "200px") %>
   </div>
 
-<div class="col-md-8">
+<div class="col-md-8 col-sm-8">
+
+  <h2> About User </h2>
       <p>
         <strong>First name: </strong>
         <%= @net_form.first_name %>
@@ -21,6 +23,11 @@
       <p>
         <strong>Paynum: </strong>
         <%= @net_form.paynum %>
+      </p>
+
+      <p>
+        <strong>Office: </strong>
+        <%= @net_form.office_number %>
       </p>
 
       <p>
@@ -38,14 +45,16 @@
         <%= @net_form.service_cost %>
       </p>
 
+      <h2> About Device </h2>
+
       <p>
-        <strong> Device Type: </strong>
-        <%= @net_form.equipment_type %>
+        <strong>Computer name: </strong>
+        <%= @net_form.computer_name %>
       </p>
 
       <p>
-        <strong>Office: </strong>
-        <%= @net_form.office_number %>
+        <strong> Device Type: </strong>
+        <%= @net_form.equipment_type %>
       </p>
 
       <p>
@@ -69,19 +78,27 @@
       </p>
 
       <p>
-        <strong>Complete Date:</strong>
-        <%= @net_form.complete_date %>
-      </p>
-
-    <p>
       <strong> Printer IP: </strong>
       <% if @net_form.printer_ip.empty? %>
         None recorded
       <% else %>
-  </p>
-
-      <%= @net_form.printer_ip %>
+        <% @net_form.printer_ip.each do |ip| %>
+          <%= ip %>
+        <% end %>
       <% end %>
+      </p>
+
+      <h2> Other </h2>
+
+      <p>
+        <strong> Completed By: </strong>
+        <%= @net_form.technician_name %>
+      </p>
+
+      <p>
+        <strong>Complete Date:</strong>
+        <%= @net_form.complete_date %>
+      </p>
 
       <p>
         <strong>Completed: </strong>
@@ -93,14 +110,20 @@
       </p>
 
       <p>
-        <strong>Computer name: </strong>
-        <%= @net_form.computer_name %>
+        <strong>Form Expire Date:</strong>
+        <%= @net_form.expire_date %>
       </p>
 
       <p>
-        <strong> Completed By: </strong>
-        <%= @net_form.technician_name %>
+        <strong>Form Creation Date:</strong>
+        <%= @net_form.created_at %>
       </p>
+
+      <p>
+        <strong>Last Updated On:</strong>
+        <%= @net_form.updated_at %>
+      </p>
+
   </div>
 </div>
 

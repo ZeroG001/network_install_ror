@@ -54,7 +54,7 @@ $dropdown_item = $(".dropdown-menu li");
 
       $(".search-input").val('');
       $(".search-input").attr("placeholder", "Agent Name");
-      $(".search-input").attr("name", "full_Name");
+      $(".search-input").attr("name", "full_name");
       $(".search-input").attr("id", "full_name");
 
     } else if($(this).is(".dropdown-computer-name")) {
@@ -66,24 +66,41 @@ $dropdown_item = $(".dropdown-menu li");
     }
   });
 
-  var new_printer_input = '<div class="new_printer"><input class="printer_input string optional" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text"></input><span class="remove_printer"><div class="btn">-</div></span></div>'
+  var new_printer_input = '<div class="row printer_input">'
+       +'<div class="col-lg-5 col-md-5 col-sm-5">'
+          +'<div class="input-group">'
+            +'<input class="string optional form-control" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text">'
+             +'<span class="input-group-btn">'
+               +'<button class="btn btn-default remove_printer" type="button">Remove</button>'
+              +'</span>'
+            +'</div>'
+          +'</div>'
+        +'</div>'
+
 $(".add_printer").click(function(){
-    if($(".printers .printer_input").length >= 5) {
+    if($(".printer_input").length >= 5) {
       alert("You cannot add more than 5 printers.")
       return false;
     }
     $(".printers").append(new_printer_input);
 
     $(".remove_printer").click(function(){
-    $(this).parent().remove();
+    printer_input = $(this).parentsUntil($("row , div.printer_input"));
+    $(this).closest($("div.printer_input")).remove();
   });
 
   });
 
   $(".remove_printer").click(function(){
-    $(this).parent().remove();
+    printer_input = $(this).parentsUntil($("row , div.printer_input"));
+    $(this).closest($(".printer_input")).remove();
   });
 // Add printers end
+
+
+$(".btn-lg").click(function(){
+  $("#net_form_completed").trigger("click");
+});
 
 
   }); // End jquery
