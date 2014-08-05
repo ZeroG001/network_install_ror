@@ -46,6 +46,11 @@ body {
 }
 
 
+.net_form_row {
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
+	}
+
 .finished-text {
 	position: relative;
 	width: 20%;
@@ -54,8 +59,7 @@ body {
 
 	img {
 		position: relative;
-		width: 100%;
-		
+		width: 100%;	
 	}
 
 	p {
@@ -113,6 +117,17 @@ body {
 	
 }
 
+.net_form_row_a {
+
+&:hover .net_form_row {
+	background-color: #f1f1f1;
+	text-decoration:none;
+	
+	color: black;
+}
+	
+}
+
 
 /* ============== Form CSS End =================== */
 
@@ -132,10 +147,12 @@ body {
 	height: 100px;
 	width: 150px;
 		img {
-			width: 100px;
+			width: 85px;
 		}
 	}
-}
+
+	
+} /*  Media Query end */
 
 /* ====== Media Queries end ============ */
 

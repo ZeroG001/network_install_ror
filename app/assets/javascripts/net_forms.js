@@ -98,10 +98,6 @@ $(".add_printer").click(function(){
 // Add printers end
 
 
-$(".btn-lg").click(function(){
-  $("#net_form_completed").trigger("click");
-});
-
 
   }); // End jquery
 

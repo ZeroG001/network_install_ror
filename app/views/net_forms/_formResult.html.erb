@@ -32,7 +32,9 @@
     <!-- Get the deivce image based on what the user put in -->
     <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>
-<div class="row col-sm-10 col-md-10">
+    <% # Encapsulating show link %>
+    <%= link_to net_form, class: "net_form_row_a" do %>
+<div class="row col-sm-10 col-md-10 net_form_row">
 
     <div class="device_image col-md-2 col-sm-2 col-xs-6">
         <%= image_tag(found_image.values.join(" ")) %>
@@ -60,13 +62,13 @@
     </div>
 
 <div class="col-md-1 col-sm-1">
-    <%= link_to 'Show', net_form %>
-        <%= link_to 'Edit', edit_net_form_path(net_form) %>
-        <%= link_to 'Destroy', net_form, method: :delete, data: { confirm: 'Are you sure?' } %>
+    
+        
+        
     </div>
 
          
 </div>    
-       
+       <% end %>
  <% end %>
  </div> 

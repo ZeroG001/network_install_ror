@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
 
+  <ul class="nav nav-pills">
+    <li><%= link_to 'Edit', edit_net_form_path(@net_form) %></li>
+    <li><%= link_to 'Destroy', @net_form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <li><%= link_to 'Back', net_forms_path %></li>
+</ul>
+
   <div class="col-md-4 col-sm-4">
 <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == @net_form.equipment_type} %>
@@ -8,6 +14,8 @@
   </div>
 
 <div class="col-md-8 col-sm-8">
+
+
 
   <h2> About User </h2>
       <p>
@@ -126,6 +134,3 @@
 
   </div>
 </div>
-
-<%= link_to 'Edit', edit_net_form_path(@net_form) %> |
-<%= link_to 'Back', net_forms_path %>
