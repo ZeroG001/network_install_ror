@@ -18,7 +18,8 @@ class NetFormsController < ApplicationController
     # Trying to figure how to make a dynemic query
     def buildQuery(block)
       block.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
-       i = 1
+      
+      i = 1
       q = ""
 
       block.each do |k,v|
@@ -27,9 +28,9 @@ class NetFormsController < ApplicationController
         else
           q = q + "#{k} LIKE ? AND "
         end
-        i = i + 1
-      end
-    return q
+          i = i + 1
+        end
+      return q
     end
 
     def buildParams(block)
@@ -75,11 +76,6 @@ class NetFormsController < ApplicationController
     elsif params[:cpu_name]
       @net_forms = NetForm.where("computer_name LIKE ?", cpu_name)
     end
-
-@something = params
-    
-
-
   end
 
 

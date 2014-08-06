@@ -18,7 +18,15 @@ class NetForm < ActiveRecord::Base
 		self.complete_date = Chronic.parse("today at 12:00am")
 		self.expire_date = Chronic.parse("tomorrow at 12:00am")	#This needs to be changed to next year
 		end
-	
+	end
+
+	# I ran into errors when formatting a date with nothing in it.
+	# This should fix it.
+	def format_date(date)
+		if (!self.antivir_expire_date.nil?)
+    	Chronic.parse(self.antivir_expire_date).strftime("%m/%d/%Y")    		
+      	end
+		 
 	end
 
 	

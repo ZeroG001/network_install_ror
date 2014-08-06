@@ -39,11 +39,17 @@ body {
 /* ======= CSS For main pages ============= */
 .nav-sidebar {
 	padding-top: 30px;
+	font-size: 1.3em;
 
 	li {
 		min-width:135px;
+		padding: 10px 0px 10px 0px;
+		&:hover {
+		background-color: #eee;
+		}
 	}
 }
+
 
 
 .net_form_row {
@@ -70,6 +76,12 @@ body {
 	color: #f1f1f1;
 	}
 }
+
+.show-nav-pills {
+	margin-bottom: 10px;
+}
+
+
 
 
 .sidebarSlideOut {
@@ -132,13 +144,7 @@ body {
 /* ============== Form CSS End =================== */
 
 
-.nav-sidebar li {
-	height: 40px;
 
-	&:hover {
-		background-color: #eee;
-	}
-}
 
 /* ====== Media Queries ============ */
 
@@ -151,6 +157,13 @@ body {
 		}
 	}
 
+	.sidebar_backdrop {
+	position: fixed;
+	z-index: 9;
+	width:100%;
+	height: 100%;
+	display: none;
+}
 	
 } /*  Media Query end */
 

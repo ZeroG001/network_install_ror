@@ -31,6 +31,7 @@
      if($(".sidebar").hasClass("hidden-xs")) {
       $(".sidebar").removeClass("hidden-xs");
       $(".sidebar").addClass("sidebarSlideOut");
+      $(".sidebar_backdrop").css("display", "inline");
     
       setTimeout(function(){
         $(".sidebar").removeClass("sidebarSlideOut");
@@ -39,6 +40,7 @@
      
      } else if (!$(".sidebar").hasClass("hidden-xs") && !$(".sidebar").hasClass("sidebarSlideOut") ) { //&& !$(".sidebar").hasClass("sidebarSlideOut")
       $(".sidebar").addClass("sidebarSlideIn")
+      $(".sidebar_backdrop").css("display", "none");
       setTimeout(function(){
         $(".sidebar").addClass("hidden-xs");
         $(".sidebar").removeClass("sidebarSlideIn");

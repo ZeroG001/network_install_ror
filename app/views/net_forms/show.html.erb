@@ -1,20 +1,16 @@
 <p id="notice"><%= notice %></p>
-<div class="row">
+<div class="container">
 
-  <ul class="nav nav-pills">
+  <ul class="nav nav-pills show-nav-pills">
     <li><%= link_to 'Edit', edit_net_form_path(@net_form) %></li>
     <li><%= link_to 'Destroy', @net_form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     <li><%= link_to 'Back', net_forms_path %></li>
 </ul>
 
-  <div class="col-md-4 col-sm-4">
+ 
 <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == @net_form.equipment_type} %>
-    <%= image_tag(found_image.values.join(" "), width: "200px") %>
-  </div>
-
-<div class="col-md-8 col-sm-8">
-
+    <%= image_tag(found_image.values.join(" "), width: "150px") %>
 
 
   <h2> About User </h2>
@@ -52,7 +48,9 @@
         <strong> Service cost: </strong>
         <%= @net_form.service_cost %>
       </p>
+  
 
+  
       <h2> About Device </h2>
 
       <p>
@@ -91,10 +89,12 @@
         None recorded
       <% else %>
         <% @net_form.printer_ip.each do |ip| %>
-          <%= ip %>
+          <%= ip + " "  %>
         <% end %>
       <% end %>
       </p>
+ 
+
 
       <h2> Other </h2>
 
@@ -105,7 +105,7 @@
 
       <p>
         <strong>Complete Date:</strong>
-        <%= @net_form.complete_date %>
+        <%= @net_form.format_date(@net_form.complete_date) %>
       </p>
 
       <p>
@@ -119,18 +119,17 @@
 
       <p>
         <strong>Form Expire Date:</strong>
-        <%= @net_form.expire_date %>
+        <%= @net_form.format_date(@net_form.expire_date) %>
       </p>
 
       <p>
         <strong>Form Creation Date:</strong>
-        <%= @net_form.created_at %>
+        <%= @net_form.format_date(@net_form.created_at) %>
       </p>
 
       <p>
         <strong>Last Updated On:</strong>
-        <%= @net_form.updated_at %>
+        <%= @net_form.format_date(@net_form.updated_at) %>
       </p>
-
-  </div>
+  
 </div>

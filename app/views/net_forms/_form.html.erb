@@ -57,7 +57,7 @@
    <%= f.input :computer_name, input_html: {class: "form-control"} %>
   </div>
   <div class="field">
-    <%= f.input :antivir_expire_date %>
+    <%= f.input :antivir_expire_date, input_html: {class: "form-control", value: @net_form.format_date(@net_form.antivir_expire_date)} %>
   </div>
 
   <div class="field printers">
@@ -168,12 +168,3 @@
 </div>
 
 <% end %>
-
-
-
-<script>
-
-
-
-
-</script>
