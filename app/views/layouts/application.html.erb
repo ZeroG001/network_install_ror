@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
+	<!-- Devise Flash Messages -->
+	<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
 
 				<!-- Navigation Start -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -31,7 +35,11 @@
 
 
 <!-- Page Content end -->
+
+<!-- sidebar_backdrop. Added so that when you have the sidebar open, you don't accidentally click anything when you close the side bar. Please don't remove -->
 <div class="sidebar_backdrop"> </div>
+<!-- sidebar_backdrop end -->
+
 <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-offset-2">
 <%= yield %>
 </div>
