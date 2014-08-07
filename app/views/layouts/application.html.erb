@@ -17,10 +17,28 @@
 
 				<!-- Navigation Start -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<%= link_to "Hello", new_user_session_path %>
 		<%= image_tag("list.svg", class: "sidebar-button hidden-sm hidden-md hidden-lg navbar-brand") %>
 		<%= image_tag("copy.png", class: "navbar-brand col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-offset-0") %>
 		<div class="navbar-brand"> Net Form </div>
+
+		<ul class="nav navbar-nav navbar-right">
+
+				
+				
+				<% if user_signed_in? %>
+			<!-- If the user is signed in, show a different nav -->
+
+				<nav class="user-options">
+					<ul class="user-options-list-1">
+						<li><%= link_to "Sign-Out", destroy_user_session_path %> </li>
+						<li> <%= link_to "Edit User", edit_user_registration_path %> </li>
+					</ul>
+				</nav>
+				<% else %>
+				 <li class="pull-right"> <%= link_to "Sign-In", login_path %></li>
+				 <li class="pull-right"><%= link_to "Sign-Up", register_path %></li>
+				<% end %>
+			</ul>
 </nav>
 
 <div class="container-fluid">
@@ -28,10 +46,21 @@
 
 		<ul class="nav nav-sidebar">
 			<li><%= link_to "New Form", new_net_form_path %></li>
-			<li><%= link_to "To Do", net_forms_path %></li>
-			<li> <%= link_to "Search", search_path %> </li>
+			
+
+			<% if current_user.admin %>
+				<li> <%= link_to "Search", search_path %> </li>
+				<li><%= link_to "To Do", net_forms_path %></li>
+			<% else #if its a user show my forms %>
+				<li><%= link_to "My Devices" %></li>
+			<% end %>
+			
 		</ul>
 
+		<% if current_user.admin %>
+		<p> im the admin </p>
+		<% end %>
+	
 </div>
 
 
