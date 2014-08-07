@@ -35,8 +35,8 @@
 					</ul>
 				</nav>
 				<% else %>
-				 <li class="pull-right"> <%= link_to "Sign-In", login_path %></li>
-				 <li class="pull-right"><%= link_to "Sign-Up", register_path %></li>
+				 <li class="pull-right"> <%= link_to "Sign-In", user_session_path %></li>
+				 <li class="pull-right"><%= link_to "Sign-Up", user_registration_path %></li>
 				<% end %>
 			</ul>
 </nav>
@@ -48,7 +48,7 @@
 			<li><%= link_to "New Form", new_net_form_path %></li>
 			
 
-			<% if current_user.admin %>
+			<% if current_user.try(:admin?) %>
 				<li> <%= link_to "Search", search_path %> </li>
 				<li><%= link_to "To Do", net_forms_path %></li>
 			<% else #if its a user show my forms %>
@@ -57,7 +57,7 @@
 			
 		</ul>
 
-		<% if current_user.admin %>
+		<% if current_user.try(:admin) %>
 		<p> im the admin </p>
 		<% end %>
 	
