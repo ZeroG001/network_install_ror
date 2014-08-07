@@ -1,5 +1,6 @@
 NetworkInstallRor::Application.routes.draw do
 
+  devise_for :users
   root 'net_forms#index'
 
   resources :net_forms
