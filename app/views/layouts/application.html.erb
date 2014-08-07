@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
+
 	<!-- Devise Flash Messages -->
 	<p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
@@ -16,6 +17,7 @@
 
 				<!-- Navigation Start -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<%= link_to "Hello", new_user_session_path %>
 		<%= image_tag("list.svg", class: "sidebar-button hidden-sm hidden-md hidden-lg navbar-brand") %>
 		<%= image_tag("copy.png", class: "navbar-brand col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-offset-0") %>
 		<div class="navbar-brand"> Net Form </div>
