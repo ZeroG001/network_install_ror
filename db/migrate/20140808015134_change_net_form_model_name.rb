@@ -1,10 +1,10 @@
-class ChangeNetFormModelName < ActiveRecord::Migration
+class ChangeFormModelName < ActiveRecord::Migration
   def up
-  	rename_table :net_form, :form
+  	rename_table :forms, :forms
   end
 
   def down
-  	rename_table :form, :net_form
+  	rename_table :forms, :forms
   end
-  
+
 end

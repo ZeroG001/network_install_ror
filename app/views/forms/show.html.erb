@@ -2,51 +2,51 @@
 <div class="container">
 
   <ul class="nav nav-pills show-nav-pills">
-    <li><%= link_to 'Edit', edit_net_form_path(@net_form) %></li>
-    <li><%= link_to 'Destroy', @net_form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    <li><%= link_to 'Back', net_forms_path %></li>
+    <li><%= link_to 'Edit', edit_form_path(@form) %></li>
+    <li><%= link_to 'Destroy', @form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <li><%= link_to 'Back', forms_path %></li>
 </ul>
 
  
 <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
-    <% found_image = device_images.select{|k,v| k == @net_form.equipment_type} %>
+    <% found_image = device_images.select{|k,v| k == @form.equipment_type} %>
     <%= image_tag(found_image.values.join(" "), width: "150px") %>
 
 
   <h2> About User </h2>
       <p>
         <strong>First name: </strong>
-        <%= @net_form.first_name %>
+        <%= @form.first_name %>
       </p>
 
       <p>
         <strong>Last name: </strong>
-        <%= @net_form.last_name %>
+        <%= @form.last_name %>
       </p>
 
       <p>
         <strong>Paynum: </strong>
-        <%= @net_form.paynum %>
+        <%= @form.paynum %>
       </p>
 
       <p>
         <strong>Office: </strong>
-        <%= @net_form.office_number %>
+        <%= @form.office_number %>
       </p>
 
       <p>
         <strong>Phone number: </strong>
-        <%= @net_form.phone_number %>
+        <%= @form.phone_number %>
       </p>
 
       <p>
         <strong> Email: </strong>
-        <%= @net_form.email %>
+        <%= @form.email %>
       </p>
 
       <p>
         <strong> Service cost: </strong>
-        <%= @net_form.service_cost %>
+        <%= @form.service_cost %>
       </p>
   
 
@@ -55,40 +55,40 @@
 
       <p>
         <strong>Computer name: </strong>
-        <%= @net_form.computer_name %>
+        <%= @form.computer_name %>
       </p>
 
       <p>
         <strong> Device Type: </strong>
-        <%= @net_form.equipment_type %>
+        <%= @form.equipment_type %>
       </p>
 
       <p>
         <strong>Connection Type: </strong>
-        <%= @net_form.nic_connection %>
+        <%= @form.nic_connection %>
       </p>
 
       <p>
         <strong>Operating System: </strong>
-        <%= @net_form.os_type %>
+        <%= @form.os_type %>
       </p>
 
       <p>
         <strong>Antivirus Software: </strong>
-        <%= @net_form.antivir_type %>
+        <%= @form.antivir_type %>
       </p>
 
       <p>
         <strong> Antivirus Expire Date: </strong>
-        <%= @net_form.antivir_expire_date %>
+        <%= @form.antivir_expire_date %>
       </p>
 
       <p>
       <strong> Printer IP: </strong>
-      <% if @net_form.printer_ip.empty? %>
+      <% if @form.printer_ip.empty? %>
         None recorded
       <% else %>
-        <% @net_form.printer_ip.each do |ip| %>
+        <% @form.printer_ip.each do |ip| %>
           <%= ip + " "  %>
         <% end %>
       <% end %>
@@ -100,17 +100,17 @@
 
       <p>
         <strong> Completed By: </strong>
-        <%= @net_form.technician_name %>
+        <%= @form.technician_name %>
       </p>
 
       <p>
         <strong>Complete Date:</strong>
-        <%= @net_form.format_date(@net_form.complete_date) %>
+        <%= @form.format_date(@form.complete_date) %>
       </p>
 
       <p>
         <strong>Completed: </strong>
-        <% if @net_form.completed == "1" %>
+        <% if @form.completed == "1" %>
         Yes
         <% elsif %>
         No
@@ -119,17 +119,17 @@
 
       <p>
         <strong>Form Expire Date:</strong>
-        <%= @net_form.format_date(@net_form.expire_date) %>
+        <%= @form.format_date(@form.expire_date) %>
       </p>
 
       <p>
         <strong>Form Creation Date:</strong>
-        <%= @net_form.format_date(@net_form.created_at) %>
+        <%= @form.format_date(@form.created_at) %>
       </p>
 
       <p>
         <strong>Last Updated On:</strong>
-        <%= @net_form.format_date(@net_form.updated_at) %>
+        <%= @form.format_date(@form.updated_at) %>
       </p>
   
 </div>

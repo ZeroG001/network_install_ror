@@ -1,16 +1,18 @@
 
-<%= simple_form_for(@net_form) do |f| %>
-  <% if @net_form.errors.any? %>
+<%= simple_form_for(@form) do |f| %>
+  <% if @form.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@net_form.errors.count, "error") %> prohibited this net_form from being saved:</h2>
+      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this net_form from being saved:</h2>
 
       <ul>
-      <% @net_form.errors.full_messages.each do |msg| %>
+      <% @form.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
+  <%= f.input :user, collection: User.all, label_method: :email %>
 
   <div class="form-group">
     <%= f.input :first_name, label: "First Name", input_html: {class: "form-control"} %>
@@ -30,7 +32,7 @@
 
   <div class="radio ">
     <h3> Service Cost </h3>
-    <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @net_form.service_cost, label: false %>
+    <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @form.service_cost, label: false %>
   </div>
 
   <div class="field">
@@ -39,7 +41,7 @@
 
 <h3> Connection Type </h3>
   <div class="radio">
-    <%= f.input :nic_connection, collection: [["Wired", "wired"],["Wireless", "wireless"],["Both","both"]], as: :radio_buttons, checked: @net_form.nic_connection, label: false %>
+    <%= f.input :nic_connection, collection: [["Wired", "wired"],["Wireless", "wireless"],["Both","both"]], as: :radio_buttons, checked: @form.nic_connection, label: false %>
   </div>
 
   <div class="field">
@@ -57,15 +59,15 @@
    <%= f.input :computer_name, input_html: {class: "form-control"} %>
   </div>
   <div class="field">
-    <%= f.input :antivir_expire_date, input_html: {class: "form-control", value: @net_form.format_date(@net_form.antivir_expire_date)} %>
+    <%= f.input :antivir_expire_date, input_html: {class: "form-control", value: @form.format_date(@form.antivir_expire_date)} %>
   </div>
 
   <div class="field printers">
     <h3> Printer IP Address </h3>
     <button type="button" class="btn btn-default add_printer">Add printer</button>
-    <% if (@net_form.printer_ip.any?) %>
+    <% if (@form.printer_ip.any?) %>
 
-      <% @net_form.printer_ip.each do |p| %>
+      <% @form.printer_ip.each do |p| %>
       <div class="row printer_input">
         <div class="col-lg-5 col-lg-5 col-lg-5 ">
           <div class="input-group">
@@ -87,9 +89,9 @@
   </div>
 
   <div class="field">
-    <% if @net_form.expire_date != nil and Chronic.parse("today at 12:00am") > @net_form.expire_date %>
+    <% if @form.expire_date != nil and Chronic.parse("today at 12:00am") > @form.expire_date %>
       <%= f.input :completed, as: :boolean, boolean_style: :inline, input_html: {checked: false} %>
-    <%= @net_form.expire_date %>
+    <%= @form.expire_date %>
     <% else %> 
       <%= f.input :completed, as: :boolean, boolean_style: :inline %>
     <% end %>

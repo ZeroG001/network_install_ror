@@ -28,7 +28,7 @@
 
  <!-- Column Headers end -->
   
-<% @net_forms.each do |net_form| %>
+<% @forms.each do |net_form| %>
     <!-- Get the deivce image based on what the user put in -->
     <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>

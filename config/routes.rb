@@ -1,18 +1,18 @@
 NetworkInstallRor::Application.routes.draw do
 
   devise_for :users
-  root 'net_forms#index'
+  root 'forms#index'
 
-  resources :net_forms
+  resources :forms
   resources :printers
 
-resources :net_forms do
-  get 'search', to: 'net_forms#search', as: :search
-  get 'advsearch', to: 'net_forms#advsearch', as: :advsearch
+resources :forms do
+  get 'search', to: 'forms#search', as: :search
+  get 'advsearch', to: 'forms#advsearch', as: :advsearch
 end
 
-  get 'search' => 'net_forms#search'
-  get 'advsearch' => 'net_forms#advsearch'
+  get 'search' => 'forms#search'
+  get 'advsearch' => 'forms#advsearch'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

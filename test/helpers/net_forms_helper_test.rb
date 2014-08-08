@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class NetFormsHelperTest < ActionView::TestCase
+class FormsHelperTest < ActionView::TestCase
 end

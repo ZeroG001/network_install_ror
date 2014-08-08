@@ -1,5 +1,6 @@
-class NetForm < ActiveRecord::Base
+class Form < ActiveRecord::Base
 
+belongs_to :user
 
 	before_save :change_date
 	# Change date expire data and complete date for form that have expired.
