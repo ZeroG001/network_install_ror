@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808015134) do
+ActiveRecord::Schema.define(version: 20140808042903) do
 
   create_table "forms", force: true do |t|
     t.string   "first_name"
@@ -34,7 +34,10 @@ ActiveRecord::Schema.define(version: 20140808015134) do
     t.datetime "complete_date"
     t.datetime "expire_date"
     t.string   "antivir_expire_date"
+    t.integer  "user_id"
   end
+
+  add_index "forms", ["user_id"], name: "index_forms_on_user_id", using: :btree
 
   create_table "printers", force: true do |t|
     t.string   "ip_address"

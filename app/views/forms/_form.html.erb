@@ -1,106 +1,106 @@
 
 <%= simple_form_for(@form) do |f| %>
-  <% if @form.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this net_form from being saved:</h2>
+<% if @form.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@form.errors.count, "error") %> prohibited this net_form from being saved:</h2>
 
-      <ul>
-      <% @form.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @form.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <%= f.input :user, collection: User.all, label_method: :email %>
 
-  <div class="form-group">
-    <%= f.input :first_name, label: "First Name", input_html: {class: "form-control"} %>
-  </div>
-  <div class="field">
-    <%= f.input :last_name,label: "Last Name", input_html: {class: "form-control"} %>
-  </div>
-  <div class="field">
-    <%= f.input :office_number, label: "Office", input_html: {class: "form-control"} %>
-  </div>
-  <div class="field">
-    <%= f.input :paynum, label: "Pay Number", input_html: {class: "form-control"} %>
-  </div>
-  <div class="field">
-    <%= f.input :email, placeholder: 'user@domain.com', input_html: {class: "form-control"} %>
-  </div>
 
-  <div class="radio ">
-    <h3> Service Cost </h3>
-    <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @form.service_cost, label: false %>
-  </div>
+<div class="form-group">
+  <%= f.input :first_name, label: "First Name", input_html: {class: "form-control"} %>
+</div>
+<div class="field">
+  <%= f.input :last_name,label: "Last Name", input_html: {class: "form-control"} %>
+</div>
+<div class="field">
+  <%= f.input :office_number, label: "Office", input_html: {class: "form-control"} %>
+</div>
+<div class="field">
+  <%= f.input :paynum, label: "Pay Number", input_html: {class: "form-control"} %>
+</div>
+<div class="field">
+  <%= f.input :email, placeholder: 'user@domain.com', input_html: {class: "form-control"} %>
+</div>
 
-  <div class="field">
-    <%= f.input :equipment_type, collection: ["Desktop", "Laptop", "Tablet", "Smartphone"], label: "Device Type", input_html: {class: "form-control"} %>
-  </div>
+<div class="radio ">
+  <h3> Service Cost </h3>
+  <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @form.service_cost, label: false %>
+</div>
+
+<div class="field">
+  <%= f.input :equipment_type, collection: ["Desktop", "Laptop", "Tablet", "Smartphone"], label: "Device Type", input_html: {class: "form-control"} %>
+</div>
 
 <h3> Connection Type </h3>
-  <div class="radio">
-    <%= f.input :nic_connection, collection: [["Wired", "wired"],["Wireless", "wireless"],["Both","both"]], as: :radio_buttons, checked: @form.nic_connection, label: false %>
-  </div>
+<div class="radio">
+  <%= f.input :nic_connection, collection: [["Wired", "wired"],["Wireless", "wireless"],["Both","both"]], as: :radio_buttons, checked: @form.nic_connection, label: false %>
+</div>
 
-  <div class="field">
-    <%= f.input :os_type, collection: ["Windows 8","Windows 7","Windows Vista","Windows XP", "MAC/OSX","iOS","Android","Other"], label: "Operating System", input_html: {class: "form-control"} %>
-  </div>
-  <div class="field">
-    <%= f.input :antivir_type, label: "Antivirus Software", input_html: {class: "form-control"} %>
-  </div>
-  
-  
-  <div class="field">
-    <%= f.input :phone_number, placeholder: "123-456-7890", input_html: {class: "form-control"} %>
-  </div>
-  <div class="field">
-   <%= f.input :computer_name, input_html: {class: "form-control"} %>
-  </div>
-  <div class="field">
-    <%= f.input :antivir_expire_date, input_html: {class: "form-control", value: @form.format_date(@form.antivir_expire_date)} %>
-  </div>
-
-  <div class="field printers">
-    <h3> Printer IP Address </h3>
-    <button type="button" class="btn btn-default add_printer">Add printer</button>
-    <% if (@form.printer_ip.any?) %>
-
-      <% @form.printer_ip.each do |p| %>
-      <div class="row printer_input">
-        <div class="col-lg-5 col-lg-5 col-lg-5 ">
-          <div class="input-group">
-            <input class="string optional form-control" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text" value="<%= p %>">
-              <span class="input-group-btn">
-                <button class="btn btn-default remove_printer" type="button">Remove</button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-      <% end %>
-
-    <% end %>
-
-  </div>
-
-  <div class="field">
-    <%= f.input :technician_name, input_html: {class: "form-control"} %>
-  </div>
-
-  <div class="field">
-    <% if @form.expire_date != nil and Chronic.parse("today at 12:00am") > @form.expire_date %>
-      <%= f.input :completed, as: :boolean, boolean_style: :inline, input_html: {checked: false} %>
-    <%= @form.expire_date %>
-    <% else %> 
-      <%= f.input :completed, as: :boolean, boolean_style: :inline %>
-    <% end %>
+<div class="field">
+  <%= f.input :os_type, collection: ["Windows 8","Windows 7","Windows Vista","Windows XP", "MAC/OSX","iOS","Android","Other"], label: "Operating System", input_html: {class: "form-control"} %>
+</div>
+<div class="field">
+  <%= f.input :antivir_type, label: "Antivirus Software", input_html: {class: "form-control"} %>
+</div>
 
 
-  </div>
+<div class="field">
+  <%= f.input :phone_number, placeholder: "123-456-7890", input_html: {class: "form-control"} %>
+</div>
+<div class="field">
+ <%= f.input :computer_name, input_html: {class: "form-control"} %>
+</div>
+<div class="field">
+  <%= f.input :antivir_expire_date, input_html: {class: "form-control", value: @form.format_date(@form.antivir_expire_date)} %>
+</div>
+
+<div class="field printers">
+  <h3> Printer IP Address </h3>
+  <button type="button" class="btn btn-default add_printer">Add printer</button>
+  <% if (@form.printer_ip.any?) %>
+
+  <% @form.printer_ip.each do |p| %>
+  <div class="row printer_input">
+    <div class="col-lg-5 col-lg-5 col-lg-5 ">
+      <div class="input-group">
+        <input class="string optional form-control" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text" value="<%= p %>">
+        <span class="input-group-btn">
+          <button class="btn btn-default remove_printer" type="button">Remove</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <% end %>
+
+  <% end %>
+
+</div>
+
+<div class="field">
+  <%= f.input :technician_name, input_html: {class: "form-control"} %>
+</div>
+
+<div class="field">
+  <% if @form.expire_date != nil and Chronic.parse("today at 12:00am") > @form.expire_date %>
+  <%= f.input :completed, as: :boolean, boolean_style: :inline, input_html: {checked: false} %>
+  <%= @form.expire_date %>
+  <% else %> 
+  <%= f.input :completed, as: :boolean, boolean_style: :inline %>
+  <% end %>
 
 
-  <!-- Button trigger modal -->
+</div>
+
+
+<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Submit
 </button>
@@ -115,8 +115,8 @@
       </div>
       <div class="modal-body">
         <p>
-    <b> Before contacting the Help Desk, your PC must meet the following requirements! </b>
-    </p><ul>
+          <b> Before contacting the Help Desk, your PC must meet the following requirements! </b>
+        </p><ul>
         <li>
           Up-to-date copy of antivirus software installed. If you antivirus sofware is not kept up-to-date, you may be blocked from using the network. If you do not have antivirus software can find a copy here <a href="http://www.microsoft.com/windows/antivirus-partners/windows-7.aspx"> here! </a>
         </li>
@@ -129,23 +129,23 @@
         </li>
       </ul>
       
-  
-    <p>
-    <b>This network Installation Involves the following services to you:</b>
+      
+      <p>
+        <b>This network Installation Involves the following services to you:</b>
       </p><ul>
-        <li>
-          Installation of a network wired or wireless connection from the office hub to your current desk 
-        </li>
-        <li>
-          An ethernet network interface card and installation of the card in your computer if needed 
-        </li>
-        <li>
-          Configuration of oporating system within our network 
-        </li>
-        <li>
-          Configuration to print up to <b><i> three </i> </b> printers in the office
-        </li>
-      </ul>
+      <li>
+        Installation of a network wired or wireless connection from the office hub to your current desk 
+      </li>
+      <li>
+        An ethernet network interface card and installation of the card in your computer if needed 
+      </li>
+      <li>
+        Configuration of oporating system within our network 
+      </li>
+      <li>
+        Configuration to print up to <b><i> three </i> </b> printers in the office
+      </li>
+    </ul>
     <p></p>
     
     <p> 
@@ -153,20 +153,20 @@
     </p>
     
     <p>
-    It is Real Estate One's policy to limit Internet access to official business. The Company utilizes software that makes is  possible to
-    identify and block access to Internet sites containing material deemed inappropriate in the workplace.
+      It is Real Estate One's policy to limit Internet access to official business. The Company utilizes software that makes is  possible to
+      identify and block access to Internet sites containing material deemed inappropriate in the workplace.
     </p>
     
     <p>
-    Based on the number of sales associates who connect to the system and the cost of servicing the system, Real Estate One reserves the right
-    to charge a monthly access fee for a connection to the Real Estate One sales office network.
+      Based on the number of sales associates who connect to the system and the cost of servicing the system, Real Estate One reserves the right
+      to charge a monthly access fee for a connection to the Real Estate One sales office network.
     </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Disagree</button>
-        <button type="submit" class="btn btn-primary btn-lg" role="button">Agree </button>      </div>
-    </div>
   </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Disagree</button>
+    <button type="submit" class="btn btn-primary btn-lg" role="button">Agree </button>      </div>
+  </div>
+</div>
 </div>
 
 <% end %>

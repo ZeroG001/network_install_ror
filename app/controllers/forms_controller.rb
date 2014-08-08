@@ -6,6 +6,7 @@ class FormsController < ApplicationController
   # GET /forms.json
   def index
     @forms = Form.where("completed = 0")
+    #@forms = User.find(current_user).forms
   end
 
   # GET /forms/1
@@ -94,6 +95,7 @@ class FormsController < ApplicationController
   # POST /forms.json
   def create
     @form = Form.new(form_params)
+    @form.user_id = current_user.id
 
     respond_to do |format|
       if @form.save
@@ -139,7 +141,7 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:first_name, :last_name, :service_cost, :equipment_type, :nic_connection, :os_type, :antivir_type, :paynum, :complete_date, :completed, :email, {printer_ip: []}, :phone_number, :computer_name, :antivir_expire_date, :technician_name, :office_number)
+      params.require(:form).permit(:user_id, :first_name, :last_name, :service_cost, :equipment_type, :nic_connection, :os_type, :antivir_type, :paynum, :complete_date, :completed, :email, {printer_ip: []}, :phone_number, :computer_name, :antivir_expire_date, :technician_name, :office_number)
     end
 
     

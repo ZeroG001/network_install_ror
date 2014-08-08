@@ -1,86 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NetworkInstallRor</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>NetworkInstallRor</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
+
 <body>
 
 	<!-- Devise Flash Messages -->
 	<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+	<p class="alert"><%= alert %></p>
 
 
-				<!-- Navigation Start -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<!-- Navigation Start -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<%= image_tag("list.svg", class: "sidebar-button hidden-sm hidden-md hidden-lg navbar-brand") %>
 		<%= image_tag("copy.png", class: "navbar-brand col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-offset-0") %>
 		<div class="navbar-brand"> Net Form </div>
 
 		<ul class="nav navbar-nav navbar-right">
 
-				
-				
-				<% if user_signed_in? %>
-				
+
+
+
+
 			<!-- If the user is signed in, show a different nav -->
 
-				<nav class="user-options">
-					<ul class="user-options-list-1">
-						<li><%= link_to "Sign-Out", destroy_user_session_path, method: "Delete" %> </li>
-						<li> <%= link_to "Edit User", edit_user_registration_path %> </li>
-					</ul>
-				</nav>
-				<% else %>
-				 <li class="pull-right"> <%= link_to "Sign-In", user_session_path %></li>
-				 <li class="pull-right"><%= link_to "Sign-Up", new_user_registration_path %></li>
-				<% end %>
-			</ul>
-</nav>
-
-<div class="container-fluid">
-<div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 hidden-xs sidebar">
-
-		<ul class="nav nav-sidebar">
-			<li><%= link_to "New Form", new_form_path %></li>
 			
+			<% if user_signed_in? %>
+			
+			<li class="pull-right"><%= link_to "Sign-Out", destroy_user_session_path, method: "Delete" %> </li>
 
-			<% if current_user.try(:admin?) %>
-				<li> <%= link_to "Search", search_path %> </li>
-				
-			<% else #if its a user show my forms %>
-				<li><%= link_to "My Devices" %></li>
+			<li class="pull-right"> <%= link_to "Edit User", edit_user_registration_path %> </li>
+
+			<% else %>
+
+			<li class="pull-right"> <%= link_to "Sign-In", user_session_path %></li>
+			<li class="pull-right"><%= link_to "Sign-Up", new_user_registration_path %></li>
+
 			<% end %>
-			<li><%= link_to "To Do", forms_path %></li>
-			<li> <%= link_to "Search", search_path %>
+
+
+			
 		</ul>
 
-		<% if current_user.try(:admin) %>
-		<p> im the admin </p>
-		<% end %>
-	
-</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 hidden-xs sidebar">
+
+			<ul class="nav nav-sidebar">
+				<li><%= link_to "New Form", new_form_path %></li>
+
+
+				<% if current_user.try(:admin?) %>
+				<li> <%= link_to "Search", search_path %> </li>
+				<li><%= link_to "To Do", forms_path %></li>
+				
+				<% else #if its a user show my forms %>
+				<li><%= link_to "My Devices" %></li>
+				<% end %>
+
+			</ul>
+		</div>
 
 
 
-<!-- Page Content end -->
+		<!-- Page Content end -->
 
-<!-- sidebar_backdrop. Added so that when you have the sidebar open, you don't accidentally click anything when you close the side bar. Please don't remove -->
-<div class="sidebar_backdrop"> </div>
-<!-- sidebar_backdrop end -->
+		<!-- sidebar_backdrop. Added so that when you have the sidebar open, you don't accidentally click anything when you close the side bar. Please don't remove -->
+		<div class="sidebar_backdrop"> </div>
+		<!-- sidebar_backdrop end -->
 
-<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-offset-2">
-<%= yield %>
-</div>
+		<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-offset-2">
+			<%= yield %>
+		</div>
 
 
-<!-- Page Content end -->
+		<!-- Page Content end -->
 
-</div>
+	</div>
 
 </body>
 </html>
