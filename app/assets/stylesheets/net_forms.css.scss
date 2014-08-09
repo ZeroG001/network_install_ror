@@ -24,14 +24,16 @@ body {
 	z-index: 10;
 	height: 100%;
 
-	a {
-	padding: 7px 10px 7px 20% ;
+	li {
+		min-width:135px;
+		margin: 10px 0px 10px 0px;
+		&:hover {
+		background-color: #eee;
+		}
 	}
+
+
 }
-
-
-
-
 
 /* ============= Bootstrap Modifications End ============ */
 
@@ -39,15 +41,7 @@ body {
 /* ======= CSS For main pages ============= */
 .nav-sidebar {
 	padding-top: 30px;
-	font-size: 1.3em;
-
-	li {
-		min-width:135px;
-		padding: 10px 0px 10px 0px;
-		&:hover {
-		background-color: #eee;
-		}
-	}
+	font-size: 1.3em;	
 }
 
 

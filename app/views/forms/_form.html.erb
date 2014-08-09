@@ -13,7 +13,6 @@
 <% end %>
 
 
-
 <div class="form-group">
   <%= f.input :first_name, label: "First Name", input_html: {class: "form-control"} %>
 </div>
@@ -21,7 +20,7 @@
   <%= f.input :last_name,label: "Last Name", input_html: {class: "form-control"} %>
 </div>
 <div class="field">
-  <%= f.input :office_number, label: "Office", input_html: {class: "form-control"} %>
+  <%= f.input :office_number, collection: @form.office_array, label: "Office", input_html: {class: "form-control"} %>
 </div>
 <div class="field">
   <%= f.input :paynum, label: "Pay Number", input_html: {class: "form-control"} %>
@@ -55,6 +54,10 @@
 <div class="field">
   <%= f.input :phone_number, placeholder: "123-456-7890", input_html: {class: "form-control"} %>
 </div>
+
+<!-- Section that only an admin or manager would see -->
+<% if current_user.try(:admin?) %>
+
 <div class="field">
  <%= f.input :computer_name, input_html: {class: "form-control"} %>
 </div>
@@ -91,82 +94,89 @@
 <div class="field">
   <% if @form.expire_date != nil and Chronic.parse("today at 12:00am") > @form.expire_date %>
   <%= f.input :completed, as: :boolean, boolean_style: :inline, input_html: {checked: false} %>
-  <%= @form.expire_date %>
+  <% #@form.expire_date %>
   <% else %> 
   <%= f.input :completed, as: :boolean, boolean_style: :inline %>
   <% end %>
-
-
 </div>
+
+<% end %>
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Submit
-</button>
+<% if current_user.try(:admin?) %>
+  <%= f.button :submit, "Submit" , input_html: {class: "btn btn-primary btn-lg"}  %>
+  
+<% else %>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Test Form</h4>
-      </div>
-      <div class="modal-body">
+
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Submit
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Test Form</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            <b> Before contacting the Help Desk, your PC must meet the following requirements! </b>
+          </p><ul>
+          <li>
+            Up-to-date copy of antivirus software installed. If you antivirus sofware is not kept up-to-date, you may be blocked from using the network. If you do not have antivirus software can find a copy here <a href="http://www.microsoft.com/windows/antivirus-partners/windows-7.aspx"> here! </a>
+          </li>
+          <li>
+            For wireless network setup of if using an existing wired port, your computer should be connected to an existing wired 
+            connetion so that we can setup from a remote location.
+          </li>
+          <li>
+            Using Windows XP Pro, Windows Vista, Windows 7, Windows 8, or MAC OS X version 10.1 and above 
+          </li>
+        </ul>
+        
+        
         <p>
-          <b> Before contacting the Help Desk, your PC must meet the following requirements! </b>
+          <b>This network Installation Involves the following services to you:</b>
         </p><ul>
         <li>
-          Up-to-date copy of antivirus software installed. If you antivirus sofware is not kept up-to-date, you may be blocked from using the network. If you do not have antivirus software can find a copy here <a href="http://www.microsoft.com/windows/antivirus-partners/windows-7.aspx"> here! </a>
+          Installation of a network wired or wireless connection from the office hub to your current desk 
         </li>
         <li>
-          For wireless network setup of if using an existing wired port, your computer should be connected to an existing wired 
-          connetion so that we can setup from a remote location.
+          An ethernet network interface card and installation of the card in your computer if needed 
         </li>
         <li>
-          Using Windows XP Pro, Windows Vista, Windows 7, Windows 8, or MAC OS X version 10.1 and above 
+          Configuration of oporating system within our network 
+        </li>
+        <li>
+          Configuration to print up to <b><i> three </i> </b> printers in the office
         </li>
       </ul>
+      <p></p>
       
+      <p> 
+        If for any reason a technician must come onsite to setup an internet connection, charges will apply. 
+      </p>
       
       <p>
-        <b>This network Installation Involves the following services to you:</b>
-      </p><ul>
-      <li>
-        Installation of a network wired or wireless connection from the office hub to your current desk 
-      </li>
-      <li>
-        An ethernet network interface card and installation of the card in your computer if needed 
-      </li>
-      <li>
-        Configuration of oporating system within our network 
-      </li>
-      <li>
-        Configuration to print up to <b><i> three </i> </b> printers in the office
-      </li>
-    </ul>
-    <p></p>
-    
-    <p> 
-      If for any reason a technician must come onsite to setup an internet connection, charges will apply. 
-    </p>
-    
-    <p>
-      It is Real Estate One's policy to limit Internet access to official business. The Company utilizes software that makes is  possible to
-      identify and block access to Internet sites containing material deemed inappropriate in the workplace.
-    </p>
-    
-    <p>
-      Based on the number of sales associates who connect to the system and the cost of servicing the system, Real Estate One reserves the right
-      to charge a monthly access fee for a connection to the Real Estate One sales office network.
-    </p>
+        It is Real Estate One's policy to limit Internet access to official business. The Company utilizes software that makes is  possible to
+        identify and block access to Internet sites containing material deemed inappropriate in the workplace.
+      </p>
+      
+      <p>
+        Based on the number of sales associates who connect to the system and the cost of servicing the system, Real Estate One reserves the right
+        to charge a monthly access fee for a connection to the Real Estate One sales office network.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Disagree</button>
+      <button type="submit" class="btn btn-primary btn-lg" role="button">Agree </button>      </div>
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Disagree</button>
-    <button type="submit" class="btn btn-primary btn-lg" role="button">Agree </button>      </div>
   </div>
-</div>
-</div>
+<% end %>
 
 <% end %>
