@@ -8,6 +8,10 @@
 
   $(function(){
 
+    //For radio buttons on the new form page make the text of the button
+    //match the value of the button
+
+
     // When the user clicks anywhere on the document. Close the sidebar.
     $(document).click(function(e){
       if($(e.target).is(':not(.sidebar, .sidebar *, .sidebar-button)')) {
