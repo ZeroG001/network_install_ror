@@ -29,10 +29,25 @@
   <%= f.input :email, placeholder: 'user@domain.com', input_html: {class: "form-control"} %>
 </div>
 
-<div class="radio ">
   <h3> Service Cost </h3>
-  <%= f.input :service_cost, as: :radio_buttons, collection: [["No Charge: I have a wireless device and/or there is an availible data port", "none"],["125: There are no data ports avalible at my workspace, I need one installed", "125"]], checked: @form.service_cost, label: false %>
+<div class="row">
+
+  <div class="col-sm-3 col-md-3 col-lg-3">
+    <input class="radio_buttons optional form-radio-button" id="form_service_cost_none" name="form[service_cost]" type="radio" value="none">
+    <label for="form_service_cost_none">No Charge</label>
+    <p> No Charge: I have a wireless device and/or there is an availible data port </p>
+  </div>
+
+  <div class="col-sm-3 col-md-3 col-lg-3">
+
+    <input class="radio_buttons optional form-radio-button" id="form_service_cost_125" name="form[service_cost]" type="radio" value="125">
+    <label for="form_service_cost_125">$125</label>
+    <p> There are no data ports avalible at my workspace, I need one installed </p>
+  </div>
+
 </div>
+  <!-- <p> No Charge: I have a wireless device and/or there is an availible data por </p> -->
+  <!--125: There are no data ports avalible at my workspace, I need one installed -->
 
 <div class="field">
   <%= f.input :equipment_type, collection: ["Desktop", "Laptop", "Tablet", "Smartphone"], label: "Device Type", input_html: {class: "form-control"} %>
@@ -40,8 +55,24 @@
 
 <h3> Connection Type </h3>
 
-  <%= f.input :nic_connection, collection: [["Wired", "Wired"],["Wireless", "Wireless"],["Both","Both"]], as: :radio_buttons, checked: @form.nic_connection, label: false, input_html: {class: "form-radio-button"} %>
+  <div class="row">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <input class="radio_buttons optional form-radio-button" id="form_nic_connection_wired" name="form[nic_connection]" type="radio" value="Wired" <% if @form.nic_connection == "Wired" %> checked <% end %> >
+      <label for="form_nic_connection_wired">Wired</label>
+    </div>
 
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <input class="radio_buttons optional form-radio-button" id="form_nic_connection_wireless" name="form[nic_connection]" type="radio" value="Wireless" <% if @form.nic_connection == "Wireless" %> checked <% end %> >
+      <label for="form_nic_connection_wireless">Wireless</label>
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <input class="radio_buttons optional form-radio-button" id="form_nic_connection_both" name="form[nic_connection]" type="radio" value="Both" <% if @form.nic_connection == "Both" %> checked <% end %>>
+      <label for="form_nic_connection_both">Both</label>
+    </div>
+  </div>
+
+  <% # f.input :nic_connection, collection: [["Wired", "Wired"],["Wireless", "Wireless"],["Both","Both"]], as: :radio_buttons, checked: @form.nic_connection, label: false, input_html: {class: "form-radio-button"} %>
 
 <div class="field">
   <%= f.input :os_type, collection: ["Windows 8","Windows 7","Windows Vista","Windows XP", "MAC/OSX","iOS","Android","Other"], label: "Operating System", input_html: {class: "form-control"} %>
@@ -104,11 +135,10 @@
 
 
 <!-- Button trigger modal -->
+  <!-- When you're logged in as an admin, you will not see the modal -->
 <% if current_user.try(:admin?) %>
   <%= f.button :submit, "Submit" , input_html: {class: "btn btn-primary btn-lg"}  %>
-  
 <% else %>
-
 
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
     Submit

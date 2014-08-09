@@ -77,17 +77,23 @@ body {
 
 
 
-	/* checkbox modification 
+	/* checkbox modification */ 
 
 .form-radio-button {
 
-	&:not(:checked):before {
+display: none;
+
+ 	 background-color: #fff;
+		border: 1px solid black;
+
+	&:not(:checked) + label, &:checked + label  {
+		content: "";
 		positition: relative;
 		width: 100px;
-		content: "";
-		display: inline-block;
+		margin: 10px auto;
+
+		display: block;
 		padding: 6px 12px;
-		margin-bottom: 0;
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 1.42857143;
@@ -100,34 +106,29 @@ body {
 		-ms-user-select: none;
 		user-select: none;
 		background-image: none;
-		background-color: #667;
-		border: 1px solid transparent;
 		border-radius: 4px;
+
+			& + p {
+				max-width: 300px;
+				text-align: justify;
+			}
+
 		}
 
+		&:not(:checked) + label {
+		background-color: #fff;
+		border: 1px solid black;
+		}
 
-		&:checked:before {
-		content: "";
-		display: inline-block;
-		padding: 6px 12px;
-		margin-bottom: 0;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 1.42857143;
-		text-align: center;
-		white-space: nowrap;
-		vertical-align: middle;
-		cursor: pointer;
-		background-image: none;
-		border: 1px solid transparent;
-		border-radius: 4px;
+		&:checked + label {
 		color: #fff;
 		background-color: #3071a9;
 		border-color: #285e8e;
+		border: 1px solid transparent
 		}
+
 	}
 	
-	*/
 
 /* checkbox modification end */
 
@@ -211,6 +212,16 @@ body {
 	width:100%;
 	height: 100%;
 	display: none;
+}
+	.form-radio-button {
+
+	&:not(:checked) + label {
+	
+	}
+
+	&:checked + label {
+	
+	}
 }
 	
 } /*  Media Query end */
