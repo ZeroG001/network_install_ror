@@ -1,0 +1,49 @@
+<h1> Advanced Search </h1>
+
+<%= form_tag("/advsearch", method: "get") do %>
+
+<div class="row row-field">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+  <%= label_tag(:first_name, "First Name") %>
+  <%= text_field_tag(:first_name, params[:first_name], class: "form-control") %>
+</div>
+</div>
+
+<div class="row row-field">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+  <%= label_tag(:last_name, "Last Name") %>
+  <%= text_field_tag(:last_name, params[:last_name], class: "form-control") %>
+</div>
+</div>
+
+<div class="row row-field">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+  <%= label_tag(:completed, "Completed?") %>
+  <%= check_box_tag(:completed) %>
+</div>
+</div>
+
+<div class="row row-field">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+  <%= label_tag(:paynum, "Paynum") %>
+  <%= text_field_tag(:paynum, nil, class: 'form-control')  %>
+</div>
+</div>
+
+<div class="row row-field">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+  <%= label_tag(:computer_name, "Computer Name") %>
+  <%= text_field_tag(:computer_name, nil, class: 'form-control') %>
+</div>
+</div>
+
+<div class="row row-field">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+  <%= label_tag(:office_number, "Office") %>
+  <%= select_tag(:office_number, options_for_select(@form.office_array), class: 'form-control') %>
+</div>
+</div>
+
+  <% #name: nil gets rid of name get variable sent. %>
+  <%= submit_tag("Search", name: nil, class: 'btn btn-default') %>
+<% end %>

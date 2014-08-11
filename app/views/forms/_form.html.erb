@@ -114,7 +114,7 @@
 
 
 <!-- Section that only an admin or manager would see -->
-<% if current_user.try(:admin?) or current_user.try(:manager) %>
+<% if current_user.try(:admin?) or current_user.try(:manager?) %>
 
 <div class="row row-field">
   <div class="col-sm-12 col-md-12 col-lg-12">

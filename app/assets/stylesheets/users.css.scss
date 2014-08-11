@@ -1,0 +1,26 @@
+.signup-form-wrapper {
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: inline-block;
+  margin: 0px auto;
+  border-radius: 3px;
+  border: 1px solid grey;
+
+
+	.form-inputs input {
+		color: #555;
+		font-size: 15px;
+		min-width: 215px;
+		padding: 10px;
+		margin: 5px 0;
+	 }
+
+	 .form-actions input {
+		font-size: 18px;
+		min-width: 215px;
+		padding: 10px;
+		margin: 5px 0;
+	 }
+
+}
+

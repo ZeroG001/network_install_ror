@@ -1,12 +1,17 @@
 class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
  
 
   # GET /forms
   # GET /forms.json
   def index
-    @forms = Form.where("completed = 0")
-    #@forms = User.find(current_user).forms
+    if current_user.try(:admin?)
+      @forms = Form.where("completed = 0")
+    else
+      @forms = User.find(current_user).forms
+    end
+    #
   end
 
   # GET /forms/1
@@ -15,7 +20,12 @@ class FormsController < ApplicationController
 
   end
 
+  def advsearch_form
+    @form = Form.new
+  end
+
   def advsearch
+    @form = Form.new
     # Trying to figure how to make a dynemic query
     def buildQuery(block)
       block.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
@@ -45,6 +55,9 @@ class FormsController < ApplicationController
     queryParams = buildParams params
     
     @forms = Form.where(queryString, *queryParams).take(50)
+    if params.empty?
+      @forms = params;
+    end
     #@test_array = params.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
     # full_name = "%#{params[:full_name]}%"
     # @forms = Form.where("concat(first_name,' ',last_name) LIKE ? AND completed = ?",full_name, params[:completed])
@@ -72,12 +85,20 @@ class FormsController < ApplicationController
       cpu_name = "%#{params[:cpu_name]}%"
     end
 
+    # DIfferent queries depending on whos logged in
     if params[:full_name] 
-      @forms = Form.where("concat(first_name,' ',last_name) LIKE ?",full_name);
+
+      if current_user.try(:manager?)
+         @forms = Form.where("concat(first_name,' ',last_name) LIKE ? AND office_number = ? ",full_name, current_user.office_number );
+      elsif current_user.try(:admin?)
+        @forms = Form.where("concat(first_name,' ',last_name) LIKE ?",full_name);
+      end
+        
     elsif params[:cpu_name]
       @forms = Form.where("computer_name LIKE ?", cpu_name)
     end
   end
+
 
 
 

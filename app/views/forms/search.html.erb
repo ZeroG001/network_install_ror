@@ -3,6 +3,7 @@
 <%= form_tag("/search", method: "get") do %>
  
 
+
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-6">
     <div class="input-group">
@@ -12,7 +13,7 @@
           <li class="dropdown-agent-name"><a>Agent Name</a></li>
           <li class="dropdown-computer-name"><a>Computer Name</a></li>
           <li class="divider"></li>
-          <li><%= link_to "Advanced Search", advsearch_path %></li>
+          <li><%= link_to "Advanced Search", advsearch_form_path %></li>
         </ul>
       </div><!-- /btn-group -->
       <% if params[:full_name] %>
