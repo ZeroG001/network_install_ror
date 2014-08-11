@@ -69,9 +69,12 @@ class FormsController < ApplicationController
 
   #This section may need refactoring. Regular expression using deprecated way to detect empty space
   def search
-
-   
+    if current_user.try(:manager?)
+      @forms = Form.where("office_number = ?", current_user.office_number );
+    elsif current_user.try(:admin?)
       @forms = Form.all
+    end
+        
     
     if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
        full_name = "#{params[:full_name]}"

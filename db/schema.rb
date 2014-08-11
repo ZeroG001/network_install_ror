@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811205529) do
+ActiveRecord::Schema.define(version: 20140811220019) do
 
   create_table "forms", force: true do |t|
     t.string   "first_name"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20140811205529) do
     t.string   "office_number"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 

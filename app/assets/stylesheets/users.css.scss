@@ -1,4 +1,6 @@
 .signup-form-wrapper {
+	position: relative;
+	left: 24%;
   background-color: #f5f5f5;
   padding: 20px;
   display: inline-block;
@@ -23,4 +25,13 @@
 	 }
 
 }
+
+
+@media screen and (max-width: 768px) {
+
+.signup-form-wrapper {
+left: 20%;
+}
+	
+} /*  Media Query end */
 
