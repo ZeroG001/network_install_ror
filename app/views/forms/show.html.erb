@@ -10,6 +10,9 @@
  
 <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == @form.equipment_type} %>
+    <% if found_image.empty? %>
+    <%  found_image = {"None" => "question.svg"} %> 
+    <% end %> 
     <%= image_tag(found_image.values.join(" "), width: "150px") %>
 
 

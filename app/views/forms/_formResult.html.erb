@@ -1,14 +1,14 @@
-<div class="result_wrapper">
+<div class="main_result_wrapper">
 
     <!-- Column Headers -->
 
     <div class="row hidden-xs col-sm-10 col-md-10 header-row">
 
-    <div class="device_image col-md-2 col-sm-2">
-       <span class="header-text"> Device </span>
-    </div>
+        <div class="device_image col-md-2 col-sm-2">
+         <span class="header-text"> Device </span>
+     </div>
 
-    <div class="col-md-3 col-sm-3">
+     <div class="col-md-3 col-sm-3">
         <span class="header-text"> Agent Name </span>
     </div>
 
@@ -25,50 +25,54 @@
     </div>
 
 </div> 
-
- <!-- Column Headers end -->
-  
-<% @forms.each do |net_form| %>
+<!-- Column Headers end -->
+<div class="result_rows">
+    <% @forms.each do |net_form| %>
     <!-- Get the deivce image based on what the user put in -->
     <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
     <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>
+    <% if found_image.empty? %>
+    <%  found_image = {"None" => "question.svg"} %> 
+    <% end %> 
     <% # Encapsulating show link %>
     <%= link_to net_form, class: "net_form_row_a" do %>
-<div class="row col-sm-10 col-md-10 net_form_row">
 
-    <div class="device_image col-md-2 col-sm-2 col-xs-6">
-        <%= image_tag(found_image.values.join(" ")) %>
-    </div>
-
-    <div class="col-md-3 col-sm-3">
-        <%= net_form.first_name + " " + net_form.last_name %>
-    </div>
-
-    <div class="col-md-2 col-sm-2">
-        <%= net_form.computer_name %>
-    </div>
-
-    <div class="col-md-4 col-sm-4">
-        <% if net_form.completed == "0" or net_form.completed == nil %>
-            <p> Incomplete </p>
-        <% elsif net_form.completed == "1" and net_form.expire_date != nil and net_form.complete_date != nil and Chronic.parse("today at 12:00am") > net_form.expire_date %>
-
-            <p> Form Expired </p>
         
-        <% elsif net_form.completed == "1" and net_form.complete_date != nil and net_form.expire_date != nil and Chronic.parse("today at 12:00am") < net_form.expire_date %>
+            <div class="row col-sm-10 col-md-10 net_form_row">
 
-            <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), net_form.expire_date)%></p>
-        <% end %> 
-    </div>
+                <div class="device_image col-md-2 col-sm-2 col-xs-6">
+                    <%= image_tag(found_image.values.join(" ")) %>
+                </div>
 
-<div class="col-md-1 col-sm-1">
-    
+                <div class="col-md-3 col-sm-3">
+                    <%= net_form.first_name + " " + net_form.last_name %>
+                </div>
+
+                <div class="col-md-2 col-sm-2">
+                    <%= net_form.computer_name %>
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <% if net_form.completed == "0" or net_form.completed == nil %>
+                    <p> Incomplete </p>
+                    <% elsif net_form.completed == "1" and net_form.expire_date != nil and net_form.complete_date != nil and Chronic.parse("today at 12:00am") > net_form.expire_date %>
+
+                    <p> Form Expired </p>
+                    
+                    <% elsif net_form.completed == "1" and net_form.complete_date != nil and net_form.expire_date != nil and Chronic.parse("today at 12:00am") < net_form.expire_date %>
+
+                    <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), net_form.expire_date)%></p>
+                    <% end %> 
+                </div>
+
+                <div class="col-md-1 col-sm-1">
+                <!-- options put things in here soon -->
+                </div>
+            </div> 
         
-        
-    </div>
 
-         
-</div>    
-       <% end %>
- <% end %>
- </div> 
+    <% end %>
+<% end %>
+</div>
+</div> 
+

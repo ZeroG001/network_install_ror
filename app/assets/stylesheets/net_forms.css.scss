@@ -39,6 +39,12 @@ body {
 
 
 /* ======= CSS For main pages ============= */
+
+.row-field {
+
+	margin-bottom: 20px;
+}
+
 .nav-sidebar {
 	padding-top: 30px;
 	font-size: 1.3em;	
@@ -47,6 +53,7 @@ body {
 .net_form_row {
 	padding-top: 7.5px;
 	padding-bottom: 7.5px;
+	border-bottom: 1px solid #c0c0c0;
 	}
 
 .finished-text {
@@ -90,7 +97,7 @@ display: none;
 		content: "";
 		positition: relative;
 		width: 100px;
-		margin: 10px auto;
+		margin: 10px 0px;
 
 		display: block;
 		padding: 6px 12px;
@@ -129,6 +136,13 @@ display: none;
 
 	}
 	
+	.form-checkbox {
+		@extend .form-radio-button;
+
+		&:checked + label {
+			background-color: green;
+		}
+	}
 
 /* checkbox modification end */
 
@@ -168,7 +182,7 @@ display: none;
 	padding-top: 10px;
 }
 
-.result_wrapper {
+.main_result_wrapper {
 	position: relative;
 	padding-top: 20px;
 
@@ -216,11 +230,11 @@ display: none;
 	.form-radio-button {
 
 	&:not(:checked) + label {
-	
+	display: inline-block;
 	}
 
 	&:checked + label {
-	
+	display: inline-block;
 	}
 }
 	

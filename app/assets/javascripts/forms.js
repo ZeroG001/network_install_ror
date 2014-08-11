@@ -53,7 +53,7 @@
 
     }); // Click function end
 
-//Changes attributes of the input field basted on what you click in the search dropdown  box
+//Changes attributes of the input field basted on what you click in the search dropdown box
 $dropdown_item = $(".dropdown-menu li");
   $dropdown_item.click(function(){
     if($(this).is(".dropdown-agent-name")){
@@ -72,10 +72,11 @@ $dropdown_item = $(".dropdown-menu li");
     }
   });
 
+// When you click the add printer button in the form. It will add a new printer field
   var new_printer_input = '<div class="row printer_input">'
        +'<div class="col-lg-5 col-md-5 col-sm-5">'
           +'<div class="input-group">'
-            +'<input class="string optional form-control" id="net_form_printer_ip" name="net_form[printer_ip][]" type="text">'
+            +'<input class="string optional form-control" id="net_form_printer_ip" name="form[printer_ip][]" type="text">'
              +'<span class="input-group-btn">'
                +'<button class="btn btn-default remove_printer" type="button">Remove</button>'
               +'</span>'
@@ -104,6 +105,22 @@ $(".add_printer").click(function(){
 // Add printers end
 
 
+// //AJAX Load more results begin.
+// Enable this when you're ready for ajax requests on results.
+//just created a button with class .load-more-button
+// $(".load-more-button").click(function(){
+//   $.ajax({
+
+//       url: "/search"
+
+//   }).done(function( html ) {
+
+//     html = $(html).find(".result_rows");
+//     $(".result_rows:last").append( html );
+
+//   }); // done function end
+
+// });// ajax end
 
   }); // End jquery
 

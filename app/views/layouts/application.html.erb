@@ -55,20 +55,18 @@
 
 			<ul class="nav nav-sidebar">
 				<li><%= link_to "New Form", new_form_path %></li>
-
-
 				<% if current_user.try(:admin?) %>
 				<li> <%= link_to "Search", search_path %> </li>
 				<li><%= link_to "To Do", forms_path %></li>
-				
+				<% elsif current_user.try(:manager?) %>
+				<li> <%= link_to "Search", search_path %> </li>
+				<!-- Have link leading to office forms -->
 				<% else #if its a user show my forms %>
 				<li><%= link_to "My Devices" %></li>
 				<% end %>
 
 			</ul>
 		</div>
-
-
 
 		<!-- Page Content end -->
 
