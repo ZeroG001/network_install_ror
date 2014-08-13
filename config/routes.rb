@@ -1,10 +1,11 @@
 NetworkInstallRor::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'
   root 'forms#index'
 
   resources :forms
   resources :printers
+  resources :users
 
 resources :forms do
   get 'search', to: 'forms#search', as: :search
