@@ -5,6 +5,5 @@ class EmailFieldNotRequired < ActiveRecord::Migration
 
  def down
  	change_column :users, :email, :string, :null => false
- 	error!
  end
 end

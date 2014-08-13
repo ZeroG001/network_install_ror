@@ -1,25 +1,66 @@
-<h1>Listing users</h1>
+<div class="main_result_wrapper">
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <!-- Column Headers -->
 
-  <tbody>
+    <div class="row hidden-xs col-sm-10 col-md-10 header-row">
+
+        <div class="device_image col-md-2 col-sm-2">
+         <span class="header-text"> Username </span>
+     </div>
+
+     <div class="col-md-3 col-sm-3">
+        <span class="header-text"> First Name  </span>
+    </div>
+
+    <div class="col-md-2 col-sm-2">
+        <span class="header-text"> Last Name </span>
+    </div>
+
+    <div class="col-md-4 col-sm-4">
+        <span class="header-text"> Option </span>
+    </div>
+
+    <div class="col-md-1 col-sm-1">
+        <span class="header-text"> Options </span>
+    </div>
+
+</div> 
+<!-- Column Headers end -->
+<div class="result_rows">
     <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <!-- Get the deivce image based on what the user put in -->
+    
+    <%= link_to user, class: "net_form_row_a" do %>
+
+        
+            <div class="row col-sm-10 col-md-10 net_form_row">
+
+                <div class="device_image col-md-2 col-sm-2 col-xs-6">
+                    <%= user.username %>
+                </div>
+
+                <div class="col-md-3 col-sm-3">
+                    
+                </div>
+
+                <div class="col-md-2 col-sm-2">
+                    
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <%= link_to 'Show', user %>
+                    <%= link_to 'Edit', edit_user_path(user) %>
+                    <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+
+                <div class="col-md-1 col-sm-1">
+                <!-- options put things in here soon -->
+                </div>
+            </div> 
+        
+
     <% end %>
-  </tbody>
-</table>
+<% end %>
+</div>
+</div> 
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
