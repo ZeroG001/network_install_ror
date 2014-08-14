@@ -36,18 +36,16 @@
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 hidden-xs sidebar">
 				<ul class="nav nav-sidebar">
 					<li><%= link_to "New Form", new_form_path %></li>
-					<% if current_user.try(:admin) %>
+					<% if current_user.try(:role) == "admin" %>
 					<li> <%= link_to "Search", search_path %> </li>
 					<li><%= link_to "To Do", forms_path %></li>
 					<li><%= link_to "Manage Users", users_path %> </li>
 					<br>
 					<li><%= link_to "Sign-Out", destroy_user_session_path, method: "Delete" %></li>
-					<% elsif current_user.try(:manager?) %>
+					<% elsif current_user.try(:role) == "manager" %>
 					<li> <%= link_to "Office Devices", search_path %> </li>
 					<br>
 					<li><%= link_to "Sign-Out", destroy_user_session_path, method: "Delete" %></li>
-					<li><%= link_to "Edit User", edit_user_registration_path %></li>
-
 					<!-- Have link leading to office forms -->
 					<% else #if its a user show my forms %>
 					<li><%= link_to "My Devices", forms_path %></li>

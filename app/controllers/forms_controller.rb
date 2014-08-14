@@ -69,9 +69,9 @@ class FormsController < ApplicationController
 
   #This section may need refactoring. Regular expression using deprecated way to detect empty space
   def search
-    if current_user.try(:manager?)
+    if current_user.try(:role) == "manager"
       @forms = Form.where("office_number = ?", current_user.office_number );
-    elsif current_user.try(:admin?)
+    elsif current_user.try(:role) == "admin"
       @forms = Form.all
     end
         

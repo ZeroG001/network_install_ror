@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
     has_many :forms
 
-    before_save :check_user_permission
 
     validates :username, presence: true,
                                   uniqueness: true,
@@ -16,11 +16,7 @@ class User < ActiveRecord::Base
                                     message: "The Profile name should have no spaces"
                                   }
 
-    def check_user_permission
-    if self.manager == "1"
-      self.username = "poop"
-    end
-    end
+    
 
     def email_required?
   		false

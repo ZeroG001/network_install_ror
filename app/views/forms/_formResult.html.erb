@@ -27,15 +27,15 @@
 </div> 
 <!-- Column Headers end -->
 <div class="result_rows">
-    <% @forms.each do |net_form| %>
+    <% @forms.each do |form| %>
     <!-- Get the deivce image based on what the user put in -->
     <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
-    <% found_image = device_images.select{|k,v| k == net_form.equipment_type} %>
+    <% found_image = device_images.select{|k,v| k == form.equipment_type} %>
     <% if found_image.empty? %>
     <%  found_image = {"None" => "question.svg"} %> 
     <% end %> 
     <% # Encapsulating show link %>
-    <%= link_to net_form, class: "net_form_row_a" do %>
+    <%= link_to form, class: "net_form_row_a" do %>
 
         
             <div class="row col-sm-10 col-md-10 net_form_row">
@@ -45,23 +45,23 @@
                 </div>
 
                 <div class="col-md-3 col-sm-3">
-                    <%= net_form.first_name + " " + net_form.last_name %>
+                    <%= form.first_name + " " + form.last_name %>
                 </div>
 
                 <div class="col-md-2 col-sm-2">
-                    <%= net_form.computer_name %>
+                    <%= form.computer_name %>
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                    <% if net_form.completed == "0" or net_form.completed == nil %>
+                    <% if form.completed == "0" or form.completed == nil %>
                     <p> Incomplete </p>
-                    <% elsif net_form.completed == "1" and net_form.expire_date != nil and net_form.complete_date != nil and Chronic.parse("today at 12:00am") > net_form.expire_date %>
+                    <% elsif form.completed == "1" and form.expire_date != nil and form.complete_date != nil and Chronic.parse("today at 12:00am") > form.expire_date %>
 
                     <p> Form Expired </p>
                     
-                    <% elsif net_form.completed == "1" and net_form.complete_date != nil and net_form.expire_date != nil and Chronic.parse("today at 12:00am") < net_form.expire_date %>
+                    <% elsif form.completed == "1" and form.complete_date != nil and form.expire_date != nil and Chronic.parse("today at 12:00am") < form.expire_date %>
 
-                    <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), net_form.expire_date)%></p>
+                    <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), form.expire_date)%></p>
                     <% end %> 
                 </div>
 
