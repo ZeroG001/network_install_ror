@@ -105,6 +105,15 @@ $(".add_printer").click(function(){
 // Add printers end
 
 
+//For updating users when the user clicks on one of the radio buttons make sure that all other radion button are unchecked
+  $('input[type=radio]').change(function() {
+        // When any radio button on the page is selected,
+        // then deselect all other radio buttons.
+        $('input[type=radio]:checked').not(this).prop('checked', false);
+    });
+//user update end
+
+
 // //AJAX Load more results begin.
 // Enable this when you're ready for ajax requests on results.
 //just created a button with class .load-more-button

@@ -9,15 +9,15 @@
      </div>
 
      <div class="col-md-3 col-sm-3">
-        <span class="header-text"> First Name  </span>
+        <span class="header-text"> Full Name  </span>
     </div>
 
     <div class="col-md-2 col-sm-2">
-        <span class="header-text"> Last Name </span>
+        <span class="header-text"> Email </span>
     </div>
 
     <div class="col-md-4 col-sm-4">
-        <span class="header-text"> Option </span>
+        <span class="header-text"> Permission Group </span>
     </div>
 
     <div class="col-md-1 col-sm-1">
@@ -30,7 +30,7 @@
     <% @users.each do |user| %>
     <!-- Get the deivce image based on what the user put in -->
     
-    <%= link_to user, class: "net_form_row_a" do %>
+    <%= link_to edit_user_path(user), class: "net_form_row_a" do %>
 
         
             <div class="row col-sm-10 col-md-10 net_form_row">
@@ -48,9 +48,11 @@
                 </div>
 
                 <div class="col-md-4 col-sm-4">
-                    <%= link_to 'Show', user %>
-                    <%= link_to 'Edit', edit_user_path(user) %>
-                    <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% if user.admin? %>
+                    Admin
+                    <% else %>
+                    Not Admin
+                    <% end %>
                 </div>
 
                 <div class="col-md-1 col-sm-1">

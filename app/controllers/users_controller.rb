@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -40,12 +41,19 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
+    if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+    end
+
     respond_to do |format|
+
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'edit', notice: 'User could not be updated' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -58,6 +66,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+
     end
   end
 
@@ -69,6 +78,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user]
+      params.require(:user).permit(:username, :manager, :admin, :email, :password, :password_confirmation)
     end
 end

@@ -1,10 +1,40 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
 
+  <!-- # if @form.nic_connection == "Wired" -->
+
   <div class="form-inputs">
+  <%= f.input :username %>
   </div>
+
+  <div class="form-inputs">
+  <%= f.input :password %>
+  </div>
+
+  <div class="form-input">
+  <!-- input for email -->
+  </div>
+
+  <div class="row row-field">
+
+<h4> Permission Level </h4>
+
+
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <input class="radio_buttons optional user-radio-button" id="user_manager" name="user[admin]" type="radio" value="1" >
+    <label for="user_manager">Manager</label>
+  </div>
+
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <input class="radio_buttons optional user-radio-button" id="user_admin" name="user[admin]" type="radio" value="0" >
+    <label for="user_admin">Admin</label>
+  </div>
+</div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+  
+
 <% end %>
