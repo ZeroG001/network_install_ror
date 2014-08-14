@@ -106,12 +106,13 @@ $(".add_printer").click(function(){
 
 
 //For updating users when the user clicks on one of the radio buttons make sure that all other radion button are unchecked
-  $('input[type=radio]').change(function() {
-        // When any radio button on the page is selected,
-        // then deselect all other radio buttons.
-        $('input[type=radio]:checked').not(this).prop('checked', false);
-    });
-//user update end
+//   $('.user-radio-button').change(function() {
+//         // When any radio button on the page is selected,
+//         // then deselect all other radio buttons.
+//         $(this).prop("value", "1");
+//         $('.user-radio-button:checked').not(this).prop('checked', false)
+//     });
+// //user update end
 
 
 // //AJAX Load more results begin.

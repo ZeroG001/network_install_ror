@@ -36,7 +36,6 @@ belongs_to :user
 		if (!self.antivir_expire_date.nil?)
     	Chronic.parse(self.antivir_expire_date).strftime("%m/%d/%Y")    		
       	end
-		 
 	end
 
 	

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
     has_many :forms
 
+    before_save :check_user_permission
+
     validates :username, presence: true,
                                   uniqueness: true,
                                   :case_sensitive => false,
@@ -14,9 +16,15 @@ class User < ActiveRecord::Base
                                     message: "The Profile name should have no spaces"
                                   }
 
+    def check_user_permission
+    if self.manager == "1"
+      self.username = "poop"
+    end
+    end
+
     def email_required?
-		false
-	end
+  		false
+  	end
 
     def login=(login)
 		@login = login
