@@ -71,44 +71,45 @@ class FormsController < ApplicationController
 
   #This section may need refactoring. Regular expression using deprecated way to detect empty space
   def search
-    if current_user.try(:role) == "manager"
-      @forms = Form.where("office_number = ?", current_user.office_number)
-    elsif current_user.try(:role) == "admin"
-      @forms = Form.all
-
-      if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
-       full_name = "#{params[:full_name]}"
-    else
-      full_name = "%#{params[:full_name]}%"
-    end
-
-    if (params[:cpu_name] == /^ +$/ or params[:cpu_name] == "") 
-       cpu_name = "#{params[:cpu_name]}"
-    else
-      cpu_name = "%#{params[:cpu_name]}%"
-    end
-    
-      if params[:full_name]
-        @forms = Form.where("concat(first_name,' ',last_name) LIKE ?",full_name)
+   
+    # Set the :full_name and or :cpu_name variables
+       if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
+         full_name = "#{params[:full_name]}"
+      else
+        full_name = "%#{params[:full_name]}%"
       end
-    end
-        
-    
-    
 
-    # DIfferent queries depending on whos logged in
-    if params[:full_name] 
-
-      if current_user.try(:manager?)
-         @forms = Form.where("concat(first_name,' ',last_name) LIKE ? AND office_number = ? ",full_name, current_user.office_number );
-      elsif current_user.try(:admin?)
-        @forms = Form.where("concat(first_name,' ',last_name) LIKE ?",full_name);
+      if (params[:cpu_name] == /^ +$/ or params[:cpu_name] == "") 
+         cpu_name = "#{params[:cpu_name]}"
+      else
+          cpu_name = "%#{params[:cpu_name]}%"
       end
-        
-    elsif params[:cpu_name]
-      @forms = Form.where("computer_name LIKE ?", cpu_name)
-    end
-  end
+      
+      # If the manager is signed in, run certain search queries
+        if current_user.try(:role) == "manager"
+          @forms = Form.where("office_number = ?",current_user.office_number)
+
+          if params[:full_name] 
+            @forms = Form.where("concat(first_name,' ',last_name) LIKE ? AND office_number = ? ",full_name, current_user.office_number );
+          elsif params[:cpu_name]
+             @forms = Form.where("cpu_name LIKE ? AND office_number = ? ",cpu_name, current_user.office_number );
+          end
+
+        end
+
+        # if the admin is signed in then run certain search queries
+        if current_user.try(:role) == "admin"
+          @forms = Form.all
+
+          if params[:full_name]
+            Form.where("concat(first_name,' ',last_name) LIKE ?",full_name )
+          elsif params[:cpu_name]
+            @forms = Form.where("cpu_name LIKE ?",cpu_name)
+          end
+            
+        end
+
+  end # search end
 
 
 
