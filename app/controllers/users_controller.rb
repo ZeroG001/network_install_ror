@@ -5,12 +5,17 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.where("username LIKE ? OR paynum LIKE ?", current_user.username, current_user.paynum)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+  end
+
+  def search
+
   end
 
   # GET /users/new
@@ -66,8 +71,7 @@ class UsersController < ApplicationController
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
-      format.json { head :no_content }
-
+      format.json { head :no_content };
     end
   end
 
@@ -79,6 +83,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :full_name, :role, :office_number, :email, :password, :password_confirmation)
+      params.require(:user).permit(:username, :paynum, :role, :office_number, :email, :password, :password_confirmation)
     end
 end

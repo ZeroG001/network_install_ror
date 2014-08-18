@@ -1,5 +1,28 @@
 <div class="main_result_wrapper">
 
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Search <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu">
+          <li class="dropdown-agent-name"><a>License Number</a></li>
+          <li class="dropdown-computer-name"><a>Pay Number</a></li>
+          <li class="divider"></li>
+          <li><%= link_to "Advanced Search", advsearch_form_path %></li>
+        </ul>
+      </div><!-- /btn-group -->
+      <% if params[:full_name] %>
+        <%= text_field_tag(:full_name, params[:full_name], class: "form-control search-input" %>
+      <% elsif params[:cpu_name] %>
+        <%= text_field_tag(:full_name, params[:cpu_name], class: "form-control search-input", placeholder: "Computer Name") %>
+      <% else %>
+        <%= text_field_tag(:full_name, params[:full_name], class: "form-control search-input", placeholder: "Agent Name") %>
+      <% end %>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
     <!-- Column Headers -->
 
     <div class="row hidden-xs col-sm-10 col-md-10 header-row">

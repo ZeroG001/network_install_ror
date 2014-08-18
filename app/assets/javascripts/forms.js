@@ -59,14 +59,14 @@ $dropdown_item = $(".dropdown-menu li");
     if($(this).is(".dropdown-agent-name")){
 
       $(".search-input").val('');
-      $(".search-input").attr("placeholder", "Agent Name");
+      $(".dropdown-text").text("Agent Name");
       $(".search-input").attr("name", "full_name");
       $(".search-input").attr("id", "full_name");
 
     } else if($(this).is(".dropdown-computer-name")) {
 
       $(".search-input").val('');
-      $(".search-input").attr("placeholder", "Computer Name");
+      $(".dropdown-text").text("Computer Name");
       $(".search-input").attr("name", "cpu_name");
       $(".search-input").attr("id", "cpu_name");
     }

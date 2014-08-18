@@ -9,7 +9,9 @@ class FormsController < ApplicationController
     if current_user.try(:admin?)
       @forms = Form.where("completed = 0")
     else
-      @forms = User.find(current_user).forms
+      # User.find(current_user).forms
+      @forms = Form.where("user_id = ? OR paynum = ?", current_user.id, current_user.paynum)
+      
     end
     #
   end
@@ -70,13 +72,11 @@ class FormsController < ApplicationController
   #This section may need refactoring. Regular expression using deprecated way to detect empty space
   def search
     if current_user.try(:role) == "manager"
-      @forms = Form.where("office_number = ?", current_user.office_number );
+      @forms = Form.where("office_number = ?", current_user.office_number)
     elsif current_user.try(:role) == "admin"
       @forms = Form.all
-    end
-        
-    
-    if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
+
+      if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
        full_name = "#{params[:full_name]}"
     else
       full_name = "%#{params[:full_name]}%"
@@ -87,6 +87,14 @@ class FormsController < ApplicationController
     else
       cpu_name = "%#{params[:cpu_name]}%"
     end
+    
+      if params[:full_name]
+        @forms = Form.where("concat(first_name,' ',last_name) LIKE ?",full_name)
+      end
+    end
+        
+    
+    
 
     # DIfferent queries depending on whos logged in
     if params[:full_name] 

@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :office_number) }
     devise_parameter_sanitizer.for(:update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :office_number) }
   end
+
+  private
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_session_path
+  end
 end

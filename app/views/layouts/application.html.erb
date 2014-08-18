@@ -39,7 +39,9 @@
 					<% if current_user.try(:role) == "admin" %>
 					<li> <%= link_to "Search", search_path %> </li>
 					<li><%= link_to "To Do", forms_path %></li>
+					<br>
 					<li><%= link_to "Manage Users", users_path %> </li>
+					<li><%= link_to "New User", new_user_path %> </li>
 					<br>
 					<li><%= link_to "Sign-Out", destroy_user_session_path, method: "Delete" %></li>
 					<% elsif current_user.try(:role) == "manager" %>
