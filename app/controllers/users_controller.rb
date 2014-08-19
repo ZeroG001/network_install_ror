@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    # @users = User.all
-    @users = User.where("username LIKE ? OR paynum LIKE ?", current_user.username, current_user.paynum)
+     @users = User.all
+    # @users = User.where("username LIKE ? OR paynum LIKE ?", current_user.username, current_user.paynum) - cant remember why wrote did this...
   end
 
   # GET /users/1

@@ -6,7 +6,7 @@ class FormsController < ApplicationController
   # GET /forms
   # GET /forms.json
   def index
-    if current_user.try(:admin?)
+    if current_user.try(:role) == "admin"
       @forms = Form.where("completed = 0")
     else
       # User.find(current_user).forms
@@ -71,6 +71,7 @@ class FormsController < ApplicationController
 
   #This section may need refactoring. Regular expression using deprecated way to detect empty space
   def search
+<<<<<<< HEAD
    
     # Set the :full_name and or :cpu_name variables
        if (params[:full_name] == /^ +$/ or params[:full_name] == "") 
@@ -111,8 +112,7 @@ class FormsController < ApplicationController
 
   end # search end
 
-
-
+  end #end search controller
 
   # GET /forms/new
   def new
