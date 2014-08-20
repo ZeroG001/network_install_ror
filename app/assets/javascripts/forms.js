@@ -56,19 +56,11 @@
 //Changes attributes of the input field basted on what you click in the search dropdown box
 $dropdown_item = $(".dropdown-menu li");
   $dropdown_item.click(function(){
-    if($(this).is(".dropdown-agent-name")){
-
+    if($(this).is("li")){
       $(".search-input").val('');
-      $(".dropdown-text").text("Agent Name");
-      $(".search-input").attr("name", "full_name");
-      $(".search-input").attr("id", "full_name");
-
-    } else if($(this).is(".dropdown-computer-name")) {
-
-      $(".search-input").val('');
-      $(".dropdown-text").text("Computer Name");
-      $(".search-input").attr("name", "cpu_name");
-      $(".search-input").attr("id", "cpu_name");
+      $(".dropdown-text").text($(this).text());
+      $(".search-input").attr("name", $(this).attr("data-params"));
+      $(".search-input").attr("id", $(this).attr("data-params"));
     }
   });
 
