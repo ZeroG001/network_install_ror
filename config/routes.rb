@@ -12,6 +12,9 @@ resources :forms do
   get 'advsearch', to: 'forms#advsearch', as: :advsearch
 end
 
+  # The form in users#index depends on this link
+  get 'index' => 'users#index'
+
   get 'search' => 'forms#search'
   get 'advsearch' => 'forms#advsearch'
   get 'advsearch_form' => 'forms#advsearch_form'

@@ -7,6 +7,53 @@ class UsersController < ApplicationController
   def index
      @users = User.all
     # @users = User.where("username LIKE ? OR paynum LIKE ?", current_user.username, current_user.paynum) - cant remember why wrote did this...
+
+     # this grabs the information submitted, cleans the exess stuff and leaves the input value.
+    def get_param block
+      block.reject!{|k, v| k == "utf8" or k == "action" or k == "controller"}
+    end
+
+    # set the value of the input fields key and value
+    if params
+      result = get_param params
+      param_value = result.values[0]
+      param_key = result.keys[0]
+
+        if param_value == /^ +$/
+          param_value = "#{}"
+        else
+          param_value = "%#{param_value}%"
+        end
+    end
+
+      
+      # If the manager is signed in, run certain search queries
+        if current_user.try(:role) == "manager"
+          @users = User.all
+
+          if param_key == "full_name"
+            @users = User.first
+          elsif param_key == "cpu_name"
+             @users = User.first
+          elsif param_key == "paynum"
+             @users = User.first
+          end
+
+        end
+
+        # if the admin is signed in then run certain search queries
+        if current_user.try(:role) == "admin"
+          @users = User.all
+
+          if param_key == "full_name"
+           @users = User.where("username LIKE ?", param_value)
+          elsif param_key == "cpu_name"
+            @users = User.where("paynum LIKE ?", param_value)
+          elsif param_key == "paynum"
+             @users = User.first
+          end
+            
+        end
   end
 
   # GET /users/1
