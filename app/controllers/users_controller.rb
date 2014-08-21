@@ -31,12 +31,10 @@ class UsersController < ApplicationController
         if current_user.try(:role) == "manager"
           @users = User.all
 
-          if param_key == "full_name"
-            @users = User.first
-          elsif param_key == "cpu_name"
-             @users = User.first
+          if param_key == "username"
+           @users = User.where("username LIKE ?", param_value)
           elsif param_key == "paynum"
-             @users = User.first
+             @users = User.where("paynum LIKE ?", param_value)
           end
 
         end
@@ -45,12 +43,10 @@ class UsersController < ApplicationController
         if current_user.try(:role) == "admin"
           @users = User.all
 
-          if param_key == "full_name"
+          if param_key == "username"
            @users = User.where("username LIKE ?", param_value)
-          elsif param_key == "cpu_name"
-            @users = User.where("paynum LIKE ?", param_value)
           elsif param_key == "paynum"
-             @users = User.first
+             @users = User.where("paynum LIKE ?", param_value)
           end
             
         end

@@ -1,4 +1,4 @@
-<div class="main_result_wrapper">
+
 <%= form_tag("/index", method: "get") do %>
 
 <div class="row">
@@ -8,30 +8,25 @@
           <%= text_field_tag(:username, params[:username], class: "form-control search-input") %>
         <% elsif params[:paynum] %>
           <%= text_field_tag(:paynum, params[:paynum], class: "form-control search-input") %>
-        <% elsif params[:paynum] %>
-          <%= text_field_tag(:paynum, params[:paynum], class: "form-control search-input") %>
-        <% end %>
+        <% else %>
           <%= text_field_tag(:username, params[:username], class: "form-control search-input") %>
         <% end %>
         <div class="input-group-btn">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <span class="dropdown-text"> 
-              <% if params[:paynum] %>
-                Computer Name
+              <% if params[:username] %>
+                Username
               <% elsif params[:paynum] %>
                 Pay Number
               <% else %>
-              Agent Name
+              Username
               <% end %>
             </span>
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li class="dropdown-agent-name" data-params="full_name"><a>Agent Name</a></li>
-            <li class="dropdown-computer-name" data-params="cpu_name"><a>Computer Name</a></li>
+            <li class="dropdown-agent-name" data-params="username"><a>Username</a></li>
             <li class="dropdown-agent-name" data-params="paynum"><a>Paynum</a></li>
-            <li class="divider"></li>
-            <li><%= link_to "Advanced Search", advsearch_form_path %></li>
           </ul>
         </div><!-- /btn-group -->
       </div><!-- /input-group -->
@@ -39,6 +34,7 @@
   </div><!-- /.row -->
   <% end %>
 
+<div class="main_result_wrapper">
     <!-- Column Headers -->
 
     <div class="row hidden-xs col-sm-10 col-md-10 header-row">
@@ -99,9 +95,9 @@
                 </div>
             </div> 
         
-
-    <% end %>
-<% end %>
+          <% end %>
+          <% end %>
+      </div>
+    </div> 
 </div>
-</div> 
 

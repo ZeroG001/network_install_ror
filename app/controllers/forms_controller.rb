@@ -8,6 +8,8 @@ class FormsController < ApplicationController
   def index
     if current_user.try(:role) == "admin"
       @forms = Form.where("completed = 0")
+    elsif current_user.try(:role) == "manager"
+      @forms = Form.where("office_number = ?", current_user.office_number)
     else
       # User.find(current_user).forms
       @forms = Form.where("user_id = ? OR paynum = ?", current_user.id, current_user.paynum)
@@ -169,7 +171,7 @@ class FormsController < ApplicationController
   def destroy
     @form.destroy
     respond_to do |format|
-      format.html { redirect_to search_url }
+      format.html { redirect_to forms_path }
       format.json { head :no_content }
     end
   end

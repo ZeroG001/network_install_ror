@@ -111,9 +111,15 @@
 <% # f.input :nic_connection, collection: [["Wired", "Wired"],["Wireless", "Wireless"],["Both","Both"]], as: :radio_buttons, checked: @form.nic_connection, label: false, input_html: {class: "form-radio-button"} %>
 
 
-
-
 <!-- Section that only an admin or manager would see -->
+<% if current_user.try(:role) == "agent" %> 
+<div class="row row-field">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <%= f.input :completed, as: :hidden, boolean_style: :inline, label: "Installation complete?", input_html: {checked: false} %>
+  </div>
+</div>
+<% end %>
+
 <% if current_user.try(:role) == "admin" or current_user.try(:role) == "manager" %>
 
 <div class="row row-field">
