@@ -1,11 +1,21 @@
 class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
+  # Pages Do no cache so when a user signs out. They stay signed out.
+  before_filter :set_cache_buster
+
+  def set_cache_buster
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
  
 
   # GET /forms
   # GET /forms.json
   def index
+
     if current_user.try(:role) == "admin"
       @forms = Form.where("completed = 0")
     elsif current_user.try(:role) == "manager"

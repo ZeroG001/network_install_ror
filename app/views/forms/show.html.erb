@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-
+  <% # WHen the form has been completed the user can do whatever they want with the form. Once a technician has signed it off, the user can no longer perform actions %>
   <ul class="nav nav-pills show-nav-pills">
+   <% if current_user.try(:role) == "agent" and @form.complete_date %>
+    
+    <% else %>
     <li><%= link_to 'Edit', edit_form_path(@form) %></li>
     <li><%= link_to 'Destroy', @form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+    
     <li><%= link_to 'Back', forms_path %></li>
 </ul>
 
@@ -108,7 +113,9 @@
 
       <p>
         <strong>Complete Date:</strong>
-        <%= @form.format_date(@form.complete_date) %>
+        <% if @form.complete_date %>
+          <%= @form.complete_date.strftime("%m/%d/%Y") %>
+        <% end %>
       </p>
 
       <p>
@@ -122,16 +129,22 @@
 
       <p>
         <strong>Form Expire Date:</strong>
-        <%= @form.format_date(@form.expire_date) %>
+        <% if @form.expire_date %>
+          <%= @form.expire_date.strftime("%m/%d/%Y") %>
+        <% end %>
       </p>
 
       <p>
         <strong>Form Creation Date:</strong>
-        <%= @form.format_date(@form.created_at) %>
+        <% if @form.created_at %>
+          <%= @form.created_at.strftime("%m/%d/%Y") %>
+          <% end %>
       </p>
 
       <p>
         <strong>Last Updated On:</strong>
-        <%= @form.format_date(@form.updated_at) %>
+        <% if @form.updated_at %>
+        <%= @form.updated_at.strftime("%m/%d/%Y") %>
+        <% end %>
       </p>
   
