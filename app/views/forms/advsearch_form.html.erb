@@ -37,10 +37,14 @@
 </div>
 </div>
 
+<% #If the manager is signed in then by default the office selected will be their office %>
 <div class="row row-field">
   <div class="col-sm-12 col-md-12 col-lg-12">
-  <%= label_tag(:office_number, "Office") %>
+  
+  <% if !current_user.try(:role) == "manager" %>
+    <%= label_tag(:office_number, "Office") %>
   <%= select_tag(:office_number, options_for_select(@form.office_array), class: 'form-control') %>
+  <% end %>
 </div>
 </div>
 

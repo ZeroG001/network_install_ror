@@ -51,13 +51,13 @@
 <div class="row row-field">
 
   <div class="col-sm-3 col-md-3 col-lg-3">
-    <input class="radio_buttons optional form-radio-button" id="form_service_cost_none" name="form[service_cost]" type="radio" value="none">
+    <input class="radio_buttons optional form-radio-button" id="form_service_cost_none" name="form[service_cost]" type="radio" value="none" <% if @form.service_cost == "none" %> checked <% end %> >
     <label for="form_service_cost_none">No Charge</label>
     <p> My device has built-in WiFi and/or I have access to a data port. </p>
   </div>
 
   <div class="col-sm-3 col-md-3 col-lg-3">
-    <input class="radio_buttons optional form-radio-button" id="form_service_cost_125" name="form[service_cost]" type="radio" value="125">
+    <input class="radio_buttons optional form-radio-button" id="form_service_cost_125" name="form[service_cost]" type="radio" value="125" <% if @form.service_cost == "125" %> checked <% end %> >
     <label for="form_service_cost_125">$125</label>
     <p> My device does not have built in WiFi and no data ports are availible. A technician needs to come out and install a new data port. </p>
   </div>

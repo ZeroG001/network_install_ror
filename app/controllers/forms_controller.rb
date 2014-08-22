@@ -55,13 +55,28 @@ class FormsController < ApplicationController
         end
           i = i + 1
         end
+
+        # If a manager is signed in, add office number to the query for them. 
+        # Since manager should only search for form in their office.
+      if current_user.try(:role) == "manager"
+        # Check to see if there are more than or less than 1 params. Finish SQL statement baseed on result.
+        q = q + "AND office_number LIKE ?" if block.size >= 1 
+        q = q + "office_number LIKE ?" if block.size < 1 
+      end
+
       return q
     end
 
     def buildParams(block)
       block.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
       p = []
-      block.each {|k, v| p = p + ["%#{v}%"]}    
+      block.each {|k, v| p = p + ["%#{v}%"]}
+
+      # If the manager is signed in. Put in the office number for them
+      if current_user.try(:role) == "manager"
+        !p.push(current_user.office_number)
+      end 
+
       return p
     end
     # cquery2 = buildQuery params
