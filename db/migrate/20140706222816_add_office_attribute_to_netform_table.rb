@@ -1,5 +1,5 @@
-class AddOfficeAttributeToFormTable < ActiveRecord::Migration
+class AddOfficeAttributeToNetformTable < ActiveRecord::Migration
   def change
-  	add_column :forms, :office_number, :string
+  	add_column :net_forms, :office_number, :string
   end
 end

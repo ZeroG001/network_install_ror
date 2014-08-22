@@ -1,6 +1,6 @@
-class CreateForms < ActiveRecord::Migration
+class CreateNetForms < ActiveRecord::Migration
   def change
-    create_table :forms do |t|
+    create_table :net_forms do |t|
       t.string :first_name
       t.string :last_name
       t.string :service_cost
