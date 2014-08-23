@@ -1,0 +1,6 @@
+
+<% @printers.each do |printer| %>
+<%= printer.ip_address %>
+<% end %>
+
+<%= link_to "new printer", new_printer_path %>

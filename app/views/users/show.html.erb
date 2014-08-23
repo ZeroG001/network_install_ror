@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="nav nav-pills show-nav-pills">
+    <li><%= link_to 'Edit', edit_user_path(@user) %></li>
+    <li><%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <li><%= link_to 'Back', user_path %></li>
+</ul>
+
+<%= @user.username %>
+<p> You no one should be seeing this O_o </p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,95 @@
+.signup-form-wrapper {
+	position: relative;
+	left: 24%;
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: inline-block;
+  margin: 0px auto;
+  border-radius: 3px;
+  border: 1px solid grey;
+
+
+	.form-inputs input {
+		color: #555;
+		font-size: 15px;
+		min-width: 215px;
+		padding: 10px;
+		margin: 5px 0;
+	 }
+
+	 .form-actions input {
+		font-size: 18px;
+		min-width: 215px;
+		padding: 10px;
+		margin: 5px 0;
+	 }
+
+}
+
+.user-radio-button {
+
+display: none;
+
+ 	 background-color: #fff;
+		border: 1px solid black;
+
+	&:not(:checked) + label, &:checked + label  {
+		content: "";
+		positition: relative;
+		width: 100px;
+		margin: 10px 0px;
+
+		display: block;
+		padding: 6px 12px;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-image: none;
+		border-radius: 4px;
+
+			& + p {
+				max-width: 300px;
+				text-align: justify;
+			}
+
+		}
+
+		&:not(:checked) + label {
+		background-color: #fff;
+		border: 1px solid black;
+		}
+
+		&:checked + label {
+		color: #fff;
+		background-color: #3071a9;
+		border-color: #285e8e;
+		border: 1px solid transparent
+		}
+
+	}
+	
+	.form-checkbox {
+		@extend .form-radio-button;
+
+		&:checked + label {
+			background-color: green;
+		}
+	}
+
+
+@media screen and (max-width: 768px) {
+
+.signup-form-wrapper {
+left: 20%;
+}
+	
+} /*  Media Query end */
+

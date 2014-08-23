@@ -1,0 +1,103 @@
+
+<%= form_tag("/index", method: "get") do %>
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="input-group">
+        <% if params[:username] %>
+          <%= text_field_tag(:username, params[:username], class: "form-control search-input") %>
+        <% elsif params[:paynum] %>
+          <%= text_field_tag(:paynum, params[:paynum], class: "form-control search-input") %>
+        <% else %>
+          <%= text_field_tag(:username, params[:username], class: "form-control search-input") %>
+        <% end %>
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="dropdown-text"> 
+              <% if params[:username] %>
+                Username
+              <% elsif params[:paynum] %>
+                Pay Number
+              <% else %>
+              Username
+              <% end %>
+            </span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" role="menu">
+            <li class="dropdown-agent-name" data-params="username"><a>Username</a></li>
+            <li class="dropdown-agent-name" data-params="paynum"><a>Paynum</a></li>
+          </ul>
+        </div><!-- /btn-group -->
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <% end %>
+
+<div class="main_result_wrapper">
+    <!-- Column Headers -->
+
+    <div class="row hidden-xs col-sm-10 col-md-10 header-row">
+
+        <div class="device_image col-md-2 col-sm-2">
+         <span class="header-text"> Username </span>
+     </div>
+
+     <div class="col-md-3 col-sm-3">
+        <span class="header-text"> Full Name  </span>
+    </div>
+
+    <div class="col-md-2 col-sm-2">
+        <span class="header-text"> Email </span>
+    </div>
+
+    <div class="col-md-4 col-sm-4">
+        <span class="header-text"> Permission Group </span>
+    </div>
+
+    <div class="col-md-1 col-sm-1">
+        <span class="header-text"> Options </span>
+    </div>
+
+</div> 
+<!-- Column Headers end -->
+<div class="result_rows">
+    <% @users.each do |user| %>
+    <!-- Get the deivce image based on what the user put in -->
+    
+    <%= link_to edit_user_path(user), class: "net_form_row_a" do %>
+
+        
+            <div class="row col-sm-10 col-md-10 net_form_row">
+
+                <div class="device_image col-md-2 col-sm-2 col-xs-6">
+                    <%= user.username %>
+                </div>
+
+                <div class="col-md-3 col-sm-3">
+                    
+                </div>
+
+                <div class="col-md-2 col-sm-2">
+                    <%= user.email %>
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <% if user.role == "admin" %>
+                    Admin
+                    <% else %>
+                    Not Admin
+                    <% end %>
+                </div>
+
+                <div class="col-md-1 col-sm-1">
+                <!-- options put things in here soon -->
+                </div>
+            </div> 
+        
+          <% end %>
+          <% end %>
+      </div>
+    </div> 
+</div>
+

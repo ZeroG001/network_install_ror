@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  service_cost: MyString
+  equipment_type: MyString
+  nic_connection: MyString
+  os_type: MyString
+  antivir_type: MyString
+  paynum: MyString
+  complete_date: 2014-07-04
+  completed: 
+  email: MyString
+  phone_number: MyString
+  computer_name: MyString
+  antivir_expire_date: 2014-07-04
+  technician_name: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  service_cost: MyString
+  equipment_type: MyString
+  nic_connection: MyString
+  os_type: MyString
+  antivir_type: MyString
+  paynum: MyString
+  complete_date: 2014-07-04
+  completed: 
+  email: MyString
+  phone_number: MyString
+  computer_name: MyString
+  antivir_expire_date: 2014-07-04
+  technician_name: MyString

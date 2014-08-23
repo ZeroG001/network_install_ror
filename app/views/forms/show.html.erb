@@ -1,0 +1,150 @@
+<p id="notice"><%= notice %></p>
+
+  <% # WHen the form has been completed the user can do whatever they want with the form. Once a technician has signed it off, the user can no longer perform actions %>
+  <ul class="nav nav-pills show-nav-pills">
+   <% if current_user.try(:role) == "agent" and @form.complete_date %>
+    
+    <% else %>
+    <li><%= link_to 'Edit', edit_form_path(@form) %></li>
+    <li><%= link_to 'Destroy', @form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+    
+    <li><%= link_to 'Back', forms_path %></li>
+</ul>
+
+ 
+<% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
+    <% found_image = device_images.select{|k,v| k == @form.equipment_type} %>
+    <% if found_image.empty? %>
+    <%  found_image = {"None" => "question.svg"} %> 
+    <% end %> 
+    <%= image_tag(found_image.values.join(" "), width: "150px") %>
+
+
+  <h2> About User </h2>
+      <p>
+        <strong>First name: </strong>
+        <%= @form.first_name %>
+      </p>
+
+      <p>
+        <strong>Last name: </strong>
+        <%= @form.last_name %>
+      </p>
+
+      <p>
+        <strong>Paynum: </strong>
+        <%= @form.paynum %>
+      </p>
+
+      <p>
+        <strong>Office: </strong>
+        <%= @form.office_number %>
+      </p>
+
+      <p>
+        <strong>Phone number: </strong>
+        <%= @form.phone_number %>
+      </p>
+
+      <p>
+        <strong> Email: </strong>
+        <%= @form.email %>
+      </p>
+
+      <p>
+        <strong> Service cost: </strong>
+        <%= @form.service_cost %>
+      </p>
+  
+
+  
+      <h2> About Device </h2>
+
+      <p>
+        <strong>Computer name: </strong>
+        <%= @form.computer_name %>
+      </p>
+
+      <p>
+        <strong> Device Type: </strong>
+        <%= @form.equipment_type %>
+      </p>
+
+      <p>
+        <strong>Connection Type: </strong>
+        <%= @form.nic_connection %>
+      </p>
+
+      <p>
+        <strong>Operating System: </strong>
+        <%= @form.os_type %>
+      </p>
+
+      <p>
+        <strong>Antivirus Software: </strong>
+        <%= @form.antivir_type %>
+      </p>
+
+      <p>
+        <strong> Antivirus Expire Date: </strong>
+        <%= @form.antivir_expire_date %>
+      </p>
+
+      <p>
+      <strong> Printer IP: </strong>
+      <% if @form.printer_ip.empty? %>
+        None recorded
+      <% else %>
+        <% @form.printer_ip.each do |ip| %>
+          <%= ip + " "  %>
+        <% end %>
+      <% end %>
+      </p>
+ 
+
+
+      <h2> Other </h2>
+
+      <p>
+        <strong> Completed By: </strong>
+        <%= @form.technician_name %>
+      </p>
+
+      <p>
+        <strong>Complete Date:</strong>
+        <% if @form.complete_date %>
+          <%= @form.complete_date.strftime("%m/%d/%Y") %>
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Completed: </strong>
+        <% if @form.completed == "1" %>
+        Yes
+        <% elsif %>
+        No
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Form Expire Date:</strong>
+        <% if @form.expire_date %>
+          <%= @form.expire_date.strftime("%m/%d/%Y") %>
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Form Creation Date:</strong>
+        <% if @form.created_at %>
+          <%= @form.created_at.strftime("%m/%d/%Y") %>
+          <% end %>
+      </p>
+
+      <p>
+        <strong>Last Updated On:</strong>
+        <% if @form.updated_at %>
+        <%= @form.updated_at.strftime("%m/%d/%Y") %>
+        <% end %>
+      </p>
+  

@@ -1,0 +1,16 @@
+<div class="result_wrapper">
+<% if @forms.empty? %>
+
+     <div class="finished-text"> <%= image_tag("smiley.svg") %> 
+        <p> All Clear </p>
+     </div>
+
+<% else %>
+    <%= render 'formResult' %>
+<% end %>
+
+ </div>
+
+
+
+

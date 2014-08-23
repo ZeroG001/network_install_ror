@@ -1,0 +1,64 @@
+<%= simple_form_for(@user) do |f| %>
+
+			
+			<%= f.error_notification class: "alert animated bounceIn alert-warning error" %>
+
+ 	<% flash.each do |type, message | %>
+	<div class="alert animated bounceIn alert-success <%= type %>">
+		<button class="close" data-dismiss="alert">x</button>
+		<%= message %>	
+	</div>
+	<% end %>
+  <!-- # if @form.nic_connection == "Wired" -->
+
+  <div class="form-inputs">
+  <%= f.input :username %>
+  </div>
+
+  <div class="form-input">
+    <%= f.input :paynum %>
+  </div>
+
+  <div class="form-inputs">
+  <%= f.input :email %>
+  </div>
+
+  <div class="form-input">
+    <%= f.input :office_number, collection: @user.office_array, label: "Office", input_html: {} %>  
+  </div>
+
+
+  <div class="form-inputs">
+  <%= f.input :password %>
+  </div>
+
+  
+
+  <div class="row row-field">
+
+<h4> Permission Level </h4>
+
+	<div class="col-sm-2 col-md-2 col-lg-2">
+		<input class="radio_buttons optional user-radio-button" id="user_agent" name="user[role]" type="radio" value="agent" <% if @user.role == "agent" %> checked <% end %> >
+		<label for="user_agent">User</label>
+	</div>
+
+
+	<div class="col-sm-2 col-md-2 col-lg-2">
+		<input class="radio_buttons optional user-radio-button" id="user_manager" name="user[role]" type="radio" value="manager" <% if @user.role == "manager" %> checked <% end %>>
+		<label for="user_manager">Manager</label>
+	</div>
+
+	<div class="col-sm-2 col-md-2 col-lg-2">
+		<input class="radio_buttons optional user-radio-button" id="user_admin" name="user[role]" type="radio" value="admin" <% if @user.role == "admin" %> checked <% end %> >
+		<label for="user_admin">Admin</label>
+	</div>
+
+</div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  
+
+<% end %>
