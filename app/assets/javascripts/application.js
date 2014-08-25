@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= stub forms
+
+alert("hello america");
 
 
