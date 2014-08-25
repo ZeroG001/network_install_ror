@@ -8,8 +8,8 @@ gem 'chronic'
 gem 'has_scope'
 gem 'devise'
 
-gem 'pg'
-gem 'rails_12factor'
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 gem 'rails_serve_static_assets'	
 
 
