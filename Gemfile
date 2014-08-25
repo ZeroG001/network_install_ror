@@ -8,10 +8,9 @@ gem 'chronic'
 gem 'has_scope'
 gem 'devise'
 
-group: :production do
-	gem 'pg'
-	gem 'rails_12factor'	
-end
+gem 'pg'
+gem 'rails_12factor'	
+
 
 
 # gem 'delocalize' <- This broke the server
