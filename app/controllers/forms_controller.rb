@@ -49,9 +49,9 @@ class FormsController < ApplicationController
 
       block.each do |k,v|
         if (i == block.size)
-          q = q + "#{k} LIKE ?"
+          q = q + "#{k} ilike ?"
         else
-          q = q + "#{k} LIKE ? AND "
+          q = q + "#{k} ilike ? AND "
         end
           i = i + 1
         end
@@ -60,8 +60,8 @@ class FormsController < ApplicationController
         # Since manager should only search for form in their office.
       if current_user.try(:role) == "manager"
         # Check to see if there are more than or less than 1 params. Finish SQL statement baseed on result.
-        q = q + "AND office_number LIKE ?" if block.size >= 1 
-        q = q + "office_number LIKE ?" if block.size < 1 
+        q = q + "AND office_number ilike ?" if block.size >= 1 
+        q = q + "office_number ilike ?" if block.size < 1 
       end
 
       return q
@@ -89,7 +89,7 @@ class FormsController < ApplicationController
     end
     #@test_array = params.reject!{|k, v| k == "utf8" or k == "action" or k == "controller" or v.match(/\s/) or v == ""}
     # full_name = "%#{params[:full_name]}%"
-    # @forms = Form.where("concat(first_name,' ',last_name) LIKE ? AND completed = ?",full_name, params[:completed])
+    # @forms = Form.where("concat(first_name,' ',last_name) ilike ? AND completed = ?",full_name, params[:completed])
     # @forms = @forms.first_names(params[:first_name]) if params[:first_name].present?
     # @forms = @forms.last_name(params[:last_name]) if params[:last_name].present?
     # @forms = @forms.completed
@@ -123,11 +123,11 @@ class FormsController < ApplicationController
           @forms = Form.where("office_number = ?",current_user.office_number)
 
           if param_key == "full_name"
-            @forms = Form.where("concat(first_name,' ',last_name) LIKE ? AND office_number = ? ", param_value, current_user.office_number )
+            @forms = Form.where("concat(first_name,' ',last_name) ilike ? AND office_number = ? ", param_value, current_user.office_number )
           elsif param_key == "cpu_name"
-             @forms = Form.where("computer_name LIKE ? AND office_number = ? ",param_value, current_user.office_number )
+             @forms = Form.where("computer_name ilike ? AND office_number = ? ",param_value, current_user.office_number )
           elsif param_key == "paynum"
-             @forms = Form.where("paynum LIKE ? AND office_number = ?", param_value, current_user.office_number)
+             @forms = Form.where("paynum ilike ? AND office_number = ?", param_value, current_user.office_number)
           end
 
         end
@@ -137,11 +137,11 @@ class FormsController < ApplicationController
           @forms = Form.all
 
           if param_key == "full_name"
-           @forms = Form.where("concat(first_name,' ',last_name) LIKE ?", param_value )
+           @forms = Form.where("concat(first_name,' ',last_name) ilike ?", param_value )
           elsif param_key == "cpu_name"
-            @forms = Form.where("computer_name LIKE ?", param_value)
+            @forms = Form.where("computer_name ilike ?", param_value)
           elsif param_key == "paynum"
-             @forms = Form.where("paynum LIKE ?", param_value)
+             @forms = Form.where("paynum ilike ?", param_value)
           end
             
         end

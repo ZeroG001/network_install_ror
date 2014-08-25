@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
      @users = User.all
-    # @users = User.where("username LIKE ? OR paynum LIKE ?", current_user.username, current_user.paynum) - cant remember why wrote did this...
+    # @users = User.where("username ilike ? OR paynum ilike ?", current_user.username, current_user.paynum) - cant remember why wrote did this...
 
      # this grabs the information submitted, cleans the exess stuff and leaves the input value.
     def get_param block
@@ -32,9 +32,9 @@ class UsersController < ApplicationController
           @users = User.all
 
           if param_key == "username"
-           @users = User.where("username LIKE ?", param_value)
+           @users = User.where("username ilike ?", param_value)
           elsif param_key == "paynum"
-             @users = User.where("paynum LIKE ?", param_value)
+             @users = User.where("paynum ilike ?", param_value)
           end
 
         end
@@ -44,9 +44,9 @@ class UsersController < ApplicationController
           @users = User.all
 
           if param_key == "username"
-           @users = User.where("username LIKE ?", param_value)
+           @users = User.where("username ilike ?", param_value)
           elsif param_key == "paynum"
-             @users = User.where("paynum LIKE ?", param_value)
+             @users = User.where("paynum ilike ?", param_value)
           end
             
         end
