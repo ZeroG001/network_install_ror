@@ -9,7 +9,8 @@ gem 'has_scope'
 gem 'devise'
 
 gem 'pg'
-gem 'rails_12factor'	
+gem 'rails_12factor'
+gem 'rails_serve_static_assets'	
 
 
 
