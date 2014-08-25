@@ -32,6 +32,12 @@ class FormsController < ApplicationController
   # GET /forms/1.json
   def show
 
+    if current_user.try(:role) == "agent"
+      if current_user.paynum != @form.paynum and current_user.id != @form.user_id
+        redirect_to root_url
+      end
+    end
+
   end
 
   def advsearch_form
@@ -157,6 +163,12 @@ class FormsController < ApplicationController
 
   # GET /forms/1/edit
   def edit
+    if current_user.try(:role) == "agent"
+      if current_user.paynum != @form.paynum and current_user.id != @form.user_id
+        redirect_to root_url
+      end
+    end
+    
     @form = Form.find(params[:id])
   end
 
