@@ -5477,3 +5477,1960 @@ Completed 200 OK in 160ms (Views: 82.3ms | ActiveRecord: 75.3ms)
 
 
 Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-25 15:58:29 -0400
+
+
+Started GET "/" for 10.9.0.60 at 2014-08-26 10:03:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (69.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FormsController#index as HTML
+Completed 401 Unauthorized in 45ms
+
+
+Started GET "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:03:14 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (130.6ms)
+Completed 200 OK in 838ms (Views: 482.8ms | ActiveRecord: 322.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:15 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:03:16 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:03:16 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:17 -0400
+
+
+Started POST "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:03:21 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YuXiyO3SowwU0L9STywH812UB1ferr0EUOABq0JgZNY=", "user"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (131.5ms)[0m  SELECT "users".* FROM "users" WHERE (lower(username) = 'admin' OR lower(email) = 'admin') ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (83.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (205.6ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 1  [["last_sign_in_at", Tue, 26 Aug 2014 12:00:31 UTC +00:00], ["current_sign_in_at", Tue, 26 Aug 2014 14:03:21 UTC +00:00], ["last_sign_in_ip", "76.229.253.129"], ["current_sign_in_ip", "10.9.0.60"], ["sign_in_count", 24], ["updated_at", Tue, 26 Aug 2014 14:03:21 UTC +00:00]]
+  [1m[36m (68.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://10.9.0.60:3000/
+Completed 302 Found in 630ms (ActiveRecord: 542.7ms)
+
+
+Started GET "/" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+Processing by FormsController#index as HTML
+  [1m[35mUser Load (122.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mForm Load (120.1ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE (completed = '0')[0m
+  Rendered forms/_formResult.html.erb (4.0ms)
+  Rendered forms/index.html.erb within layouts/application (432.1ms)
+Completed 200 OK in 664ms (Views: 97.5ms | ActiveRecord: 515.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/screen.svg" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/question.svg" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/tablet.svg" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:22 -0400
+
+
+Started GET "/forms/6" for 10.9.0.60 at 2014-08-26 10:03:27 -0400
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mForm Load (159.3ms)[0m  SELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1  [["id", "6"]]
+  [1m[36mUser Load (58.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered forms/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 245ms (Views: 22.5ms | ActiveRecord: 217.5ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:27 -0400
+
+
+Started DELETE "/forms/6" for 10.9.0.60 at 2014-08-26 10:03:32 -0400
+Processing by FormsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dY7WmMkd4wKj9YCEN7TKki45Jf1TKrgX15eMU3+QcXk=", "id"=>"6"}
+  [1m[35mForm Load (80.0ms)[0m  SELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1  [["id", "6"]]
+  [1m[36mUser Load (44.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (77.0ms)[0m  BEGIN
+  [1m[36mSQL (112.9ms)[0m  [1mDELETE FROM "forms" WHERE "forms"."id" = $1[0m  [["id", 6]]
+  [1m[35m (58.0ms)[0m  COMMIT
+Redirected to http://10.9.0.60:3000/forms
+Completed 302 Found in 381ms (ActiveRecord: 372.3ms)
+
+
+Started GET "/forms" for 10.9.0.60 at 2014-08-26 10:03:33 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (58.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (1398.8ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.9ms)
+  Rendered forms/index.html.erb within layouts/application (1404.8ms)
+Completed 200 OK in 1530ms (Views: 69.1ms | ActiveRecord: 1457.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:03:34 -0400
+
+
+Started DELETE "/my/users/sign_out" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dY7WmMkd4wKj9YCEN7TKki45Jf1TKrgX15eMU3+QcXk="}
+  [1m[36mUser Load (124.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (55.1ms)[0m  BEGIN
+  [1m[36m (114.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://10.9.0.60:3000/my/users/sign_in
+Completed 302 Found in 318ms (ActiveRecord: 293.5ms)
+
+
+Started GET "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 66ms (Views: 64.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:01 -0400
+
+
+Started GET "/my/users/sign_up" for 10.9.0.60 at 2014-08-26 10:04:07 -0400
+Processing by Devise::RegistrationsController#new as HTML
+ERROR: compiling _app_views_devise_registrations_new_html_erb__947040457_85514110 RAISED /home/bholland/Ruby_Projects/network_install_ror_pg/app/views/devise/registrations/new.html.erb:13: syntax error, unexpected =>
+... f.input :paynum, :required, => false );@output_buffer.safe_...
+...                               ^
+Function body:           def _app_views_devise_registrations_new_html_erb__947040457_85514110(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "devise/registrations/new";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<div class="signup-form-wrapper">
+<h2>Sign up</h2>
+
+';@output_buffer.append=  simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| @output_buffer.safe_append='
+  ';@output_buffer.append=( f.error_notification );@output_buffer.safe_append='
+
+
+  <div class="form-inputs">
+  	';@output_buffer.append=( f.input :username, :required => true );@output_buffer.safe_append='
+    ';@output_buffer.append=( f.input :email, :required => false, :autofocus => true );@output_buffer.safe_append='
+    ';@output_buffer.append=( f.input :password, :required => true );@output_buffer.safe_append='
+    ';@output_buffer.append=( f.input :password_confirmation, :required => true );@output_buffer.safe_append='
+    ';@output_buffer.append=( f.input :paynum, :required, => false );@output_buffer.safe_append=' 
+';@output_buffer.safe_append='
+  </div>
+
+  <div class="form-actions">
+    ';@output_buffer.append=( f.button :submit, "Sign up" );@output_buffer.safe_append='
+  </div>
+'; end 
+@output_buffer.safe_append='
+
+';@output_buffer.append=( render "devise/shared/links" );@output_buffer.safe_append='
+</div>
+';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/template.rb:299:in `module_eval'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/template.rb:299:in `compile'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/template.rb:248:in `block in compile!'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/template.rb:236:in `synchronize'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/template.rb:236:in `compile!'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/template.rb:142:in `block in render'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/notifications.rb:161:in `instrument'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/template.rb:141:in `render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `instrument'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_view/renderer/renderer.rb:23:in `render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:97:in `render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/usr/share/ruby/benchmark.rb:296:in `realtime'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/home/bholland/.gem/ruby/gems/activerecord-4.0.3/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/responder.rb:233:in `default_render'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/responder.rb:161:in `to_html'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/responder.rb:154:in `respond'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/responder.rb:147:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/mime_responds.rb:330:in `respond_with'
+/home/bholland/.gem/ruby/gems/devise-3.2.2/app/controllers/devise/registrations_controller.rb:8:in `new'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/base.rb:189:in `process_action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:443:in `_run__399854057__process_action__callbacks'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/notifications.rb:159:in `instrument'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/bholland/.gem/ruby/gems/activerecord-4.0.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/base.rb:136:in `process'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/abstract_controller/rendering.rb:44:in `process'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal.rb:195:in `dispatch'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_controller/metal.rb:231:in `block in action'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/routing/mapper.rb:44:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:59:in `each'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb:59:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/home/bholland/.gem/ruby/gems/warden-1.2.3/lib/warden/manager.rb:35:in `block in call'
+/home/bholland/.gem/ruby/gems/warden-1.2.3/lib/warden/manager.rb:34:in `catch'
+/home/bholland/.gem/ruby/gems/warden-1.2.3/lib/warden/manager.rb:34:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/home/bholland/.gem/ruby/gems/activerecord-4.0.3/lib/active_record/query_cache.rb:36:in `call'
+/home/bholland/.gem/ruby/gems/activerecord-4.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/home/bholland/.gem/ruby/gems/activerecord-4.0.3/lib/active_record/migration.rb:369:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:373:in `_run__762244236__call__callbacks'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/home/bholland/.gem/ruby/gems/railties-4.0.3/lib/rails/rack/logger.rb:38:in `call_app'
+/home/bholland/.gem/ruby/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `block in call'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:25:in `tagged'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/tagged_logging.rb:67:in `tagged'
+/home/bholland/.gem/ruby/gems/railties-4.0.3/lib/rails/rack/logger.rb:20:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/home/bholland/.gem/ruby/gems/activesupport-4.0.3/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/static.rb:64:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/home/bholland/.gem/ruby/gems/railties-4.0.3/lib/rails/engine.rb:511:in `call'
+/home/bholland/.gem/ruby/gems/railties-4.0.3/lib/rails/application.rb:97:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/home/bholland/.gem/ruby/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/usr/share/ruby/webrick/httpserver.rb:138:in `service'
+/usr/share/ruby/webrick/httpserver.rb:94:in `run'
+/usr/share/ruby/webrick/server.rb:295:in `block in start_thread'
+  Rendered devise/registrations/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (/home/bholland/Ruby_Projects/network_install_ror_pg/app/views/devise/registrations/new.html.erb:13: syntax error, unexpected =>
+... f.input :paynum, :required, => false );@output_buffer.safe_...
+...                               ^):
+    10:     <%= f.input :email, :required => false, :autofocus => true %>
+    11:     <%= f.input :password, :required => true %>
+    12:     <%= f.input :password_confirmation, :required => true %>
+    13:     <%= f.input :paynum, :required, => false %> 
+    14: 
+    15:   </div>
+    16: 
+  actionpack (4.0.3) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.3) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.3) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.3) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.3) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.3) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.3) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.3) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.3) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.3) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.3) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.3) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.3) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.3) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.3) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.3) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/share/ruby/benchmark.rb:296:in `realtime'
+  activesupport (4.0.3) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.3) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.3) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.3) lib/action_controller/metal/responder.rb:233:in `default_render'
+  actionpack (4.0.3) lib/action_controller/metal/responder.rb:161:in `to_html'
+  actionpack (4.0.3) lib/action_controller/metal/responder.rb:154:in `respond'
+  actionpack (4.0.3) lib/action_controller/metal/responder.rb:147:in `call'
+  actionpack (4.0.3) lib/action_controller/metal/mime_responds.rb:330:in `respond_with'
+  devise (3.2.2) app/controllers/devise/registrations_controller.rb:8:in `new'
+  actionpack (4.0.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.3) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:443:in `_run__399854057__process_action__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.3) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/mapper.rb:44:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__762244236__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.7ms)
+
+
+Started GET "/my/users/sign_up" for 10.9.0.60 at 2014-08-26 10:04:24 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:25 -0400
+
+
+Started POST "/my/users" for 10.9.0.60 at 2014-08-26 10:04:28 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V7y3ZH5kvN2DWLN/2cTqlsHzF+qwBPgMvxMMBcA3RQo=", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "paynum"=>""}, "commit"=>"Sign up"}
+Unpermitted parameters: paynum
+  [1m[35m (25.8ms)[0m  BEGIN
+  [1m[36mUser Exists (26.8ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = '' LIMIT 1[0m
+  [1m[35m (26.2ms)[0m  ROLLBACK
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 160ms (Views: 25.2ms | ActiveRecord: 78.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:04:29 -0400
+
+
+Started POST "/my/users" for 10.9.0.60 at 2014-08-26 10:04:48 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V7y3ZH5kvN2DWLN/2cTqlsHzF+qwBPgMvxMMBcA3RQo=", "user"=>{"username"=>"admin2", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "paynum"=>"55555"}, "commit"=>"Sign up"}
+Unpermitted parameters: paynum
+  [1m[36m (25.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (26.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'admin2' LIMIT 1
+  [1m[36m (26.9ms)[0m  [1mROLLBACK[0m
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 215ms (Views: 23.7ms | ActiveRecord: 78.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:48 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:48 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:48 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:04:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (35.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemovePrinterTableModel (20140826140610)
+  [1m[35m (33.2ms)[0m  BEGIN
+  [1m[36m (38.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/forms/3" for 10.9.0.60 at 2014-08-26 10:07:24 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (52.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.3) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.3) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__762244236__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (26.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemovePrinterTableModel (20140826140610)
+  [1m[35m (24.3ms)[0m  BEGIN
+  [1m[36m (64.0ms)[0m  [1mDROP TABLE "printers"[0m
+  [1m[35mSQL (74.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140826140610"]]
+  [1m[36m (37.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (25.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started POST "/my/users" for 10.9.0.60 at 2014-08-26 10:15:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (73.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V7y3ZH5kvN2DWLN/2cTqlsHzF+qwBPgMvxMMBcA3RQo=", "user"=>{"username"=>"admin2", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "paynum"=>"55555"}, "commit"=>"Sign up"}
+  [1m[35m (38.1ms)[0m  BEGIN
+  [1m[36mUser Exists (36.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'admin2' LIMIT 1[0m
+  [1m[35mSQL (80.2ms)[0m  INSERT INTO "users" ("created_at", "encrypted_password", "paynum", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 26 Aug 2014 14:15:01 UTC +00:00], ["encrypted_password", "$2a$10$6FoIV6Yr8abEfHgUZkM4/.r/qJDSs0AAKBk4UBd3wYJK0jF2xyPKu"], ["paynum", "55555"], ["updated_at", Tue, 26 Aug 2014 14:15:01 UTC +00:00], ["username", "admin2"]]
+  [1m[36m (42.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (39.4ms)[0m  BEGIN
+  [1m[36mSQL (77.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 4[0m  [["last_sign_in_at", Tue, 26 Aug 2014 14:15:01 UTC +00:00], ["current_sign_in_at", Tue, 26 Aug 2014 14:15:01 UTC +00:00], ["last_sign_in_ip", "10.9.0.60"], ["current_sign_in_ip", "10.9.0.60"], ["sign_in_count", 1], ["updated_at", Tue, 26 Aug 2014 14:15:01 UTC +00:00]]
+  [1m[35m (41.7ms)[0m  COMMIT
+Redirected to http://10.9.0.60:3000/
+Completed 302 Found in 668ms (ActiveRecord: 513.5ms)
+
+
+Started GET "/" for 10.9.0.60 at 2014-08-26 10:15:01 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (40.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (30.7ms)[0m  SELECT "forms".* FROM "forms" WHERE (user_id = 4 OR paynum = '55555')
+  Rendered forms/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 104ms (Views: 24.1ms | ActiveRecord: 71.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/smiley.svg" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:15:02 -0400
+
+
+Started DELETE "/my/users/sign_out" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"V7y3ZH5kvN2DWLN/2cTqlsHzF+qwBPgMvxMMBcA3RQo="}
+  [1m[36mUser Load (85.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (39.9ms)[0m  BEGIN
+  [1m[36m (39.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://10.9.0.60:3000/my/users/sign_in
+Completed 302 Found in 179ms (ActiveRecord: 165.3ms)
+
+
+Started GET "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:15:05 -0400
+
+
+Started POST "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:15:13 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yvPN8XyjP/jLN6pzRnkGUy3/4GExWCpf2NJD4aCgmHA=", "user"=>{"login"=>"admin2", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (262.3ms)[0m  SELECT "users".* FROM "users" WHERE (lower(username) = 'admin2' OR lower(email) = 'admin2') ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (36.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (78.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 4  [["current_sign_in_at", Tue, 26 Aug 2014 14:15:14 UTC +00:00], ["sign_in_count", 2], ["updated_at", Tue, 26 Aug 2014 14:15:14 UTC +00:00]]
+  [1m[36m (35.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://10.9.0.60:3000/
+Completed 302 Found in 533ms (ActiveRecord: 412.6ms)
+
+
+Started GET "/" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+Processing by FormsController#index as HTML
+  [1m[35mUser Load (116.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mForm Load (84.9ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE (user_id = 4 OR paynum = '55555')[0m
+  Rendered forms/index.html.erb within layouts/application (86.1ms)
+Completed 200 OK in 227ms (Views: 23.7ms | ActiveRecord: 201.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:14 -0400
+
+
+Started DELETE "/my/users/sign_out" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Yrcix7AkijMTeWdsDs9qaQ5F/oTaDD+vxVAIWAb0My4="}
+  [1m[35mUser Load (73.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (37.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (34.6ms)[0m  COMMIT
+Redirected to http://10.9.0.60:3000/my/users/sign_in
+Completed 302 Found in 198ms (ActiveRecord: 145.5ms)
+
+
+Started GET "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:18 -0400
+
+
+Started POST "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HnejMtgbGqpvcPta5h2k73dwwB4awMHKJhPo2FrUOnI=", "user"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (72.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (lower(username) = 'admin' OR lower(email) = 'admin') ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (46.3ms)[0m  BEGIN
+  [1m[36mSQL (81.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "sign_in_count" = $4, "updated_at" = $5 WHERE "users"."id" = 1[0m  [["last_sign_in_at", Tue, 26 Aug 2014 14:03:21 UTC +00:00], ["current_sign_in_at", Tue, 26 Aug 2014 14:15:26 UTC +00:00], ["last_sign_in_ip", "10.9.0.60"], ["sign_in_count", 25], ["updated_at", Tue, 26 Aug 2014 14:15:26 UTC +00:00]]
+  [1m[35m (51.2ms)[0m  COMMIT
+Redirected to http://10.9.0.60:3000/
+Completed 302 Found in 371ms (ActiveRecord: 251.0ms)
+
+
+Started GET "/" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (86.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (83.8ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.0ms)
+  Rendered forms/index.html.erb within layouts/application (246.7ms)
+Completed 200 OK in 390ms (Views: 80.9ms | ActiveRecord: 306.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:26 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:27 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:27 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:27 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:27 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:15:27 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:15:27 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:27 -0400
+
+
+Started GET "/users" for 10.9.0.60 at 2014-08-26 10:15:33 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (73.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (476.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (483.6ms)
+Completed 200 OK in 583ms (Views: 29.3ms | ActiveRecord: 549.7ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:33 -0400
+
+
+Started GET "/users/4/edit" for 10.9.0.60 at 2014-08-26 10:15:36 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (205.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35mUser Load (92.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  Rendered users/_form.html.erb (70.6ms)
+  Rendered users/edit.html.erb within layouts/application (74.2ms)
+Completed 200 OK in 395ms (Views: 92.7ms | ActiveRecord: 298.0ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:36 -0400
+
+
+Started DELETE "/users/4" for 10.9.0.60 at 2014-08-26 10:15:46 -0400
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bGXdmZzsjdvGt1A9TWu9Gg5liqpu24x9rO69SfpQaD8=", "id"=>"4"}
+  [1m[35mUser Load (85.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "4"]]
+  [1m[36mUser Load (68.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (40.0ms)[0m  BEGIN
+  [1m[36mSQL (316.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (39.4ms)[0m  COMMIT
+Redirected to http://10.9.0.60:3000/users
+Completed 302 Found in 557ms (ActiveRecord: 549.2ms)
+
+
+Started GET "/users" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (159.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (112.9ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (118.2ms)
+Completed 200 OK in 302ms (Views: 26.5ms | ActiveRecord: 272.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:15:47 -0400
+
+
+Started DELETE "/my/users/sign_out" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bGXdmZzsjdvGt1A9TWu9Gg5liqpu24x9rO69SfpQaD8="}
+  [1m[36mUser Load (72.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (38.4ms)[0m  BEGIN
+  [1m[36m (43.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://10.9.0.60:3000/my/users/sign_in
+Completed 302 Found in 167ms (ActiveRecord: 154.9ms)
+
+
+Started GET "/my/users/sign_in" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.60 at 2014-08-26 10:16:05 -0400
+
+
+Started GET "/" for 10.9.0.99 at 2014-08-26 10:27:36 -0400
+
+SyntaxError (/home/bholland/Ruby_Projects/network_install_ror_pg/app/controllers/application_controller.rb:14: syntax error, unexpected ':', expecting ')'
+...n, :current_password, :paynum :office_number) }
+...                               ^
+/home/bholland/Ruby_Projects/network_install_ror_pg/app/controllers/application_controller.rb:16: syntax error, unexpected keyword_end, expecting '}'
+/home/bholland/Ruby_Projects/network_install_ror_pg/app/controllers/application_controller.rb:23: syntax error, unexpected keyword_end, expecting '}'):
+  app/controllers/forms_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.8ms)
+
+
+Started GET "/" for 10.9.0.99 at 2014-08-26 10:29:21 -0400
+Processing by FormsController#index as HTML
+PG::ConnectionBad: PQconsumeInput() server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+:               SELECT COUNT(*)
+              FROM pg_class c
+              LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
+              WHERE c.relkind in ('v','r')
+              AND c.relname = 'users'
+              AND n.nspname = ANY (current_schemas(false))
+
+Completed 500 Internal Server Error in 5ms
+
+ActiveRecord::StatementInvalid (PG::ConnectionBad: PQconsumeInput() server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+:               SELECT COUNT(*)
+              FROM pg_class c
+              LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
+              WHERE c.relkind in ('v','r')
+              AND c.relname = 'users'
+              AND n.nspname = ANY (current_schemas(false))
+):
+  activerecord (4.0.3) lib/active_record/connection_adapters/postgresql_adapter.rb:774:in `async_exec'
+  activerecord (4.0.3) lib/active_record/connection_adapters/postgresql_adapter.rb:774:in `exec_no_cache'
+  activerecord (4.0.3) lib/active_record/connection_adapters/postgresql/database_statements.rb:138:in `block in exec_query'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract_adapter.rb:435:in `block in log'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract_adapter.rb:430:in `log'
+  activerecord (4.0.3) lib/active_record/connection_adapters/postgresql/database_statements.rb:137:in `exec_query'
+  activerecord (4.0.3) lib/active_record/connection_adapters/postgresql/schema_statements.rb:110:in `table_exists?'
+  activerecord (4.0.3) lib/active_record/connection_adapters/schema_cache.rb:32:in `table_exists?'
+  activerecord (4.0.3) lib/active_record/model_schema.rb:203:in `table_exists?'
+  activerecord (4.0.3) lib/active_record/attribute_methods/primary_key.rb:92:in `get_primary_key'
+  activerecord (4.0.3) lib/active_record/attribute_methods/primary_key.rb:77:in `reset_primary_key'
+  activerecord (4.0.3) lib/active_record/attribute_methods/primary_key.rb:65:in `primary_key'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/active_record.rb:17:in `get'
+  devise (3.2.2) lib/devise/models/authenticatable.rb:208:in `serialize_from_session'
+  devise (3.2.2) lib/devise.rb:462:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:127:in `authenticate!'
+  devise (3.2.2) lib/devise/controllers/helpers.rb:50:in `authenticate_user!'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:427:in `_run__544899448__process_action__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.3) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.3) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.3) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.3) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.3) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__762244236__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:138:in `service'
+  /usr/share/ruby/webrick/httpserver.rb:94:in `run'
+  /usr/share/ruby/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/bholland/.gem/ruby/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.1ms)
+
+
+Started GET "/" for 10.9.0.99 at 2014-08-26 10:29:44 -0400
+Processing by FormsController#index as HTML
+  [1m[35mUser Load (37.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+Completed 401 Unauthorized in 192ms
+
+
+Started GET "/my/users/sign_in" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/net_forms.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.99 at 2014-08-26 10:29:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/my/users/sign_in" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 57ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/assets/users.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:47 -0400
+
+
+Started POST "/my/users/sign_in" for 10.9.0.99 at 2014-08-26 10:29:52 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HDDkvcnne2m+AT+PY1AAX+Aerilh8MaFUYoYzbMhAM0=", "user"=>{"login"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (34.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE (lower(username) = 'admin' OR lower(email) = 'admin') ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (33.8ms)[0m  BEGIN
+  [1m[36mSQL (76.6ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "current_sign_in_ip" = $3, "sign_in_count" = $4, "updated_at" = $5 WHERE "users"."id" = 1[0m  [["last_sign_in_at", Tue, 26 Aug 2014 14:15:26 UTC +00:00], ["current_sign_in_at", Tue, 26 Aug 2014 14:29:53 UTC +00:00], ["current_sign_in_ip", "10.9.0.99"], ["sign_in_count", 26], ["updated_at", Tue, 26 Aug 2014 14:29:53 UTC +00:00]]
+  [1m[35m (42.5ms)[0m  COMMIT
+Redirected to http://10.9.0.60:3000/
+Completed 302 Found in 309ms (ActiveRecord: 187.6ms)
+
+
+Started GET "/" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (48.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (34.7ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.0ms)
+  Rendered forms/index.html.erb within layouts/application (156.9ms)
+Completed 200 OK in 227ms (Views: 44.3ms | ActiveRecord: 175.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/tablet.svg" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/screen.svg" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/assets/question.svg" for 10.9.0.99 at 2014-08-26 10:29:53 -0400
+
+
+Started GET "/forms/3" for 10.9.0.99 at 2014-08-26 10:29:56 -0400
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mForm Load (56.7ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (30.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered forms/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 111ms (Views: 18.9ms | ActiveRecord: 87.2ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:56 -0400
+
+
+Started GET "/forms" for 10.9.0.99 at 2014-08-26 10:29:57 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (28.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (27.4ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (3.3ms)
+  Rendered forms/index.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 80ms (Views: 22.3ms | ActiveRecord: 55.6ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:57 -0400
+
+
+Started GET "/forms/8" for 10.9.0.99 at 2014-08-26 10:29:57 -0400
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mForm Load (28.2ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+  [1m[35mUser Load (26.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered forms/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 76ms (Views: 16.8ms | ActiveRecord: 54.8ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:57 -0400
+
+
+Started GET "/forms" for 10.9.0.99 at 2014-08-26 10:29:58 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (32.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (27.2ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.5ms)
+  Rendered forms/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 122ms (Views: 60.4ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:58 -0400
+
+
+Started GET "/forms/1" for 10.9.0.99 at 2014-08-26 10:29:59 -0400
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mForm Load (27.0ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (26.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered forms/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 73ms (Views: 14.9ms | ActiveRecord: 53.8ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:59 -0400
+
+
+Started GET "/forms" for 10.9.0.99 at 2014-08-26 10:29:59 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (26.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (28.6ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.1ms)
+  Rendered forms/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 76ms (Views: 19.0ms | ActiveRecord: 55.2ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:29:59 -0400
+
+
+Started GET "/forms/1" for 10.9.0.99 at 2014-08-26 10:30:00 -0400
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mForm Load (27.2ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (26.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered forms/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 71ms (Views: 13.7ms | ActiveRecord: 53.5ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:00 -0400
+
+
+Started GET "/forms" for 10.9.0.99 at 2014-08-26 10:30:00 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (27.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (27.2ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.5ms)
+  Rendered forms/index.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 77ms (Views: 20.7ms | ActiveRecord: 54.3ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:00 -0400
+
+
+Started GET "/forms/3" for 10.9.0.99 at 2014-08-26 10:30:01 -0400
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mForm Load (27.1ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (26.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered forms/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 79ms (Views: 21.3ms | ActiveRecord: 54.0ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:01 -0400
+
+
+Started GET "/forms" for 10.9.0.99 at 2014-08-26 10:30:01 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (26.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (27.5ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.4ms)
+  Rendered forms/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 75ms (Views: 19.3ms | ActiveRecord: 54.1ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:02 -0400
+
+
+Started GET "/forms/8" for 10.9.0.99 at 2014-08-26 10:30:02 -0400
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mForm Load (27.4ms)[0m  [1mSELECT "forms".* FROM "forms" WHERE "forms"."id" = $1 LIMIT 1[0m  [["id", "8"]]
+  [1m[35mUser Load (29.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered forms/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 117ms (Views: 56.6ms | ActiveRecord: 56.8ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:02 -0400
+
+
+Started GET "/forms" for 10.9.0.99 at 2014-08-26 10:30:03 -0400
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (26.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mForm Load (27.1ms)[0m  SELECT "forms".* FROM "forms" WHERE (completed = '0')
+  Rendered forms/_formResult.html.erb (2.6ms)
+  Rendered forms/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 76ms (Views: 21.6ms | ActiveRecord: 53.2ms)
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:03 -0400
+
+
+Started DELETE "/my/users/sign_out" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PeIQVdVNbHDQApT2uBJXkIz4jjmYPx8t7fHnPSD6dpw="}
+  [1m[36mUser Load (35.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (26.8ms)[0m  BEGIN
+  [1m[36m (29.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://10.9.0.60:3000/my/users/sign_in
+Completed 302 Found in 105ms (ActiveRecord: 92.1ms)
+
+
+Started GET "/my/users/sign_in" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/animate.css?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/searches.css?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/printers.css?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/forms.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/printers.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/pace.min.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/searches.js?body=1" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/list.svg" for 10.9.0.99 at 2014-08-26 10:30:04 -0400
+
+
+Started GET "/assets/copy.png" for 10.9.0.99 at 2014-08-26 10:30:04 -0400

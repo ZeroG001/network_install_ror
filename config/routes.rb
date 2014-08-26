@@ -4,7 +4,6 @@ NetworkInstallRor::Application.routes.draw do
   root 'forms#index'
 
   resources :forms
-  resources :printers
   resources :users
 
 resources :forms do
