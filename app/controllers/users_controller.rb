@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
      @users = User.all
+
     # @users = User.where("username ilike ? OR paynum ilike ?", current_user.username, current_user.paynum) - cant remember why wrote did this...
 
      # this grabs the information submitted, cleans the exess stuff and leaves the input value.
