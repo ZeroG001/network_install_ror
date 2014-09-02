@@ -91,7 +91,7 @@ class FormsController < ApplicationController
 
       return p
     end
-    # cquery2 = buildQuery params
+
     queryString = buildQuery params
     queryParams = buildParams params
     
