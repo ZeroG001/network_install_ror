@@ -1,9 +1,23 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :index]
 
   # GET /users
   # GET /users.json
+
+  def sign_em_in
+
+    if User.find_by paynum: 88888
+      @variable = "Hello World1"
+      #sign_in(params)
+    else
+      #sign_up(params)
+    end
+
+      
+      # @user = User.new(username: "username", password: "password", paynum: "paynumber", office_number: "office")
+  end
+
   def index
      @users = User.all
 

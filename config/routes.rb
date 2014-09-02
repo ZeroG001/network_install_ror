@@ -4,7 +4,10 @@ NetworkInstallRor::Application.routes.draw do
   root 'forms#index'
 
   resources :forms
+  resources :printers
   resources :users
+
+  get 'signemin' => 'users#sign_em_in'
 
 resources :forms do
   get 'search', to: 'forms#search', as: :search
