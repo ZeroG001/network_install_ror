@@ -1,12 +1,7 @@
 class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :poop
+  before_action :authenticate_user!
 
-  def poop 
-    if authenticate_user!
-      @hello = "hello world"
-    end
-  end
 
   # Pages Do no cache so when a user signs out. They stay signed out.
   before_filter :set_cache_buster

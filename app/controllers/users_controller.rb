@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   def sign_em_in
 
     if User.find_by paynum: 88888
-      @variable = "Hello World1"
-      #sign_in(params)
+      @user = User.find_by paynum: 88888
+      sign_in @user, event: :authentication
     else
       #sign_up(params)
     end
