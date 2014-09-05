@@ -1,17 +1,29 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :index]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  skip_before_filter :verify_authenticity_token, only: [:sign_em_in]
+  
+
+  # Hate to say it but this line is pretty dangerous. The program will not verify the form if its sending to the sign_me_in method only. 
+  
 
   # GET /users
   # GET /users.json
 
   def sign_em_in
 
-    if User.find_by paynum: 88888
-      @user = User.find_by paynum: 88888
-      sign_in @user, event: :authentication
+    sent_params = params[:user]
+
+    if User.find_by paynum: sent_params[:paynum]
+      @user = User.find_by paynum: sent_params[:paynum]
+      sign_in @user
+      # @test = params[:user]
     else
-      #sign_up(params)
+      
+      @user = User.new(user_params)
+      sign_in @user
     end
 
       
