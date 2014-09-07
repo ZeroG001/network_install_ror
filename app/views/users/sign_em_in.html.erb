@@ -1,2 +1,5 @@
-<%= @variable %>
-<%= @test %>
+<% flash.each do |type, message | %>
+	<div class="alert animated bounceIn alert-success <%= type %>">
+		<%= message %>	
+	</div>
+	<% end %>

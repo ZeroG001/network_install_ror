@@ -16,18 +16,25 @@ class UsersController < ApplicationController
 
     sent_params = params[:user]
 
+    # Check if the user is already signed up looking up their unique pay number
     if User.find_by paynum: sent_params[:paynum]
-      @user = User.find_by paynum: sent_params[:paynum]
-      sign_in @user
+        @user = User.find_by paynum: sent_params[:paynum]
       # @test = params[:user]
     else
-      
       @user = User.new(user_params)
-      sign_in @user
+      
+      #If the user isn't able to save it means that eaither the paynumber is already in use or the form was filled out wrong.
+      #This really isn't going to be a form, This will be a mini form link on the REO Intranet.
+      if @user.save
+        sign_in @user
+      else
+        flash[:error] = "Unable to sign in first-time user. <br /><br />
+        Pay Number is invalid or already in use <br />
+        License ID is Invalid or already in use <br />".html_safe
+      end
+
     end
 
-      
-      # @user = User.new(username: "username", password: "password", paynum: "paynumber", office_number: "office")
   end
 
   def index

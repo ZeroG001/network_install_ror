@@ -7,7 +7,7 @@ NetworkInstallRor::Application.routes.draw do
   resources :printers
   resources :users
 
-  post 'signemin' => 'users#sign_em_in'
+  post 'signemin' => 'users#sign_em_in', as: :signemin
 
 resources :forms do
   get 'search', to: 'forms#search', as: :search
