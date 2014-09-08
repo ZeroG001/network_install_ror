@@ -1,13 +1,12 @@
 NetworkInstallRor::Application.routes.draw do
 
-  devise_for :users, :path_prefix => 'my'
+  devise_for :users, :path_prefix => 'manage'
   root 'forms#index'
 
   resources :forms
-  resources :printers
   resources :users
 
-  post 'signemin' => 'users#sign_em_in', as: :signemin
+  post 'signemin' => 'users#sign_em_in'
 
 resources :forms do
   get 'search', to: 'forms#search', as: :search
@@ -16,7 +15,6 @@ end
 
   # The form in users#index depends on this link
   get 'index' => 'users#index'
-
   get 'search' => 'forms#search'
   get 'advsearch' => 'forms#advsearch'
   get 'advsearch_form' => 'forms#advsearch_form'
