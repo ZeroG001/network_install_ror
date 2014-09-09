@@ -1,17 +1,25 @@
 NetworkInstallRor::Application.routes.draw do
 
-  devise_for :users, :path_prefix => 'manage'
-  root 'forms#index'
+root 'forms#index'
 
-  resources :forms
+  resources :forms do
+    get 'search', to: 'forms#search', as: :search
+    get 'advsearch', to: 'forms#advsearch', as: :advsearch
+  end
+
   resources :users
+
+  devise_for :users, :path_prefix => 'manage'
+
+  devise_scope :user do
+    get "sign_in", to: "devise/sessions#new"
+    
+  end
+
 
   post 'signemin' => 'users#sign_em_in'
 
-resources :forms do
-  get 'search', to: 'forms#search', as: :search
-  get 'advsearch', to: 'forms#advsearch', as: :advsearch
-end
+
 
   # The form in users#index depends on this link
   get 'index' => 'users#index'

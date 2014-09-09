@@ -3,11 +3,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  # Hate to say it but this line is pretty dangerous. The program will not verify the form if its sending to the sign_me_in method only. 
   skip_before_filter :verify_authenticity_token, only: [:sign_em_in]
   
 
-  # Hate to say it but this line is pretty dangerous. The program will not verify the form if its sending to the sign_me_in method only. 
-  
+
 
   # GET /users
   # GET /users.json
@@ -19,14 +19,16 @@ class UsersController < ApplicationController
     # Check if the user is already signed up looking up their unique pay number
     if User.find_by paynum: sent_params[:paynum]
         @user = User.find_by paynum: sent_params[:paynum]
-      # @test = params[:user]
+        sign_in @user
     else
+      
       @user = User.new(user_params)
       
       #If the user isn't able to save it means that eaither the paynumber is already in use or the form was filled out wrong.
       #This really isn't going to be a form, This will be a mini form link on the REO Intranet.
-      if @user.save
+      if @user.save!
         sign_in @user
+        
       else
         flash[:error] = "Unable to sign in first-time user. <br /><br />
         Pay Number is invalid or already in use <br />

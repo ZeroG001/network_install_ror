@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
                                     message: "The Profile name should have no spaces"
                                   }
 
-     validates :paynum, presence: true
+     validates :paynum, presence: true, uniqueness: true
 
 
     

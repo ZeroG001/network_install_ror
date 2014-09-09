@@ -17,8 +17,11 @@
 <body>
 
 	<!-- Devise Flash Messages -->
-	<p class="notice" style="display: none"><%= notice %></p>
-	<p class="alert" style="display: none"><%= alert %></p>
+	<% if user_signed_in? %>
+		<% flash.each do |type, message| %>
+			<p class="<%= type %>" style="display: none"><%= message %> </p>
+		<% end %>
+	<% end %>
 
 
 	<!-- Top Navigation Start -->
