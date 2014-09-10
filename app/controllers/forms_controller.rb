@@ -26,7 +26,8 @@ class FormsController < ApplicationController
       @forms = Form.where("user_id = ? OR paynum = ?", current_user.id, current_user.paynum)
       
     end
-    #
+    
+
   end
 
   # GET /forms/1

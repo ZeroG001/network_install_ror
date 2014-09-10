@@ -17,29 +17,26 @@
 <body>
 
 	<!-- Devise Flash Messages -->
-	<% if user_signed_in? %>
-		<% flash.each do |type, message| %>
-			<p class="<%= type %>" style="display: none"><%= message %> </p>
-		<% end %>
+	
+	<% flash.each do |type, message| %>
+		<p class="<%= type %>" style="display: none"><%= message %> </p>
 	<% end %>
+	
 
 
 	<!-- Top Navigation Start -->
+<% if user_signed_in? %>
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<%= image_tag("list.svg", class: "sidebar-button hidden-sm hidden-md hidden-lg navbar-brand") %>
 		<%= image_tag("copy.png", class: "navbar-brand col-xs-offset-3 col-sm-offset-0 col-md-offset-0 col-lg-offset-0") %>
 		<div class="navbar-brand"> Net Form </div>
 
 		<ul class="nav navbar-nav navbar-right">
-
 			<!-- If the user is signed in, show a different nav -->
-
-			
-			
 		</ul>
 	</nav> <!-- Top Navigation end -->
 
-	<% if user_signed_in? %>
+	
 		<div class="container-fluid">
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-5 hidden-xs sidebar">
 				<ul class="nav nav-sidebar">

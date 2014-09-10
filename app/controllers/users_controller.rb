@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       
       #If the user isn't able to save it means that eaither the paynumber is already in use or the form was filled out wrong.
       #This really isn't going to be a form, This will be a mini form link on the REO Intranet.
-      if @user.save!
+      if @user.save
         sign_in @user
         
       else

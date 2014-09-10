@@ -1,6 +1,6 @@
 NetworkInstallRor::Application.routes.draw do
 
-root 'forms#index'
+
 
   resources :forms do
     get 'search', to: 'forms#search', as: :search
@@ -13,7 +13,7 @@ root 'forms#index'
 
   devise_scope :user do
     get "sign_in", to: "devise/sessions#new"
-    
+    root "devise/sessions#new"
   end
 
 

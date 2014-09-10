@@ -1,5 +1,5 @@
 <div class="signup-form-wrapper">
-<h2>Log in</h2>
+<h2>Net Forms</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 <% flash.each do |type, message | %>
@@ -9,8 +9,8 @@
 	</div>
 	<% end %>
   <div class="form-inputs">
-    <%= f.input :login, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => false %>
+    <%= f.input :login, :required => true, :autofocus => true, label: "username" %>
+    <%= f.input :password, :required => true %>
     <% # f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
   </div>
 <hr> 
