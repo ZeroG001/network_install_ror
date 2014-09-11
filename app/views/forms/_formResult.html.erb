@@ -2,7 +2,7 @@
 
     <!-- Column Headers -->
 
-    <div class="row hidden-xs col-sm-10 col-md-10 header-row">
+    <div class="row hidden-xs col-sm-12 col-md-12 header-row">
 
         <div class="device_image col-md-2 col-sm-2">
          <span class="header-text"> Device </span>
@@ -12,16 +12,16 @@
         <span class="header-text"> Agent Name </span>
     </div>
 
-    <div class="col-md-2 col-sm-2">
+    <div class="col-md-3 col-sm-3">
         <span class="header-text"> CPU Name </span>
     </div>
 
-    <div class="col-md-4 col-sm-4">
-        <span class="header-text"> Status </span>
+    <div class="col-md-2 col-sm-2">
+        <span class="header-text"> Pay Number </span>
     </div>
 
-    <div class="col-md-1 col-sm-1">
-        <span class="header-text"> Options </span>
+    <div class="col-md-2 col-sm-2">
+        <span class="header-text"> Status </span>
     </div>
 
 </div> 
@@ -38,7 +38,7 @@
     <%= link_to form, class: "net_form_row_a" do %>
 
         
-            <div class="row col-sm-10 col-md-10 net_form_row">
+            <div class="row col-sm-12 col-md-12 net_form_row">
 
                 <div class="device_image col-md-2 col-sm-2 col-xs-6">
                     <%= image_tag(found_image.values.join(" ")) %>
@@ -48,26 +48,26 @@
                     <%= form.first_name + " " + form.last_name %>
                 </div>
 
-                <div class="col-md-2 col-sm-2">
+                <div class="col-md-3 col-sm-3">
                     <%= form.computer_name %>
                 </div>
 
-                <div class="col-md-4 col-sm-4">
+                <div class="col-md-2 col-sm-2">
+                    <%= form.paynum %>
+                </div>
+
+                <div class="col-md-2 col-sm-2">
                     <% if form.completed == "0" or form.completed == nil %>
-                    <p> Incomplete </p>
-                    <% elsif form.completed == "1" and form.expire_date != nil and form.complete_date != nil and Chronic.parse("today at 12:00am") > form.expire_date %>
+                        <p> Incomplete </p>
+                        <% elsif form.completed == "1" and form.expire_date != nil and form.complete_date != nil and Chronic.parse("today at 12:00am") > form.expire_date %>
 
-                    <p> Form Expired </p>
-                    
-                    <% elsif form.completed == "1" and form.complete_date != nil and form.expire_date != nil and Chronic.parse("today at 12:00am") < form.expire_date %>
+                        <p> Expired </p>
+                        
+                        <% elsif form.completed == "1" and form.complete_date != nil and form.expire_date != nil and Chronic.parse("today at 12:00am") <= form.expire_date %>
 
-                    <p> This form expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), form.expire_date)%></p>
-                    <% end %> 
-                </div>
-
-                <div class="col-md-1 col-sm-1">
-                <!-- options put things in here soon -->
-                </div>
+                        <p> Expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), form.expire_date)%></p>
+                        <% end %>
+                    </div>
             </div> 
         
 

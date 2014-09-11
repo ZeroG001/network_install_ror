@@ -1,8 +1,18 @@
 
 
-<h1>Editing user</h1>
+<h1>Edit user</h1>
+<hr />
 
 <%= render 'form' %>
 <!-- When deleting a user who is a regular user. delete all forms that belong to them. -->
- <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', users_path %>
+<br />
+
+
+ 	<%= link_to @user, method: :delete, data: { confirm: 'Are you sure?!' } do %>
+ 		<div class="btn btn-danger">
+
+ 		<span> Delete User! </span>
+
+ 		</div>
+ 	<% end %>
+
