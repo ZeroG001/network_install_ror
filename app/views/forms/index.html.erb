@@ -1,13 +1,24 @@
 <div class="result_wrapper">
-<% if @forms.blank? %>
 
-     <div class="finished-text"> <%= image_tag("smiley.svg") %> 
-        <p> All Clear </p>
-     </div>
+	<% 
+		# If no forms are retrived then show a little messgae. Message varies based on what kind of user is logged in. (admin, manager, agent) 
+	%>
 
-<% else %>
-    <%= render 'formResult' %>
-<% end %>
+	<% if @forms.blank? %>
+
+	<% if current_user.try(:role) == 'admin' or current_user.try(:role) == 'manager' %>
+	     <div class="finished-text"> 
+	        <p> All Clear </p>
+	     </div>
+	<% else %>
+		<div class="finished-text"> 
+	        <p> No Devices </p>
+	     </div> 
+	<% end %>
+
+	<% else %>
+	    <%= render 'formResult' %>
+	<% end %>
 
  </div>
 

@@ -18,12 +18,12 @@ class FormsController < ApplicationController
   def index
 
     if current_user.try(:role) == "admin"
-      @forms = Form.where("completed = ?", "0").order(:created_at)
+      @forms = Form.where("completed = ?", "0").order(:created_at).take(20)
     elsif current_user.try(:role) == "manager"
-      @forms = Form.where("office_number = ?", current_user.office_number).order(:created_at)
+      @forms = Form.where("office_number = ?", current_user.office_number).order(:created_at).take(20)
     else
       # User.find(current_user).forms
-      @forms = Form.where("user_id = ? OR paynum = ?", current_user.id, current_user.paynum)
+      @forms = Form.where("user_id = ? OR paynum = ?", current_user.id, current_user.paynum).take(20)
       
     end
     

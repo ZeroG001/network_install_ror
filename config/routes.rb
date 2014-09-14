@@ -26,6 +26,7 @@ NetworkInstallRor::Application.routes.draw do
   get 'search' => 'forms#search'
   get 'advsearch' => 'forms#advsearch'
   get 'advsearch_form' => 'forms#advsearch_form'
+  get 'form_error', to: redirect('/error_page.html')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

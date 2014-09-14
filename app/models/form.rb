@@ -32,7 +32,10 @@ class Form < ActiveRecord::Base
 	
 	# validates :first_name, presence: :true
 	# validates :last_name, presence: :true
-	# validates :paynum, presence: :true
+	# validates :paynum, 
+	#			presence: :true,
+	#			with: {format: /[0-9]+/},
+	#			length: {maximum: 6}
 	# validates :service_cost, presence: :true
 	# validates :nic_connection, presence: :true
 	# validates :os_type, presence: :true

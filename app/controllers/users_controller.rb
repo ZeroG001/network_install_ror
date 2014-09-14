@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :index]
+  before_action :authenticate_user!, :permission_check, only: [:show, :edit, :update, :destroy, :index, :new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # Hate to say it but this line is pretty dangerous. The program will not verify the form if its sending to the sign_me_in method only. 
   skip_before_filter :verify_authenticity_token, only: [:sign_em_in]
-  
 
+  #Check to see if the user signed in is an admin. They should be the only ones that can access the users controller
+  def permission_check
 
+    if current_user.try(:role) != "admin"
+      redirect_to forms_path
+    end
+
+  end
 
   # GET /users
   # GET /users.json
@@ -30,9 +36,7 @@ class UsersController < ApplicationController
         sign_in @user
         
       else
-        flash[:error] = "Unable to sign in first-time user. <br /><br />
-        Pay Number is invalid or already in use <br />
-        License ID is Invalid or already in use <br />".html_safe
+        redirect_to form_error_path
       end
 
     end
@@ -40,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def index
-     @users = User.all
+     @users = User.take(20)
 
     # @users = User.where("username ilike ? OR paynum ilike ?", current_user.username, current_user.paynum) - cant remember why wrote did this...
 
@@ -65,24 +69,24 @@ class UsersController < ApplicationController
       
       # If the manager is signed in, run certain search queries
         if current_user.try(:role) == "manager"
-          @users = User.all
+          @users = User.take(20)
 
           if param_key == "username"
-           @users = User.where("username ilike ?", param_value)
+           @users = User.where("username ilike ?", param_value).take(20)
           elsif param_key == "paynum"
-             @users = User.where("paynum ilike ?", param_value)
+             @users = User.where("paynum ilike ?", param_value).take(20)
           end
 
         end
 
         # if the admin is signed in then run certain search queries
         if current_user.try(:role) == "admin"
-          @users = User.all
+          @users = User.take(20)
 
           if param_key == "username"
-           @users = User.where("username ilike ?", param_value)
+           @users = User.where("username ilike ?", param_value).take(20)
           elsif param_key == "paynum"
-             @users = User.where("paynum ilike ?", param_value)
+             @users = User.where("paynum ilike ?", param_value).take(20)
           end
             
         end

@@ -59,13 +59,13 @@
                 <div class="col-md-2 col-sm-2">
                     <% if form.completed == "0" or form.completed == nil %>
                         <p> Incomplete </p>
-                        <% elsif form.completed == "1" and form.expire_date != nil and form.complete_date != nil and Chronic.parse("today at 12:00am") > form.expire_date %>
+                        <% elsif form.completed == "1" and form.expire_date != nil and form.complete_date != nil and Chronic.parse("this second") > form.expire_date %>
 
                         <p> Expired </p>
                         
-                        <% elsif form.completed == "1" and form.complete_date != nil and form.expire_date != nil and Chronic.parse("today at 12:00am") <= form.expire_date %>
+                        <% elsif form.completed == "1" and form.complete_date != nil and form.expire_date != nil and Chronic.parse("this second") <= form.expire_date %>
 
-                        <p> Expires in <%= distance_of_time_in_words(Chronic.parse("today at 12:00 am"), form.expire_date)%></p>
+                        <p> Expires in <%= distance_of_time_in_words(Chronic.parse("this second"), form.expire_date)%></p>
                         <% end %>
                     </div>
             </div> 

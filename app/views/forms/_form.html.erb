@@ -108,14 +108,11 @@
   </div>
 </div>
 
-<% # f.input :nic_connection, collection: [["Wired", "Wired"],["Wireless", "Wireless"],["Both","Both"]], as: :radio_buttons, checked: @form.nic_connection, label: false, input_html: {class: "form-radio-button"} %>
-
-
 <!-- Section that only an admin or manager would see -->
 <% if current_user.try(:role) == "agent" %> 
 <div class="row row-field">
   <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.input :completed, as: :hidden, boolean_style: :inline, label: "Installation complete?", input_html: {checked: false} %>
+    <%= f.input :completed, as: :hidden, label: "Installation complete?", input_html: {value: "0"} %>
   </div>
 </div>
 <% end %>
@@ -195,7 +192,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Test Form</h4>
+        <h4 class="modal-title" id="myModalLabel">Network Install Agreement</h4>
       </div>
       <div class="modal-body">
         <p>
