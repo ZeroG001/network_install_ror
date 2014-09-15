@@ -1,9 +1,12 @@
 <%= simple_form_for(@form) do |f| %>
 <% if @form.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@form.errors.count, "error") %> prohibited this net_form from being saved:</h2>
+  <h2> Form Could not be saved. See reasons below.</h2>
+
+  <% # pluralize(@form.errors.count, "error") %> 
 
   <ul>
+   
     <% @form.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
     <% end %>
@@ -127,7 +130,7 @@
 
 <div class="row row-field">
   <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.input :antivir_expire_date, input_html: {class: "form-control", value: @form.format_date(@form.antivir_expire_date)} %>
+    <%= f.input :antivir_expire_date, input_html: {class: "form-control", value: format_date(@form.antivir_expire_date)} %>
   </div>
 </div>
 
