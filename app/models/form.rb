@@ -24,13 +24,13 @@ class Form < ActiveRecord::Base
 
 		if (self.completed == "1" and self.complete_date.nil? and self.expire_date.nil?)
 			self.complete_date = right_now
-			self.expire_date = tomorrow # was "a year from now" yearExpiredate entered here
+			self.expire_date = next_year # was "a year from now" yearExpiredate entered here
 		end 
 
 		# If the form has expired and is complete then renew.
 		if self.completed == "1" and right_now > self.expire_date
 		self.complete_date = right_now
-		self.expire_date = tomorrow # was "a year from now" Expire date entered here
+		self.expire_date = next_year # was "a year from now" Expire date entered here
 		end
 	end
 
