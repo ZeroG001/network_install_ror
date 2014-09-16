@@ -37,9 +37,6 @@ Bootstrap Modifications
 	}
 }
 
-.navbar-fixed-top {
-	padding-bottom: 5px;
-}
 
 /* 
 ======================================== 
@@ -92,7 +89,9 @@ CSS for Application
 	right: 20px;
 }
 
-
+.my-nav-brand {
+	margin-bottom: 5px;
+}
 
 
 
@@ -255,6 +254,11 @@ Media Queries
 	}
 
 	.nav-top-brand {
+		position: relative;
+		right: 20px;
+	}
+
+	.sidebar-button {
 		position: relative;
 		right: 20px;
 	}
