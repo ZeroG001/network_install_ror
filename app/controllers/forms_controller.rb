@@ -18,7 +18,7 @@ class FormsController < ApplicationController
   def index
 
     if current_user.try(:role) == "admin"
-      @forms = Form.where("completed = ?", "0").order("created_at DESC").take(20)
+      @forms = Form.where("completed = '0' OR expire_date <(CURRENT_TIMESTAMP)").order("created_at DESC").take(20)
     elsif current_user.try(:role) == "manager"
       @forms = Form.where("office_number = ?", current_user.office_number).order("created_at DESC").take(20)
     else
