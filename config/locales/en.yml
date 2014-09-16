@@ -25,3 +25,4 @@ en:
       form:
         paynum: "Pay Number"
         nic_connection: "Connection Type"
+        printer_ip: "IP Address"

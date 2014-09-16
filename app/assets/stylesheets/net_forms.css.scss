@@ -8,7 +8,11 @@ body {
 	padding-top: 70px;
 }
 
-/* ============= Bootstrap Modifications ============ */
+/* 
+======================================== 
+Bootstrap Modifications
+========================================
+*/
 
 .container-fluid {
 	width: 100%;
@@ -31,14 +35,17 @@ body {
 		background-color: #eee;
 		}
 	}
-
-
 }
 
-/* ============= Bootstrap Modifications End ============ */
+.navbar-fixed-top {
+	height: 56px;
+}
 
-
-/* ======= CSS For main pages ============= */
+/* 
+======================================== 
+CSS for Application
+========================================
+*/
 
 .row-field {
 
@@ -80,15 +87,24 @@ body {
 	margin-bottom: 10px;
 }
 
+.sidebar-button {
+	position: relative;
+	right: 20px;
+}
 
 
 
 
-	/* checkbox modification */ 
+
+	/*
+	================
+	Check Box Trick
+	================
+	*/ 
 
 .form-radio-button {
 
-display: none;
+	display: none;
 
  	 background-color: #fff;
 		border: 1px solid black;
@@ -144,8 +160,11 @@ display: none;
 		}
 	}
 
-/* checkbox modification end */
-
+	/*
+	==================
+	Sidebar Animation
+	==================
+	*/ 
 
 .sidebarSlideOut {
 	-webkit-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
@@ -162,11 +181,11 @@ display: none;
 
 
 
-/* ======= main pages CSS end ============= */
-
-
-
-/* ============= CSS for the form ============ */
+/* 
+======================================== 
+CSS for Net Form
+========================================
+*/
 
  .header-row {
  	margin-bottom: 20px;
@@ -189,64 +208,71 @@ display: none;
 	-webkit-animation: slideFadeIn 0.4s ease-out;
 	-moz-animation: slideFadeIn 0.4s ease-out;
 	animation: slideFadeIn 0.4s ease-out;
-	
 }
 
 .net_form_row_a {
 
-&:hover .net_form_row {
-	background-color: #f1f1f1;
-	text-decoration:none;
-	
-	color: black;
-}
-	
+	&:hover .net_form_row {
+		background-color: #f1f1f1;
+		text-decoration:none;
+		color: black;
+	}	
 }
 
 
-/* ============== Form CSS End =================== */
-
-
-
-
-/* ====== Media Queries ============ */
+/* 
+======================================== 
+Media Queries
+========================================
+*/
 
 @media screen and (max-width: 768px) {
 	.device_image {
-	height: 100px;
-	width: 150px;
-		img {
-			width: 85px;
-		}
+		height: 100px;
+		width: 150px;
+			img {
+				width: 85px;
+			}
 	}
 
 	.sidebar_backdrop {
-	position: fixed;
-	z-index: 9;
-	width:100%;
-	height: 100%;
-	display: none;
-}
+		position: fixed;
+		z-index: 9;
+		width:100%;
+		height: 100%;
+		display: none;
+	}
+
 	.form-radio-button {
 
-	&:not(:checked) + label {
-	display: inline-block;
+		&:not(:checked) + label {
+			display: inline-block;
+		}
+
+		&:checked + label {
+			display: inline-block;
+		}
 	}
 
-	&:checked + label {
-	display: inline-block;
+	.nav-top-brand {
+		position: relative;
+		right: 20px;
 	}
 }
-	
-} /*  Media Query end */
-
-/* ====== Media Queries end ============ */
 
 
 
-/* ============== Keyframes ============ */
+/* 
+======================================== 
+Keyframe Animations
+========================================
+*/
 
-	/* Firefox Keyframes */
+	/*
+	============
+	Firefox
+	============
+	*/
 
 		@-moz-keyframes slideFadeIn {
 			0% {left:15px; opacity: 0.6 }
@@ -263,14 +289,11 @@ display: none;
 			100% {left: -240px; opacity: 1}
 		}
 
-
-
-		
-
-
-	/* Firefox Keyframes end */
-
-	/* Chrome - Safari Keyframes */
+	/*
+	============
+	Chrome
+	============
+	*/
 
 	@-webkit-keyframes slideFadeIn {
 			0% {left:15px; opacity: 0.6 }
@@ -287,9 +310,11 @@ display: none;
 			100% {left: -45%; opacity: 1}
 		}
 
-	/* Chrome - Safari Keyframes End */
-
-	/* IE Keyframes End */
+	/*
+	============
+	IE
+	============
+	*/
 
 	@keyframes slideFadeIn {
 			0% {left:15px; opacity: 0.6 }
@@ -305,9 +330,3 @@ display: none;
 			0% {left: 0px}
 			100% {left: -240px; opacity: 1}
 		}
-
-	/* IE Keyframes End */
-
-
-
-/* =========== Keyframes End ========== */

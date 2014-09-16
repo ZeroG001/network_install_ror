@@ -18,9 +18,9 @@ class FormsController < ApplicationController
   def index
 
     if current_user.try(:role) == "admin"
-      @forms = Form.where("completed = ?", "0").order(:created_at).take(20)
+      @forms = Form.where("completed = ?", "0").order("created_at DESC").take(20)
     elsif current_user.try(:role) == "manager"
-      @forms = Form.where("office_number = ?", current_user.office_number).order(:created_at).take(20)
+      @forms = Form.where("office_number = ?", current_user.office_number).order("created_at DESC").take(20)
     else
       # User.find(current_user).forms
       @forms = Form.where("user_id = ? OR paynum = ?", current_user.id, current_user.paynum).take(20)
@@ -91,7 +91,7 @@ class FormsController < ApplicationController
     queryString = buildQuery params
     queryParams = buildParams params
     
-    @forms = Form.where(queryString, *queryParams).take(50)
+    @forms = Form.where(queryString, *queryParams).order("created_at DESC").take(20)
     if params.empty?
       @forms = params;
     end
@@ -128,28 +128,28 @@ class FormsController < ApplicationController
       
       # If the manager is signed in, run certain search queries
         if current_user.try(:role) == "manager"
-          @forms = Form.where("office_number = ?",current_user.office_number)
+          @forms = Form.where("office_number = ?",current_user.office_number).order("created_at DESC").take(20)
 
           if param_key == "full_name"
-            @forms = Form.where("concat(first_name,' ',last_name) ilike ? AND office_number = ? ", param_value, current_user.office_number )
+            @forms = Form.where("concat(first_name,' ',last_name) ilike ? AND office_number = ? ", param_value, current_user.office_number ).take(20)
           elsif param_key == "cpu_name"
-             @forms = Form.where("computer_name ilike ? AND office_number = ? ",param_value, current_user.office_number )
+             @forms = Form.where("computer_name ilike ? AND office_number = ? ",param_value, current_user.office_number ).take(20)
           elsif param_key == "paynum"
-             @forms = Form.where("paynum ilike ? AND office_number = ?", param_value, current_user.office_number)
+             @forms = Form.where("paynum ilike ? AND office_number = ?", param_value, current_user.office_number).take(20)
           end
 
         end
 
         # if the admin is signed in then run certain search queries
         if current_user.try(:role) == "admin"
-          @forms = Form.all
+          @forms = Form.all.order("created_at DESC").take(20)
 
           if param_key == "full_name"
-           @forms = Form.where("concat(first_name,' ',last_name) ilike ?", param_value )
+           @forms = Form.where("concat(first_name,' ',last_name) ilike ?", param_value ).take(20)
           elsif param_key == "cpu_name"
-            @forms = Form.where("computer_name ilike ?", param_value)
+            @forms = Form.where("computer_name ilike ?", param_value).take(20)
           elsif param_key == "paynum"
-             @forms = Form.where("paynum ilike ?", param_value)
+             @forms = Form.where("paynum ilike ?", param_value).take(20)
           end
             
         end

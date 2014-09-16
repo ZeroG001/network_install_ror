@@ -95,7 +95,7 @@
         None recorded
       <% else %>
         <% @form.printer_ip.each do |ip| %>
-          <%= ip + " "  %>
+          <%= " | " + ip + " | "  %>
         <% end %>
       <% end %>
       </p>
