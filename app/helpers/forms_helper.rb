@@ -1,6 +1,4 @@
 module FormsHelper
-	def office_array
-	end
 
 	def format_date(date)
 		if date.nil?
