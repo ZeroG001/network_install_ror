@@ -12,7 +12,11 @@
         <span class="header-text"> Agent Name </span>
     </div>
 
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-1 col-sm-1">
+        <span class="header-text">Office</span>
+    </div>
+
+    <div class="col-md-2 col-sm-2">
         <span class="header-text"> CPU Name </span>
     </div>
 
@@ -48,7 +52,11 @@
                     <%= form.first_name + " " + form.last_name %>
                 </div>
 
-                <div class="col-md-3 col-sm-3">
+                <div class="col-md-1 col-sm-1">
+                    <%= form.office_number %>
+                </div>
+
+                <div class="col-md-2 col-sm-2">
                     <%= form.computer_name %>
                 </div>
 
@@ -56,6 +64,7 @@
                     <%= form.paynum %>
                 </div>
 
+    
                 <div class="col-md-2 col-sm-2">
                     <% if form.completed == "0" or form.completed == nil %>
                         <p> Incomplete </p>
