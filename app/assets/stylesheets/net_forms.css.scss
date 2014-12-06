@@ -58,6 +58,10 @@ CSS for Application
 	padding-top: 7.5px;
 	padding-bottom: 7.5px;
 	border-bottom: 1px solid #c0c0c0;
+
+		div {
+			text-align: center;
+		}
 	}
 
 .finished-text {
@@ -91,6 +95,19 @@ CSS for Application
 
 .my-nav-brand {
 	margin-bottom: 5px;
+}
+
+.header-row {
+ 	margin-bottom: 20px;
+
+ 		div {
+ 			text-align: center;
+ 		}
+ }
+
+.header-text {
+	font-weight: bold;
+	text-align: center;
 }
 
 
@@ -186,14 +203,6 @@ CSS for Net Form
 ========================================
 */
 
- .header-row {
- 	margin-bottom: 20px;
- }
-
-.header-text {
-	font-weight: bold;
-	text-align: center;
-}
 
 
 .printer_input {
