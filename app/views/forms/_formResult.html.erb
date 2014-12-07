@@ -1,36 +1,36 @@
 <div class="main_result_wrapper">
 
     <!-- Column Headers -->
-
-    <div class="row hidden-xs col-sm-12 col-md-12 header-row">
+<div class="row">
+    <div class="hidden-xs col-sm-12 col-md-12 header-row">
 
         <div class="device_image col-md-2 col-sm-2">
-         <span class="header-text"> Device </span>
-     </div>
+            <span class="header-text"> Device </span>
+        </div>
 
-     <div class="col-md-3 col-sm-3">
-        <span class="header-text"> Agent Name </span>
+         <div class="col-md-3 col-sm-3">
+            <span class="header-text"> Agent Name </span>
+        </div>
+
+        <div class="col-md-1 col-sm-1">
+            <span class="header-text">Office</span>
+        </div>
+
+        <div class="col-md-2 col-sm-2">
+            <span class="header-text"> PC Name </span>
+        </div>
+
+        <div class="col-md-2 col-sm-2">
+            <span class="header-text"> Pay Number </span>
+        </div>
+
+        <div class="col-md-2 col-sm-2">
+            <span class="header-text"> Status </span>
+        </div>
+
     </div>
-
-    <div class="col-md-1 col-sm-1">
-        <span class="header-text">Office</span>
-    </div>
-
-    <div class="col-md-2 col-sm-2">
-        <span class="header-text"> CPU Name </span>
-    </div>
-
-    <div class="col-md-2 col-sm-2">
-        <span class="header-text"> Pay Number </span>
-    </div>
-
-    <div class="col-md-2 col-sm-2">
-        <span class="header-text"> Status </span>
-    </div>
-
 </div> 
 <!-- Column Headers end -->
-<div class="result_rows">
     <% @forms.each do |form| %>
     <!-- Get the deivce image based on what the user put in -->
     <% device_images = {"Desktop" => "screen.svg", "Laptop" => "laptop.svg", "Tablet" => "tablet.svg", "Smartphone" => "mobile.svg"} %>
@@ -39,10 +39,10 @@
     <%  found_image = {"None" => "question.svg"} %> 
     <% end %> 
     <% # Encapsulating show link %>
-    <%= link_to form, class: "net_form_row_a" do %>
+    <%= link_to form, class: "net_form_row" do %>
 
-        
-            <div class="row col-sm-12 col-md-12 net_form_row">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-l2 net_form_row">
 
                 <div class="device_image col-md-2 col-sm-2 col-xs-6">
                     <%= image_tag(found_image.values.join(" ")) %>
@@ -78,10 +78,11 @@
                         <% end %>
                     </div>
             </div> 
+        </div>
         
 
     <% end %>
 <% end %>
-</div>
+
 </div> 
 

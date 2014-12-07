@@ -19,6 +19,7 @@ Bootstrap Modifications
 	padding: 0px;
 }
 
+
 .sidebar {
 	top:50px;
 	padding: 0px;
@@ -31,8 +32,15 @@ Bootstrap Modifications
 	li {
 		min-width:135px;
 		margin: 10px 0px 10px 0px;
+
 		&:hover {
+
 		background-color: #eee;
+
+		}
+
+		a {
+			color: #000;
 		}
 	}
 }
@@ -49,19 +57,41 @@ CSS for Application
 	margin-bottom: 20px;
 }
 
+.device_image {
+			img {
+				width: 50px;
+			}
+	}
+
 .nav-sidebar {
 	padding-top: 30px;
 	font-size: 1.3em;	
 }
 
 .net_form_row {
-	padding-top: 7.5px;
-	padding-bottom: 7.5px;
+	
 	border-bottom: 1px solid #c0c0c0;
+
 
 		div {
 			text-align: center;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap; 
+			line-height: 70px;
+			vertical-align: text-bottom;
+			font-size: 1em;
+			color: #000;
+
 		}
+
+
+		&:hover {
+		
+			background-color: #f1f1f1;
+
+		}
+	
 	}
 
 .finished-text {
@@ -91,6 +121,10 @@ CSS for Application
 .sidebar-button {
 	position: relative;
 	right: 20px;
+
+	&:hover {
+		background-color: #c0c0c0;
+	}
 }
 
 .my-nav-brand {
@@ -102,6 +136,7 @@ CSS for Application
 
  		div {
  			text-align: center;
+ 			font-size: 1.3em;
  		}
  }
 
@@ -218,15 +253,6 @@ CSS for Net Form
 	animation: slideFadeIn 0.4s ease-out;
 }
 
-.net_form_row_a {
-
-	&:hover .net_form_row {
-		background-color: #f1f1f1;
-		text-decoration:none;
-		color: black;
-	}	
-}
-
 
 /* 
 ======================================== 
@@ -241,6 +267,25 @@ Media Queries
 			img {
 				width: 85px;
 			}
+	}
+
+	a:-webkit-any-link {
+		text-decoration: none;
+	}
+
+	.net_form_row {
+
+		height: 100px;
+		padding: 7.5px 0px;
+
+
+		div {
+			text-align: left;
+			line-height: 1.2em;
+			
+
+		}
+
 	}
 
 	.sidebar_backdrop {
