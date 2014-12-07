@@ -63,9 +63,32 @@ CSS for Application
 			}
 	}
 
+.input_box_form_search {
+bottom: 0px;
+left: 0px;
+
+	position: fixed;
+	background-color: red;
+	height: 50px;
+
+	-webkit-animation: slideFadeIn 0.4s ease-out;
+	-moz-animation: slideFadeIn 0.4s ease-out;
+	animation: slideFadeIn 0.4s ease-out;
+
+	input {
+		width: 100%;
+		height: 100%;
+		font-size: 1.5em;
+
+
+
+	}
+
+}
+
 .nav-sidebar {
 	padding-top: 30px;
-	font-size: 1.3em;	
+	font-size: 1.5em;	
 }
 
 .net_form_row {
@@ -211,23 +234,7 @@ CSS for Application
 		}
 	}
 
-	/*
-	==================
-	Sidebar Animation
-	==================
-	*/ 
 
-.sidebarSlideOut {
-	-webkit-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
-	-moz-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
-	animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
-}
-
-.sidebarSlideIn {
-	-webkit-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
-	-moz-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
-	animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
-}
 
 
 
@@ -247,7 +254,8 @@ CSS for Net Form
 .main_result_wrapper {
 	position: relative;
 	padding-top: 20px;
-
+	overflow: hidden;						/* here */
+	
 	-webkit-animation: slideFadeIn 0.4s ease-out;
 	-moz-animation: slideFadeIn 0.4s ease-out;
 	animation: slideFadeIn 0.4s ease-out;
@@ -318,7 +326,23 @@ Media Queries
 	}
 }
 
+/*
+==================
+Sidebar Animation
+==================
+*/ 
 
+.sidebarSlideOut {
+	-webkit-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
+	-moz-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
+	animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
+}
+
+.sidebarSlideIn {
+	-webkit-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
+	-moz-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
+	animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
+}
 
 /* 
 ======================================== 
