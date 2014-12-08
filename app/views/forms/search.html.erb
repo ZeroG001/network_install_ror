@@ -3,9 +3,9 @@
 <%= form_tag("/search", method: "get") do %>
  
  <% # If searching by CPU name, Keep dropdown text as Computer name. Same goes for Agent name %>
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6">
-      <div class="input-group">
+  <row class="navbar-form navbar-left navbar-fixed-top">
+  <div class="col-sm-6 col-md-6 col-lg-6 offset col-sm-offset-2">
+    <div class="input-group">
         <% if params[:full_name] %>
           <%= text_field_tag(:full_name, params[:full_name], class: "form-control search-input") %>
         <% elsif params[:cpu_name] %>
@@ -37,16 +37,10 @@
           </ul>
         </div><!-- /btn-group -->
       </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-  </div><!-- /.row -->
+  </div>  
+</row>
 <% end %>
 
 <%= render 'formResult' %>
 
-                                        <!-- Search Bar --> 
-
-    <row>
-        <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-offset-2 input_box_form_search">
-            <input type="text" placeholder="Search..."> </input>
-        </div>
-    </row>
+<%= form_tag("/search", method: "get") do %>
