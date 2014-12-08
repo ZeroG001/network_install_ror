@@ -40,6 +40,9 @@
         <%= @form.office_number %>
       </p>
 
+
+    <!-- These fields were removed per the request of my co-workers. I also felt we should not store this personal information in the cloud -->
+    
       <!-- <p>
         <strong>Phone number: </strong>
         <% # @form.phone_number %>
@@ -86,7 +89,9 @@
 
       <p>
         <strong> Antivirus Expire Date: </strong>
-        <%= @form.antivir_expire_date %>
+        <% if @form.antivir_expire_date %>
+          <%= Chronic::parse(@form.antivir_expire_date).strftime("%m/%d/%Y") %>
+          <% end %>
       </p>
 
       <p>

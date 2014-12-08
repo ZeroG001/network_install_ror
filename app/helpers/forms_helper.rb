@@ -5,8 +5,8 @@ module FormsHelper
 			return 
 		end
 
-		if !date.empty?
-			Chronic.parse(date).strftime("%m/%d/%Y")
+		if date
+			Chronic.parse(date.to_s).strftime("%m/%d/%Y")
 		end
 	end
 end
