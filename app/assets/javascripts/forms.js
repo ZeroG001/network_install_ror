@@ -77,8 +77,8 @@ $dropdown_item = $(".dropdown-menu li");
         +'</div>'
 
 $(".add_printer").click(function(){
-    if($(".printer_input").length >= 5) {
-      alert("You cannot add more than 5 printers.")
+    if($(".printer_input").length >= 6) {
+      alert("You cannot add more than 6 printers.")
       return false;
     }
     $(".printers").append(new_printer_input);

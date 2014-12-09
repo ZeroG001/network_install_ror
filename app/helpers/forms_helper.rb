@@ -2,12 +2,17 @@ module FormsHelper
 
 	def format_date(date)
 		if date.nil?
-			return 
+			return
 		end
 
 		if !date.empty?
-			Chronic.parse(date).strftime("%m/%d/%Y")
+			converted_date = Chronic.parse(date)
+
+			if converted_date.nil?
+				return
+			else
+				converted_date.strftime("%m/%d/%Y")
+			end
 		end
 	end
 end
-

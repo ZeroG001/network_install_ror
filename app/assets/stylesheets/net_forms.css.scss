@@ -19,6 +19,7 @@ Bootstrap Modifications
 	padding: 0px;
 }
 
+
 .sidebar {
 	top:50px;
 	padding: 0px;
@@ -31,8 +32,15 @@ Bootstrap Modifications
 	li {
 		min-width:135px;
 		margin: 10px 0px 10px 0px;
+
 		&:hover {
+
 		background-color: #eee;
+
+		}
+
+		a {
+			color: #000;
 		}
 	}
 }
@@ -49,15 +57,60 @@ CSS for Application
 	margin-bottom: 20px;
 }
 
+.device_image {
+			img {
+				width: 50px;
+			}
+	}
+
+.input_box_form_search {
+bottom: 0px;
+left: 0px;
+
+	position: fixed;
+	background-color: red;
+	height: 50px;
+	bottom: -10px;
+
+	.search_input {
+		height: 100%;
+		font-size: 1.5em;
+
+		overflow-x: hidden;
+
+	}
+
+}
+
 .nav-sidebar {
 	padding-top: 30px;
-	font-size: 1.3em;	
+	font-size: 1.5em;	
 }
 
 .net_form_row {
-	padding-top: 7.5px;
-	padding-bottom: 7.5px;
+	
 	border-bottom: 1px solid #c0c0c0;
+
+
+		div {
+			text-align: center;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap; 
+			line-height: 70px;
+			vertical-align: text-bottom;
+			font-size: 1em;
+			color: #000;
+
+		}
+
+
+		&:hover {
+		
+			background-color: #f1f1f1;
+
+		}
+	
 	}
 
 .finished-text {
@@ -87,10 +140,28 @@ CSS for Application
 .sidebar-button {
 	position: relative;
 	right: 20px;
+
+	&:hover {
+		background-color: #c0c0c0;
+	}
 }
 
 .my-nav-brand {
 	margin-bottom: 5px;
+}
+
+.header-row {
+ 	margin-bottom: 20px;
+
+ 		div {
+ 			text-align: center;
+ 			font-size: 1.3em;
+ 		}
+ }
+
+.header-text {
+	font-weight: bold;
+	text-align: center;
 }
 
 
@@ -159,23 +230,7 @@ CSS for Application
 		}
 	}
 
-	/*
-	==================
-	Sidebar Animation
-	==================
-	*/ 
 
-.sidebarSlideOut {
-	-webkit-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
-	-moz-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
-	animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
-}
-
-.sidebarSlideIn {
-	-webkit-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
-	-moz-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
-	animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
-}
 
 
 
@@ -186,14 +241,6 @@ CSS for Net Form
 ========================================
 */
 
- .header-row {
- 	margin-bottom: 20px;
- }
-
-.header-text {
-	font-weight: bold;
-	text-align: center;
-}
 
 
 .printer_input {
@@ -203,19 +250,11 @@ CSS for Net Form
 .main_result_wrapper {
 	position: relative;
 	padding-top: 20px;
-
+	overflow: hidden;						/* here */
+	
 	-webkit-animation: slideFadeIn 0.4s ease-out;
 	-moz-animation: slideFadeIn 0.4s ease-out;
 	animation: slideFadeIn 0.4s ease-out;
-}
-
-.net_form_row_a {
-
-	&:hover .net_form_row {
-		background-color: #f1f1f1;
-		text-decoration:none;
-		color: black;
-	}	
 }
 
 
@@ -232,6 +271,25 @@ Media Queries
 			img {
 				width: 85px;
 			}
+	}
+
+	a:-webkit-any-link {
+		text-decoration: none;
+	}
+
+	.net_form_row {
+
+		height: 100px;
+		padding: 7.5px 0px;
+
+
+		div {
+			text-align: left;
+			line-height: 1.2em;
+			
+
+		}
+
 	}
 
 	.sidebar_backdrop {
@@ -264,7 +322,23 @@ Media Queries
 	}
 }
 
+/*
+==================
+Sidebar Animation
+==================
+*/ 
 
+.sidebarSlideOut {
+	-webkit-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
+	-moz-animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
+	animation: sidebarSlideOut 0.5s cubic-bezier(.2,.64,.35,.99);
+}
+
+.sidebarSlideIn {
+	-webkit-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
+	-moz-animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
+	animation: sidebarSlideIn 0.5s cubic-bezier(.2,.64,.35,.99) forwards;
+}
 
 /* 
 ======================================== 
