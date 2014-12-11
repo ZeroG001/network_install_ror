@@ -21,6 +21,7 @@ module UsersHelper
 			["43 Dexter ","43"],
 			["45 West Bloomfield","45"],
 			["51 Novi","51"],
+			["50 South Lyon","50"],
 			["56 Bloomfield Hills - Max Broock","56"],
 			["57 Clarkston - Max Broock Realtors","57"],
 			["58 Birmingham - Max Broock Realtors","58"],
