@@ -1,28 +1,64 @@
+.devise_body {
+	background-image: url("../assets/grey_tile_background.png");
+}
+
+
 .signup-form-wrapper {
 	position: relative;
-	left: 24%;
+	display: block;
+
+	width: 430px;
+
+	margin: auto;
+	
   background-color: #f5f5f5;
-  padding: 20px;
-  display: inline-block;
-  margin: 0px auto;
-  border-radius: 3px;
+  box-shadow: 4px 4px 7px rgba(45,45,45,0.5);
+  
+  border-radius: 8px;
   border: 1px solid grey;
 
+}
 
-	.form-inputs input {
-		color: #555;
-		font-size: 15px;
-		min-width: 215px;
-		padding: 10px;
-		margin: 5px 0;
-	 }
+.sign-in-header {
+	text-align: center;
+}
 
-	 .form-actions input {
-		font-size: 18px;
-		min-width: 215px;
-		padding: 10px;
-		margin: 5px 0;
-	 }
+
+/*
+	========= Alert and notice styles =========
+*/
+
+
+.signin-notice {
+	background-color: #5fcf80;
+	border-color: #5fcf80;
+	color: #FFF;
+	text-align: center;
+}
+
+.signin-alert {
+	background-color: #d64242;
+	border-color: #d64242;
+	color: #FFF;
+	text-align: center;
+}
+
+
+.login-form-inputs {
+
+padding: 30px;
+	
+	.input-group-addon {
+		top: 0px;
+	}
+
+	div {
+	margin: 15px 0px;
+
+		&:first-child {
+			
+		}
+	}
 
 }
 
@@ -85,11 +121,10 @@ display: none;
 	}
 
 
+
 @media screen and (max-width: 768px) {
 
-.signup-form-wrapper {
-left: 20%;
-}
+
 	
 } /*  Media Query end */
 
