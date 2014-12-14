@@ -17,6 +17,8 @@ class FormsController < ApplicationController
   # GET /forms.json
   def index
 
+    
+
     if current_user.try(:role) == "admin"
       @forms = Form.where("completed = '0' OR expire_date <(CURRENT_TIMESTAMP)").order("created_at DESC").take(20)
     elsif current_user.try(:role) == "manager"

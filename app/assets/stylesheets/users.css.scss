@@ -1,4 +1,4 @@
-body {
+.devise_body {
 	background-image: url("../assets/grey_tile_background.png");
 }
 
@@ -24,7 +24,27 @@ body {
 }
 
 
-.form-inputs {
+/*
+	========= Alert and notice styles =========
+*/
+
+
+.signin-notice {
+	background-color: #5fcf80;
+	border-color: #5fcf80;
+	color: #FFF;
+	text-align: center;
+}
+
+.signin-alert {
+	background-color: #d64242;
+	border-color: #d64242;
+	color: #FFF;
+	text-align: center;
+}
+
+
+.login-form-inputs {
 
 padding: 30px;
 	
@@ -99,6 +119,7 @@ display: none;
 			background-color: green;
 		}
 	}
+
 
 
 @media screen and (max-width: 768px) {

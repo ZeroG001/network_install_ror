@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session # :exception
 
   # If a devise layout is used then use another layout. Format for specifying layouts is layout "layout_name". This can be done only in controllers
-   layout :layout_by_controller
+  layout :layout_by_controller
     
 
   before_filter :configure_permitted_parameters, if: :devise_controller?

@@ -32,49 +32,7 @@
 			<!-- put missint stuff here --><span class="nav-top-brand"> <%= image_tag("copy.png", class: " col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0") %> Net Install </span>
 		</div>
 
-		
-<% # The index page will now handle the searches %>
-<%= form_tag("/search", method: "get") do %>
- 
- <% # If searching by CPU name, Keep dropdown text as Computer name. Same goes for Agent name %>
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6">
-      <div class="input-group">
-        <% if params[:full_name] %>
-          <%= text_field_tag(:full_name, params[:full_name], class: "form-control search-input") %>
-        <% elsif params[:cpu_name] %>
-          <%= text_field_tag(:cpu_name, params[:cpu_name], class: "form-control search-input") %>
-        <% elsif params[:paynum] %>
-          <%= text_field_tag(:paynum, params[:paynum], class: "form-control search-input") %>
-        <% else %>
-          <%= text_field_tag(:full_name, params[:full_name], class: "form-control search-input") %>
-        <% end %>
-        <div class="input-group-btn">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="dropdown-text"> 
-              <% if params[:cpu_name] %>
-                Computer Name
-              <% elsif params[:paynum] %>
-                Pay Number
-              <% else %>
-              Agent Name
-              <% end %>
-            </span>
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li class="dropdown-agent-name" data-params="full_name"><a>Agent Name</a></li>
-            <li class="dropdown-computer-name" data-params="cpu_name"><a>Computer Name</a></li>
-            <li class="dropdown-agent-name" data-params="paynum"><a>Paynum</a></li>
-            <li class="divider"></li>
-            <li><%= link_to "Advanced Search", advsearch_form_path %></li>
-          </ul>
-        </div><!-- /btn-group -->
-      </div><!-- /input-group -->
-        <%= submit_tag %>
-    </div><!-- /.col-lg-6 -->
-  </div><!-- /.row -->
-<% end %>
+
 	</nav> <!-- Top Navigation end -->
 
 	
