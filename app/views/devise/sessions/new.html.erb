@@ -8,7 +8,9 @@
     <div class="form-inputs login-form-inputs">
 
       <% flash.each do |type, message | %>
-      <div class="alert animated signin-<%= type %>">
+
+        <!-- If you're looking at the alert message on the sign in page, the alert message will shake -->
+      <div class="alert animated <% if type.to_s == "alert" %> shake <% end %> signin-<%= type %>">
         <button class="close" data-dismiss="alert">X</button>
         <%= message %>  
       </div>
