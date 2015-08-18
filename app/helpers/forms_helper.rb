@@ -15,4 +15,8 @@ module FormsHelper
 			end
 		end
 	end
+
+	def hello()
+		puts "Hello"
+	end
 end
