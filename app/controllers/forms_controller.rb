@@ -130,28 +130,30 @@ class FormsController < ApplicationController
       
       # If the manager is signed in, run certain search queries
         if current_user.try(:role) == "manager"
-          @forms = Form.where("office_number = ?",current_user.office_number).order("created_at DESC").take(20)
+          @forms = Form.where("office_number = ?",current_user.office_number).order("created_at DESC").take(50)
 
           if param_key == "full_name"
-            @forms = Form.where("concat(first_name,' ',last_name) ilike ? AND office_number = ? ", param_value, current_user.office_number ).take(20)
+            @forms = Form.where("concat(first_name,' ',last_name) ilike ? AND office_number = ? ", param_value, current_user.office_number ).take(50)
           elsif param_key == "cpu_name"
-             @forms = Form.where("computer_name ilike ? AND office_number = ? ",param_value, current_user.office_number ).take(20)
+             @forms = Form.where("computer_name ilike ? AND office_number = ? ",param_value, current_user.office_number ).take(50)
           elsif param_key == "paynum"
-             @forms = Form.where("paynum ilike ? AND office_number = ?", param_value, current_user.office_number).take(20)
+             @forms = Form.where("paynum ilike ? AND office_number = ?", param_value, current_user.office_number).take(50)
           end
 
         end
 
         # if the admin is signed in then run certain search queries
         if current_user.try(:role) == "admin"
-          @forms = Form.all.order("created_at DESC").take(20)
+          @forms = Form.all.order("created_at DESC").take(50)
 
           if param_key == "full_name"
-           @forms = Form.where("concat(first_name,' ',last_name) ilike ?", param_value ).take(20)
+           @forms = Form.where("concat(first_name,' ',last_name) ilike ?", param_value ).take(50)
           elsif param_key == "cpu_name"
-            @forms = Form.where("computer_name ilike ?", param_value).take(20)
+            @forms = Form.where("computer_name ilike ?", param_value).take(50)
           elsif param_key == "paynum"
-             @forms = Form.where("paynum ilike ?", param_value).take(20)
+            @forms = Form.where("paynum ilike ?", param_value).take(50)
+          elsif param_key == "office_num"
+            @forms = Form.where("office_number ilike ?", param_value).take(100)
           end
             
         end
