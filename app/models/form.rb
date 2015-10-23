@@ -52,8 +52,8 @@ class Form < ActiveRecord::Base
 				presence: :true,
 				length: {maximum: 6, minimum: 5},
 				format: {with: /[0-9]+/, message: "must contain only numbers"}
-	validates :service_cost, presence: :true
-	validates :nic_connection, presence: :true
+	# validates :service_cost, presence: :true
+	# validates :nic_connection, presence: :true
 	validates :phone_number, allow_blank: :true, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\z/, message: "use the correct format"}
 	validates :printer_ip, allow_blank: :true, format: { with: /\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/, message: "not valid" }
  
