@@ -26,6 +26,8 @@ module UsersHelper
 			["57 Clarkston - Max Broock Realtors","57"],
 			["58 Birmingham - Max Broock Realtors","58"],
 			["59 Rochester - Max Broock Realtors","59"],
+			["63 Traverse City-Front St.", "63"],
+			["65 Traverse City-Randolph St.", "65"],
 			["72 St. Clair Shores","72"],
 			["73 Dearborn Height","73"],
 			["74 Shelby Twp","74"],
